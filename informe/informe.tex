@@ -1,0 +1,84 @@
+\documentclass[spanish, 10pt,a4paper]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage[pdftex]{graphicx}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphics}
+\usepackage{clrscode3e}
+\usepackage{amsthm}
+\usepackage{caratula}
+\usepackage{fancyhdr,lastpage}
+\usepackage[paper=a4paper, left=0.8cm, right=0.8cm, bottom=1.4cm, top=1.4cm]{geometry}
+\usepackage[table]{xcolor} % color en las matrices
+\usepackage[font=small,labelfont=bf]{caption} % caption de las figuras en letra mas chica que el texto
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{amsfonts}
+\usepackage{upgreek}
+\usepackage{anysize} 
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{hyperref}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{colortbl}
+\usepackage{pdfpages}
+\usepackage{titlesec}
+
+
+\color{black}
+
+%%%PAGE LAYOUT%%%
+\topmargin = -1.2cm
+\voffset = 0cm
+\hoffset = 0em
+\textwidth = 48em
+\textheight = 164 ex
+\oddsidemargin = 0.5 em
+\parindent = 1 em
+\parskip = 3 pt
+\footskip = 7ex
+\headheight = 20pt
+\pagestyle{fancy}
+\lhead{Redes Neuronales - 2017 C1 - Trabajo Pr\'actico} % cambia la parte izquierda del encabezado
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}} % cambia la parte derecha del encabezado
+\rfoot{\thepage}
+\cfoot{}
+\numberwithin{equation}{section} %sets equation numbers <chapter>.<section>.<subsection>.<index>
+
+%Lo siguiente controla el ancho de las figuras (principalmente para el texto de los captions)
+%\newcommand{\figurewidth}{.9\textwidth}
+\newcommand{\figurewidth}{1\textwidth}
+
+\newcommand{\tuple}[1]{\ensuremath{\left \langle #1 \right \rangle }}
+\newcommand{\Ode}[1]{\small{$\mathcal{O}(#1)$}}
+\newtheorem{teorema}{Teorema}[section]
+
+\input{caratula.tex} 
+\begin{document}
+{ \oddsidemargin = 2em
+	\headheight = -20pt
+	\maketitle
+}
+	\tableofcontents
+	\newpage
+	\input{introduccion.tex}
+	\newpage
+	\input{desarrollo.tex}
+	\newpage
+	\input{resultados.tex}
+	\newpage
+	\input{apencide.tex}
+	\newpage
+	\section{Bibliografía}
+	\input{biblio.tex}
+\end{document}
+
