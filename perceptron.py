@@ -56,6 +56,10 @@ class PerceptronMulticapa(object):
 
 
 
+class InputParser():
+	def parsear():
+		pass
+
 # Se crea el objeto perceptron.
 ppn = PerceptronMulticapa([4, 2, 3, 4])
 
