@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 import numpy as np
 import matplotlib.pyplot as plt
 import math as math
+import csv, sys, argparse, os, random
 
 class PerceptronMulticapa(object):
 
@@ -163,16 +165,114 @@ class PerceptronMulticapa(object):
 
 
 
+def iniciar():
 
-class InputParser():
-	def parsear():
-		pass
+    usage='Este script tiene un único parametro obligatorio, que es el path del archivo de entrada con los datos de input \n' \
+          'Todos los demás son opcionales.\n' \
+          'Ejemplo de ejecución: \n' \
+          '$ python perceptron.py tp1_ej1_training.csv -ep=10000 -eta=0.01 -tr=20 -te=30 -val=50'
 
-# Se crea el objeto perceptron.
-ppn = PerceptronMulticapa([4, 2, 3, 4])
+    parser = argparse.ArgumentParser(usage=usage)
+
+    # Argumento obligatorio: archivo de entrada
+    parser.add_argument("input_file", type=str, help='Path del archivo con datos de entrada')
+
+    # Argumentos opcionales: cantidad de epocas, eta, y proporcion de los datos
+    # para usar como entrenamiento, test y validacion
+    parser.add_argument("-ep", "--epochs", default=50000, help='Cantidad de epocas. Default = 50.000')
+    parser.add_argument("-eta", "--eta", default=0.01, help='Tasa de aprendizaje. Default = 0.01')
+    parser.add_argument("-tr", "--train", default=33.33, help='% de input a utilizar como training. Default = 33')
+    parser.add_argument("-te", "--test", default=33.33, help='% de input a utilizar como testing. Default = 33')
+    parser.add_argument("-val", "--validation", default=33.33, help='% de input a utilizar como validation. Default = 33')
+
+    args = parser.parse_args()
+
+    input_file = args.input_file
+    eta = args.eta
+    epochs = args.epochs
+    train_pct = args.train
+    test_pct= args.test
+    validation_pct = args.validation
+
+    os.system('clear')
+    print 'TP1 - Perceptrón Multicapa'
+    print "Se intentará procesar los datos en "+input_file+" ejecutando "+str(epochs)+" épocas con ETA "+str(eta)
+    print str(train_pct) + "% del input utilizado como Entrenamiento"
+    print str(test_pct) + "% del input utilizado como Testing"
+    print str(validation_pct) + "% del input utilizado como Validacion"
+    print '-------------------------------------------------------------------------'
+
+    return input_file, eta, epochs, train_pct, test_pct, validation_pct
+
+
+class Parser():
+
+	def parse(self, filepath, train_pct, test_pct, validation_pct):
+            try:
+                reader = csv.reader(open(filepath, 'r'))
+                cant_datos = len(open(filepath).readlines())
+
+                # Estimo cantidad de registros que ira a cada set de datos
+                cant_datos_training   = int(cant_datos * train_pct / 100 )
+                cant_datos_test       = int(cant_datos * test_pct / 100 )
+                cant_datos_validation = int(cant_datos * validation_pct / 100 )
+
+                datos = []
+                datos_train = []
+                datos_test = []
+                datos_validation = []
+
+                # Paso CSV a lista de rows para manejar mas facil
+                for row in reader:
+                    datos.append(row)
+
+                # Mezclo datos para que la seleccion y division sean azarosas
+                random.shuffle(datos)
+
+                i = 0
+                for row in datos:
+                    # Divido los datos del input en porciones respectivas de training, test y validation
+                    index_training = (0, cant_datos_training)
+                    index_test = (index_training[1], index_training[1] + cant_datos_test)
+                    index_validation = (index_test[1], index_test[1] + cant_datos_validation)
+
+                    if i in range(*index_training):
+                        datos_train.append(row)
+                    elif i in range(*index_test):
+                        datos_test.append(row)
+                    elif i in range(*index_validation):
+                        datos_validation.append(row)
+
+                    i += 1
+
+                return datos_train, datos_validation, datos_test
+
+            except Exception as e:
+                print "Error al parsear archivo de entrada"
+                print str(e)
+
+
+
+######### INICIO SCRIPT ##############
+
+# Ejemplo de ejecucion:
+
+input_file, eta, epochs, train_pct, test_pct, validation_pct = iniciar()
+
+i = Parser()
+datos_train, datos_validation, datos_test = i.parse(input_file, train_pct, test_pct, validation_pct)
+
+
+# TODO: conectar datos del parser al perceptron multicapa
+
 
 # Ejemplo de train
-DATOS = [[2.7810836, 2.550537003, 0], [1.465489372, 2.362125076, 0], [3.396561688, 4.400293529, 0], [1.38807019, 1.850220317, 0], [3.06407232, 3.005305973, 0], [7.627531214, 2.759262235, 1], [5.332441248, 2.088626775, 1], [6.922596716, 1.77106367, 1], [8.675418651, -0.242068655, 1], [7.673756466, 3.508563011, 1]]
+DATOS = [[2.7810836, 2.550537003, 0], [1.465489372, 2.362125076, 0], 
+    [3.396561688, 4.400293529, 0], [1.38807019, 1.850220317, 0], 
+    [3.06407232, 3.005305973, 0], [7.627531214, 2.759262235, 1], 
+    [5.332441248, 2.088626775, 1], [6.922596716, 1.77106367, 1], 
+    [8.675418651, -0.242068655, 1], [7.673756466, 3.508563011, 1]]
+
 N_ENTRADA = len(DATOS[0]) - 1
 N_SALIDA = len(set([row[-1] for row in DATOS]))
 PPN = PerceptronMulticapa(N_ENTRADA, [2], 2)
