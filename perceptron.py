@@ -5,7 +5,7 @@ import numpy as np
 class PerceptronMulticapa(object):
 
     # Constructor de la clase. 
-    def __init__(self, n_entrada, ns_ocultas, n_salida, funcion_activacion=""):
+    def __init__(self, n_entrada, ns_ocultas, n_salida, funcion_activacion="", distribucion_pesos=""):
         # Inicializamos todos los pesos de los ejes de la
         # red en valores random pequeños, entre 0 y 1, 
         # provenientes de una distribución normal
@@ -13,11 +13,12 @@ class PerceptronMulticapa(object):
         self.pesos_red = list()
         self.activacion_elegida = funcion_activacion
         self.bias = 1.0
+        self.distribucion = distribucion_pesos
 
         # Calcula pesos de ejes para la primer capa oculta + bias
         pesos_capa_oculta_0 = []
         for _ in range(ns_ocultas[0]):
-            pesos_capa_oculta_0.append({'pesos': np.random.rand(n_entrada + 1)})
+            pesos_capa_oculta_0.append({'pesos': self.generate_pesos_random(n_entrada + 1)})
         
         self.pesos_red.append(pesos_capa_oculta_0)
 
@@ -26,17 +27,27 @@ class PerceptronMulticapa(object):
             pesos_capa_oculta_i = []
 
             for _ in range(ns_ocultas[i+1]):
-                pesos_capa_oculta_i.append({'pesos': np.random.rand(ns_ocultas[i] + 1)})
+                pesos_capa_oculta_i.append({'pesos': self.generate_pesos_random(ns_ocultas[i] + 1)})
             
             self.pesos_red.append(pesos_capa_oculta_i)
         
-
         # Calcula pesos de ejes para las neuronas de salida
         pesos_capa_salida = []
         for _ in range(n_salida):
-            pesos_capa_salida.append({'pesos': np.random.rand(ns_ocultas[len(ns_ocultas) - 1] + 1)})
+            pesos_capa_salida.append({'pesos': self.generate_pesos_random(ns_ocultas[len(ns_ocultas) - 1] + 1)})
         
         self.pesos_red.append(pesos_capa_salida)
+
+    def generate_pesos_random(self, entradas_neurona):
+        return {
+            # Genera pesos con una distribucion uniforme [0, 1)
+            'uniforme': np.random.rand(entradas_neurona), 
+            # Genera pesos con una distribucion normal con media 0 y 
+            # varianza entradas_neurona^-1/2, basado en Efficient BackProp
+            # de Yann LeCun, fórmula 15, inicialización de pesos eficiente
+            # para funciones de activación sigmoideas
+            'normal': np.random.normal(0, math.sqrt(1.0 / entradas_neurona), entradas_neurona), 
+        }.get(self.distribucion, np.random.rand(entradas_neurona))
 
     def funcion_de_suma(self, pesos, entrada):
         suma = pesos[-1] * self.bias
@@ -48,12 +59,12 @@ class PerceptronMulticapa(object):
 
     def funcion_de_activacion(self, suma):
         return {
-            'sigmoidea': self.funcion_sigmoidea(suma),
+            'logistica': self.funcion_logistica(suma),
             'tangente': self.funcion_tangente_hiperbolica(suma),
-        }.get(self.activacion_elegida, self.funcion_sigmoidea(suma))
+        }.get(self.activacion_elegida, self.funcion_logistica(suma))
 
-    def funcion_sigmoidea(self, x):
-        # Usa la funcion sigmoidea
+    def funcion_logistica(self, x):
+        # Usa la funcion logistica
         # g = 1 / 1 + e^-x
         return 1.0 / (1.0 + math.exp(-x))
 
@@ -64,12 +75,12 @@ class PerceptronMulticapa(object):
 
     def derivada_funcion_de_activacion(self, suma):
         return {
-            'sigmoidea': self.funcion_sigmoidea_derivada(suma),
+            'logistica': self.funcion_logistica_derivada(suma),
             'tangente': self.funcion_tangente_hiperbolica_derivada(suma),
-        }.get(self.activacion_elegida, self.funcion_sigmoidea_derivada(suma))
+        }.get(self.activacion_elegida, self.funcion_logistica_derivada(suma))
 
-    def funcion_sigmoidea_derivada(self, fx):
-        # Esta es la derivada de la sigmoidea
+    def funcion_logistica_derivada(self, fx):
+        # Esta es la derivada de la logistica
         # g' = g(x) * (1 - g(x))
         return fx * (1.0 - fx)
 

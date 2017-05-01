@@ -10,7 +10,7 @@ DATOS = [[2.7810836, 2.550537003, 0], [1.465489372, 2.362125076, 0],
 
 N_ENTRADA = len(DATOS[0]) - 1
 N_SALIDA = len(set([row[-1] for row in DATOS]))
-PPN = ppn.PerceptronMulticapa(N_ENTRADA, [5], 2, funcion_activacion="sigmoidea")
+PPN = ppn.PerceptronMulticapa(N_ENTRADA, [5, 5], 2, funcion_activacion="logistica", distribucion_pesos="uniforme")
 PPN.train(DATOS, N_SALIDA, eta=0.5, epochs=50)
 
 DATOS_PREDICCION = [[2.7810836, 2.550537003, 0], 
