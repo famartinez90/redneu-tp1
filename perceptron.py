@@ -142,7 +142,7 @@ class PerceptronMulticapa(object):
                 neurona['pesos'][-1] += eta * neurona['delta']
 
     # "Eta" es el factor de aprendizaje, y "epochs" el numero maximo de epocas de entrenamiento.
-    def train(self, dataset, n_salida, eta=0.01, epochs=50000):
+    def train(self, dataset, n_salida, eta=0.5, epochs=100):
         # Para cada epoca, paso por cada una de las filas de entrada del dataset
         # y actualizo los pesos de la red con la regla delta, como la actualizacion
         # se produce cada vez que paso por una fila nueva, no es batch. Para hacerlo
@@ -155,13 +155,18 @@ class PerceptronMulticapa(object):
                 salida = self.propagacion_forward(fila)
                 esperado = [0 for i in range(n_salida)]
                 esperado[fila[-1]] = 1
-                error_acumulado += sum([(esperado[i] - salida[i]) ** 2 for i, _ in enumerate(esperado)])
+
+                error_cuadratico = []
+                for i, _ in enumerate(esperado):
+                    error_cuadratico.append((esperado[i] - salida[i]) ** 2)
+
+                error_acumulado += sum(error_cuadratico)
                 self.propagacion_backward(esperado)
                 self.actualizar_pesos(fila, eta)
             
-            print '>epoch=%d, eta=%.3f, error_acumulado=%.3f' % (epoch, eta, error_acumulado)
+            print 'epoca: %d, eta: %.3f, error_acumulado: %.3f' % (epoch, eta, error_acumulado)
 
     # Make a prediction with a network
-    def predict(self, fila):
+    def predecir(self, fila):
         salida = self.propagacion_forward(fila)
         return salida.index(max(salida))
