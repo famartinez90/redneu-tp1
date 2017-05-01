@@ -138,7 +138,7 @@ class PerceptronMulticapa(object):
     def actualizar_pesos(self, fila_dataset, eta):
         # Actualiza los pesos para toda la red
         for i, _ in enumerate(self.pesos_red):
-            entrada = fila_dataset[:-1]
+            entrada = fila_dataset
             
             if i != 0:
                 # Voy pisando el valor de 'entrada' con los valores de 
@@ -160,7 +160,7 @@ class PerceptronMulticapa(object):
                     # REF: Algoritmo Backpropagation - 6.19
                     neurona['pesos'][j] += eta * neurona['delta'] * entrada[j]
                 
-                # Aqui actualizo el bias
+                # Aqui actualizo los pesos del bias
                 neurona['pesos'][-1] += eta * neurona['delta']
 
     # "Eta" es el factor de aprendizaje, y "epochs" el numero maximo de epocas de entrenamiento.
@@ -174,7 +174,7 @@ class PerceptronMulticapa(object):
             funcion_de_costo = 0
             
             for fila in dataset:
-                salida = self.propagacion_forward(fila)
+                salida = self.propagacion_forward(fila[:-1])
                 esperado = [0 for i in range(n_salida)]
                 esperado[fila[-1]] = 1
 
@@ -184,7 +184,7 @@ class PerceptronMulticapa(object):
 
                 funcion_de_costo += sum(error_cuadratico)
                 self.propagacion_backward(esperado)
-                self.actualizar_pesos(fila, eta)
+                self.actualizar_pesos(fila[:-1], eta)
 
             funcion_de_costo = funcion_de_costo / 2
             
