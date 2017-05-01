@@ -5,7 +5,7 @@ import numpy as np
 class PerceptronMulticapa(object):
 
     # Constructor de la clase. 
-    def __init__(self, n_entrada, ns_ocultas, n_salida, funcion_activacion="", distribucion_pesos=""):
+    def __init__(self, n_entrada, ns_ocultas, n_salida, funcion_activacion="", distribucion_pesos="", momentum=0):
         # Inicializamos todos los pesos de los ejes de la
         # red en valores random pequeños, entre 0 y 1, 
         # provenientes de una distribución normal
@@ -14,11 +14,12 @@ class PerceptronMulticapa(object):
         self.activacion_elegida = funcion_activacion
         self.bias = 1.0
         self.distribucion = distribucion_pesos
+        self.momentum = momentum
 
         # Calcula pesos de ejes para la primer capa oculta + bias
         pesos_capa_oculta_0 = []
         for _ in range(ns_ocultas[0]):
-            pesos_capa_oculta_0.append({'pesos': self.generate_pesos_random(n_entrada + 1)})
+            pesos_capa_oculta_0.append({'pesos': self.generate_pesos_random(n_entrada + 1), 'delta_w_anterior': 0})
         
         self.pesos_red.append(pesos_capa_oculta_0)
 
@@ -27,14 +28,14 @@ class PerceptronMulticapa(object):
             pesos_capa_oculta_i = []
 
             for _ in range(ns_ocultas[i+1]):
-                pesos_capa_oculta_i.append({'pesos': self.generate_pesos_random(ns_ocultas[i] + 1)})
+                pesos_capa_oculta_i.append({'pesos': self.generate_pesos_random(ns_ocultas[i] + 1), 'delta_w_anterior': 0})
             
             self.pesos_red.append(pesos_capa_oculta_i)
         
         # Calcula pesos de ejes para las neuronas de salida
         pesos_capa_salida = []
         for _ in range(n_salida):
-            pesos_capa_salida.append({'pesos': self.generate_pesos_random(ns_ocultas[len(ns_ocultas) - 1] + 1)})
+            pesos_capa_salida.append({'pesos': self.generate_pesos_random(ns_ocultas[len(ns_ocultas) - 1] + 1), 'delta_w_anterior': 0})
         
         self.pesos_red.append(pesos_capa_salida)
 
@@ -167,9 +168,16 @@ class PerceptronMulticapa(object):
             for neurona in self.pesos_red[i]:
                 
                 for j, _ in enumerate(entrada):
-                    # Aqui aplico la formula delta
+                    # Aqui aplico la formula delta para
+                    # actualizar el peso
                     # REF: Algoritmo Backpropagation - 6.19
-                    neurona['pesos'][j] += eta * neurona['delta'] * entrada[j]
+                    delta_w = eta * neurona['delta'] * entrada[j]
+
+                    if self.momentum != 0:
+                        delta_w += self.momentum * neurona['delta_w_anterior']
+
+                    neurona['pesos'][j] += delta_w
+                    neurona['delta_w_anterior'] = delta_w
                 
                 # Aqui actualizo los pesos del bias
                 neurona['pesos'][-1] += eta * neurona['delta']
