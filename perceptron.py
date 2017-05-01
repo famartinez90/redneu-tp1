@@ -5,12 +5,14 @@ import numpy as np
 class PerceptronMulticapa(object):
 
     # Constructor de la clase. 
-    def __init__(self, n_entrada, ns_ocultas, n_salida):
+    def __init__(self, n_entrada, ns_ocultas, n_salida, funcion_activacion=""):
         # Inicializamos todos los pesos de los ejes de la
         # red en valores random pequeños, entre 0 y 1, 
         # provenientes de una distribución normal
         # REF: Algoritmo Backpropagation - Primer paso
         self.pesos_red = list()
+        self.activacion_elegida = funcion_activacion
+        self.bias = 1.0
 
         # Calcula pesos de ejes para la primer capa oculta + bias
         pesos_capa_oculta_0 = []
@@ -18,7 +20,7 @@ class PerceptronMulticapa(object):
             pesos_capa_oculta_0.append({'pesos': np.random.rand(n_entrada + 1)})
         
         self.pesos_red.append(pesos_capa_oculta_0)
-        
+
         # Calcula pesos de ejes para siguientes capas ocultas + bias
         for i in range(len(ns_ocultas) - 1):
             pesos_capa_oculta_i = []
@@ -37,8 +39,7 @@ class PerceptronMulticapa(object):
         self.pesos_red.append(pesos_capa_salida)
 
     def funcion_de_suma(self, pesos, entrada):
-        # Arranco la suma con el valor del bias
-        suma = pesos[-1]
+        suma = pesos[-1] * self.bias
 
         for i in range(len(pesos) - 1):
             suma += pesos[i] * entrada[i]
@@ -46,14 +47,36 @@ class PerceptronMulticapa(object):
         return suma
 
     def funcion_de_activacion(self, suma):
+        return {
+            'sigmoidea': self.funcion_sigmoidea(suma),
+            'tangente': self.funcion_tangente_hiperbolica(suma),
+        }.get(self.activacion_elegida, self.funcion_sigmoidea(suma))
+
+    def funcion_sigmoidea(self, x):
         # Usa la funcion sigmoidea
         # g = 1 / 1 + e^-x
-        return 1.0 / (1.0 + math.exp(-suma))
+        return 1.0 / (1.0 + math.exp(-x))
+
+    def funcion_tangente_hiperbolica(self, x):
+        # Usa la funcion tangente hiperbolica
+        # g = (2 / 1 + e^-2x) - 1
+        return (2.0 / (1.0 + math.exp(-2 * x))) - 1.0
 
     def derivada_funcion_de_activacion(self, suma):
+        return {
+            'sigmoidea': self.funcion_sigmoidea_derivada(suma),
+            'tangente': self.funcion_tangente_hiperbolica_derivada(suma),
+        }.get(self.activacion_elegida, self.funcion_sigmoidea_derivada(suma))
+
+    def funcion_sigmoidea_derivada(self, fx):
         # Esta es la derivada de la sigmoidea
-        # g' = x * (1 - x)
-        return suma * (1.0 - suma)
+        # g' = g(x) * (1 - g(x))
+        return fx * (1.0 - fx)
+
+    def funcion_tangente_hiperbolica_derivada(self, fx):
+        # Esta es la derivada de la tangente hiperbolica
+        # g = 1 - g(x)^2
+        return 1.0 - (fx ** 2)
 
     def propagacion_forward(self, valores_de_entrada):
         # REF: Algoritmo Backpropagation - 6.15
