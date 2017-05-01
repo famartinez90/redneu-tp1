@@ -11,7 +11,7 @@ DATOS = [[2.7810836, 2.550537003, 0], [1.465489372, 2.362125076, 0],
 N_ENTRADA = len(DATOS[0]) - 1
 N_SALIDA = len(set([row[-1] for row in DATOS]))
 PPN = ppn.PerceptronMulticapa(N_ENTRADA, [2], 2)
-PPN.train(DATOS, N_SALIDA, eta=0.7)
+PPN.train(DATOS, N_SALIDA, eta=0.7, epochs=80)
 DATOS_PREDICCION = [[2.7810836, 2.550537003, 0], 
                     [1.465489372, 2.362125076, 0], 
                     [3.396561688, 4.400293529, 0], 

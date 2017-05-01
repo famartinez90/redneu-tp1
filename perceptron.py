@@ -81,7 +81,7 @@ class PerceptronMulticapa(object):
             capa = self.pesos_red[i]
             errores = list()
             
-            if i != len(self.pesos_red)-1:
+            if i != len(self.pesos_red) - 1:
                 # Si no es la capa de salida, entonces propagamos el error
                 # hacia atras sobre las neuronas de mi capa actual, donde el error
                 # de mi neurona es la suma del producto de cada uno de mis ejes por
@@ -101,16 +101,14 @@ class PerceptronMulticapa(object):
                 # de la diferencia entre el valor de la salida de la neurona
                 # y el valor esperado de salida del dataset
                 # REF: Algoritmo Backpropagation - 6.17
-                for j, _ in enumerate(capa):
-                    neurona = capa[j]
+                for j, neurona in enumerate(capa):
                     errores.append(salida_esperada[j] - neurona['salida'])
             
             # Calcula el delta para cada neurona de la capa actual
             # haciendo el producto del error por la derivada de la funcion
             # de activacion
             # REF: Algoritmo Backpropagation - 6.17/6.18
-            for j, _ in enumerate(capa):
-                neurona = capa[j]
+            for j, neurona in enumerate(capa):
                 neurona['delta'] = errores[j] * self.derivada_funcion_de_activacion(neurona['salida'])
 
     def actualizar_pesos(self, fila_dataset, eta):
@@ -149,7 +147,7 @@ class PerceptronMulticapa(object):
         # batch deberia acumular el error de mas de una fila antes de correr 
         # actualizar_pesos
         for epoch in range(epochs):
-            error_acumulado = 0
+            funcion_de_costo = 0
             
             for fila in dataset:
                 salida = self.propagacion_forward(fila)
@@ -160,13 +158,43 @@ class PerceptronMulticapa(object):
                 for i, _ in enumerate(esperado):
                     error_cuadratico.append((esperado[i] - salida[i]) ** 2)
 
-                error_acumulado += sum(error_cuadratico)
+                funcion_de_costo += sum(error_cuadratico)
                 self.propagacion_backward(esperado)
                 self.actualizar_pesos(fila, eta)
-            
-            print 'epoca: %d, eta: %.3f, error_acumulado: %.3f' % (epoch, eta, error_acumulado)
 
-    # Make a prediction with a network
+            funcion_de_costo = funcion_de_costo / 2
+            
+            print 'epoca: %d, eta: %.3f, error: %.3f' % (epoch, eta, funcion_de_costo)
+
+    # Realiza una prediccion sobre una entrada
+    # a partir de una red entrenada
     def predecir(self, fila):
         salida = self.propagacion_forward(fila)
+
+        esperado = [0 for _ in range(2)]
+        esperado[fila[-1]] = 1
+
+        print "Performance: %.3f %%" % (self.medir_performance(esperado, salida) * 100)
+
         return salida.index(max(salida))
+
+    # Permite medir la performance de la red para
+    # realizar predicciones a partir de los resultados
+    # esperados y la salida de la prediccion
+    def medir_performance(self, esperado, salida):
+        error_cuadratico = []
+        funcion_de_costo = 0
+
+        for i, _ in enumerate(esperado):
+            error_cuadratico.append((esperado[i] - salida[i]) ** 2)
+
+        funcion_de_costo += sum(error_cuadratico)
+        funcion_de_costo = funcion_de_costo / 2
+
+        diferencia_entre_predicciones = np.max(salida) - np.min(salida)
+        
+        division = funcion_de_costo / diferencia_entre_predicciones
+        if division > 1:
+            division = 1
+        
+        return abs(1 - (division))
