@@ -20,13 +20,14 @@ class PerceptronMulticapa(object):
         self.pesos_red.append(pesos_capa_oculta_0)
         
         # Calcula pesos de ejes para siguientes capas ocultas + bias
-        pesos_capas_ocultas = []
         for i in range(len(ns_ocultas) - 1):
+            pesos_capa_oculta_i = []
 
             for _ in range(ns_ocultas[i+1]):
-                pesos_capas_ocultas.append({'pesos': np.random.rand(ns_ocultas[i] + 1)})
+                pesos_capa_oculta_i.append({'pesos': np.random.rand(ns_ocultas[i] + 1)})
             
-            self.pesos_red.append(pesos_capas_ocultas)
+            self.pesos_red.append(pesos_capa_oculta_i)
+        
 
         # Calcula pesos de ejes para las neuronas de salida
         pesos_capa_salida = []
@@ -38,7 +39,7 @@ class PerceptronMulticapa(object):
     def funcion_de_suma(self, pesos, entrada):
         # Arranco la suma con el valor del bias
         suma = pesos[-1]
-        
+
         for i in range(len(pesos) - 1):
             suma += pesos[i] * entrada[i]
         
@@ -64,7 +65,7 @@ class PerceptronMulticapa(object):
         # REF: Algoritmo Backpropagation - 6.16
         for capa in self.pesos_red:
             nueva_salida = []
-            
+
             for neurona in capa:
                 suma = self.funcion_de_suma(neurona['pesos'], salida)
                 neurona['salida'] = self.funcion_de_activacion(suma)
@@ -170,31 +171,16 @@ class PerceptronMulticapa(object):
     # a partir de una red entrenada
     def predecir(self, fila):
         salida = self.propagacion_forward(fila)
-
-        esperado = [0 for _ in range(2)]
-        esperado[fila[-1]] = 1
-
-        print "Performance: %.3f %%" % (self.medir_performance(esperado, salida) * 100)
-
         return salida.index(max(salida))
 
     # Permite medir la performance de la red para
     # realizar predicciones a partir de los resultados
     # esperados y la salida de la prediccion
     def medir_performance(self, esperado, salida):
-        error_cuadratico = []
-        funcion_de_costo = 0
-
-        for i, _ in enumerate(esperado):
-            error_cuadratico.append((esperado[i] - salida[i]) ** 2)
-
-        funcion_de_costo += sum(error_cuadratico)
-        funcion_de_costo = funcion_de_costo / 2
-
-        diferencia_entre_predicciones = np.max(salida) - np.min(salida)
+        acertados = 0
         
-        division = funcion_de_costo / diferencia_entre_predicciones
-        if division > 1:
-            division = 1
-        
-        return abs(1 - (division))
+        for i, _ in enumerate(salida):
+            if esperado[i] == salida[i]:
+                acertados += 1
+    	
+        return acertados / float(len(salida)) * 100.0

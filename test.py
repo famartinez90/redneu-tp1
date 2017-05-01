@@ -10,8 +10,9 @@ DATOS = [[2.7810836, 2.550537003, 0], [1.465489372, 2.362125076, 0],
 
 N_ENTRADA = len(DATOS[0]) - 1
 N_SALIDA = len(set([row[-1] for row in DATOS]))
-PPN = ppn.PerceptronMulticapa(N_ENTRADA, [2], 2)
-PPN.train(DATOS, N_SALIDA, eta=0.7, epochs=80)
+PPN = ppn.PerceptronMulticapa(N_ENTRADA, [2, 2], 2)
+PPN.train(DATOS, N_SALIDA, eta=0.5, epochs=1000)
+
 DATOS_PREDICCION = [[2.7810836, 2.550537003, 0], 
                     [1.465489372, 2.362125076, 0], 
                     [3.396561688, 4.400293529, 0], 
@@ -23,9 +24,14 @@ DATOS_PREDICCION = [[2.7810836, 2.550537003, 0],
                     [8.675418651, -0.242068655, 1], 
                     [7.673756466, 3.508563011, 1]]
 
+resultados = []
 for fila in DATOS_PREDICCION:
     prediccion = PPN.predecir(fila)
+    resultados.append(prediccion)
     print 'esperado: %d, resultado: %d' % (fila[-1], prediccion)
+
+esperado = map(lambda xs: xs[-1], DATOS_PREDICCION)
+print "Performance: %.3f %%" % PPN.medir_performance(esperado, resultados)
 
 # print PPN.propagacion_forward([17.673756466, 13.508563011, 1])
 
