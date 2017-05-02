@@ -3,6 +3,7 @@ import argparse
 import os
 import parser as psr
 import perceptron as ppn
+import matplotlib.pyplot as plt
 
 def iniciar():
     usage = 'Este script tiene un único parametro obligatorio, que es el path del archivo de entrada con los datos de input \n' \
@@ -26,11 +27,11 @@ def iniciar():
     args = parser.parse_args()
 
     input_file = args.input_file
-    eta = args.eta
-    epochs = args.epochs
-    train_pct = args.train
-    test_pct = args.test
-    validation_pct = args.validation
+    eta = float(args.eta)
+    epochs = int(args.epochs)
+    train_pct = float(args.train)
+    test_pct = float(args.test)
+    validation_pct = float(args.validation)
 
     os.system('clear')
     print 'TP1 - Perceptrón Multicapa'
@@ -51,4 +52,32 @@ input_file, eta, epochs, train_pct, test_pct, validation_pct = iniciar()
 i = psr.Parser()
 datos_train, datos_validation, datos_test = i.parse(input_file, train_pct, test_pct, validation_pct)
 
-# TODO: conectar datos del parser al perceptron multicapa
+# Ejemplo de train
+DATOS = datos_train
+
+N_ENTRADA = len(DATOS[0]) - 1
+N_SALIDA = len(set([row[0] for row in DATOS]))
+
+PPN = ppn.PerceptronMulticapa(N_ENTRADA, [3], 2, funcion_activacion="logistica", distribucion_pesos="normal", momentum=0)
+PPN.train_batch(DATOS, N_SALIDA, eta=eta, epochs=epochs, tamanio_muestra_batch=1)
+
+DATOS_PREDICCION = datos_validation
+
+resultados = []
+esperados = []
+for _ in range(epochs):
+    for fila in DATOS_PREDICCION:
+        prediccion = PPN.predecir(fila)
+        resultados.append(prediccion)
+    
+    esperado = map(lambda xs: xs[-1], DATOS_PREDICCION)
+    esperados = esperados + esperado
+
+print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)
+
+print PPN.propagacion_forward([17.673756466, 13.508563011, 1])
+
+#plt.plot(range(1, len(ppn.errors_)+1), ppn.errors_, marker='o')
+#plt.xlabel('Epocas')
+#plt.ylabel('Clasificaciones erroneas')
+#plt.show()
