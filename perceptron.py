@@ -147,8 +147,11 @@ class PerceptronMulticapa(object):
             for j, neurona in enumerate(capa):
                 neurona['delta'] = errores[j] * self.derivada_funcion_de_activacion(neurona['salida'])
 
-    def actualizar_pesos(self, fila_dataset, eta):
+    def calcular_gradientes(self, fila_dataset, eta, actualizar=True):
         # Actualiza los pesos para toda la red
+        # si la variable actualizar es true
+        gradientes = []
+
         for i, _ in enumerate(self.pesos_red):
             entrada = fila_dataset
             
@@ -176,19 +179,27 @@ class PerceptronMulticapa(object):
                     if self.momentum != 0:
                         delta_w += self.momentum * neurona['delta_w_anterior']
 
-                    neurona['pesos'][j] += delta_w
+                    if actualizar:
+                        neurona['pesos'][j] += delta_w
+                    else:
+                        gradientes.append(delta_w)
+                    
                     neurona['delta_w_anterior'] = delta_w
                 
                 # Aqui actualizo los pesos del bias
-                neurona['pesos'][-1] += eta * neurona['delta']
+                if actualizar:
+                    neurona['pesos'][-1] += eta * neurona['delta']
+                else:
+                    gradientes.append(eta * neurona['delta'])
+
+        if actualizar is False:
+            return gradientes
 
     # "Eta" es el factor de aprendizaje, y "epochs" el numero maximo de epocas de entrenamiento.
     def train(self, dataset, n_salida, eta=0.5, epochs=100):
         # Para cada epoca, paso por cada una de las filas de entrada del dataset
         # y actualizo los pesos de la red con la regla delta, como la actualizacion
-        # se produce cada vez que paso por una fila nueva, no es batch. Para hacerlo
-        # batch deberia acumular el error de mas de una fila antes de correr 
-        # actualizar_pesos
+        # se produce cada vez que paso por una fila nueva, es online training
         for epoch in range(epochs):
             funcion_de_costo = 0
             
@@ -203,11 +214,57 @@ class PerceptronMulticapa(object):
 
                 funcion_de_costo += sum(error_cuadratico)
                 self.propagacion_backward(esperado)
-                self.actualizar_pesos(fila[:-1], eta)
+                self.calcular_gradientes(fila[:-1], eta)
 
             funcion_de_costo = funcion_de_costo / 2
             
             print 'epoca: %d, eta: %.3f, error: %.3f' % (epoch, eta, funcion_de_costo)
+
+    def train_batch(self, dataset, n_salida, eta=0.5, epochs=100, tamanio_muestra_batch=5):
+        for epoch in range(epochs):
+            funcion_de_costo = 0
+            muestra_numero = 0
+            gradientes = []
+
+            for i, _ in enumerate(self.pesos_red):    
+                for neurona in self.pesos_red[i]:
+                    for _ in enumerate(neurona['pesos']):
+                        gradientes.append([])
+            
+            for fila in dataset:
+                salida = self.propagacion_forward(fila[:-1])
+                esperado = [0 for i in range(n_salida)]
+                esperado[fila[-1]] = 1
+
+                error_cuadratico = []
+                for i, _ in enumerate(esperado):
+                    error_cuadratico.append((esperado[i] - salida[i]) ** 2)
+
+                funcion_de_costo += sum(error_cuadratico)
+                self.propagacion_backward(esperado)
+
+                gradientes = [a+[b] for a, b in zip(gradientes, self.calcular_gradientes(fila[:-1], eta, False))]
+
+                muestra_numero += 1
+                if muestra_numero == tamanio_muestra_batch:
+                    muestra_numero = 0
+                    gradientes_promedios = [np.average(a) for a in gradientes]
+                    self.actualizar_pesos_batch(gradientes_promedios)
+            
+            funcion_de_costo = funcion_de_costo / 2
+            
+            print 'epoca: %d, eta: %.3f, error: %.3f' % (epoch, eta, funcion_de_costo)
+
+    def actualizar_pesos_batch(self, gradientes_promedios):
+        k = 0
+
+        for i, _ in enumerate(self.pesos_red):
+            
+            for neurona in self.pesos_red[i]:
+                
+                for j, _ in enumerate(neurona['pesos']):
+                    neurona['pesos'][j] += gradientes_promedios[k]
+                    k += 1
 
     # Realiza una prediccion sobre una entrada
     # a partir de una red entrenada
