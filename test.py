@@ -9,9 +9,9 @@ DATOS = [[2.7810836, 2.550537003, 0], [1.465489372, 2.362125076, 0],
          [8.675418651, -0.242068655, 1], [7.673756466, 3.508563011, 1]]
 
 N_ENTRADA = len(DATOS[0]) - 1
-N_SALIDA = len(set([row[-1] for row in DATOS]))
-PPN = ppn.PerceptronMulticapa(N_ENTRADA, [3], 2, funcion_activacion="logistica", distribucion_pesos="normal", momentum=0)
-PPN.train_batch(DATOS, N_SALIDA, eta=0.5, epochs=50, tamanio_muestra_batch=1)
+RESULTADOS_ESPERADOS = [xs[-1] for xs in DATOS]
+PPN = ppn.PerceptronMulticapa(N_ENTRADA, [3], 1, funcion_activacion="tangente", distribucion_pesos="normal", momentum=0)
+PPN.train([xs[:-1] for xs in DATOS], RESULTADOS_ESPERADOS, eta=0.5, epochs=50, tamanio_muestra_batch=1)
 
 DATOS_PREDICCION = [[2.7810836, 2.550537003, 0], 
                     [1.465489372, 2.362125076, 0], 
@@ -36,7 +36,7 @@ for _ in range(100):
 
 print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)
 
-print PPN.propagacion_forward([17.673756466, 13.508563011, 1])
+# print PPN.propagacion_forward([17.673756466, 13.508563011, 1])
 
 # Se grafica la cantidad de clasificaciones incorrectas en cada epoca versus numero de epoca. 
 # MEJORAS SOLICITADAS: Mejora 1) Graficar la funcion de costo versus el numero de epoca.

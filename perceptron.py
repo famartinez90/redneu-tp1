@@ -16,14 +16,14 @@ class PerceptronMulticapa(object):
         self.distribucion = distribucion_pesos
         self.momentum = momentum
 
-        # Calcula pesos de ejes para la primer capa oculta + bias
+        # Calcula pesos de ejes para la primer capa oculta + bias (último peso)
         pesos_capa_oculta_0 = []
         for _ in range(ns_ocultas[0]):
             pesos_capa_oculta_0.append({'pesos': self.generate_pesos_random(n_entrada + 1), 'delta_w_anterior': 0})
         
         self.pesos_red.append(pesos_capa_oculta_0)
 
-        # Calcula pesos de ejes para siguientes capas ocultas + bias
+        # Calcula pesos de ejes para siguientes capas ocultas + bias (último peso)
         for i in range(len(ns_ocultas) - 1):
             pesos_capa_oculta_i = []
 
@@ -32,7 +32,7 @@ class PerceptronMulticapa(object):
             
             self.pesos_red.append(pesos_capa_oculta_i)
         
-        # Calcula pesos de ejes para las neuronas de salida
+        # Calcula pesos de ejes para las neuronas de salida + bias (último peso)
         pesos_capa_salida = []
         for _ in range(n_salida):
             pesos_capa_salida.append({'pesos': self.generate_pesos_random(ns_ocultas[len(ns_ocultas) - 1] + 1), 'delta_w_anterior': 0})
@@ -60,9 +60,10 @@ class PerceptronMulticapa(object):
 
     def funcion_de_activacion(self, suma):
         return {
-            'logistica': self.funcion_logistica(suma),
-            'tangente': self.funcion_tangente_hiperbolica(suma),
-        }.get(self.activacion_elegida, self.funcion_logistica(suma))
+            'logistica': self.funcion_logistica,
+            'tangente': self.funcion_tangente_hiperbolica,
+            'tangente_optimizada': self.funcion_tangente_hiperbolica_optimizada
+        }[self.activacion_elegida](suma)
 
     def funcion_logistica(self, x):
         # Usa la funcion logistica
@@ -74,11 +75,19 @@ class PerceptronMulticapa(object):
         # g = (2 / 1 + e^-2x) - 1
         return (2.0 / (1.0 + math.exp(-2 * x))) - 1.0
 
+    def funcion_tangente_hiperbolica_optimizada(self, x):
+        # Usa la funcion tangente hiperbolica optimizada
+        # g = alfa * ((2 / 1 + e^-(2*beta*x)) - 1)
+        alfa = 1.7159
+        beta = 2.0 / 3.0
+        return alfa * ((2.0 / (1.0 + math.exp(-2 * (beta * x)))) - 1.0)
+
     def derivada_funcion_de_activacion(self, suma):
         return {
-            'logistica': self.funcion_logistica_derivada(suma),
-            'tangente': self.funcion_tangente_hiperbolica_derivada(suma),
-        }.get(self.activacion_elegida, self.funcion_logistica_derivada(suma))
+            'logistica': self.funcion_logistica_derivada,
+            'tangente': self.funcion_tangente_hiperbolica_derivada,
+            'tangente_optimizada': self.funcion_tangente_hiperbolica_derivada_optimizada
+        }[self.activacion_elegida](suma)
 
     def funcion_logistica_derivada(self, fx):
         # Esta es la derivada de la logistica
@@ -89,6 +98,13 @@ class PerceptronMulticapa(object):
         # Esta es la derivada de la tangente hiperbolica
         # g = 1 - g(x)^2
         return 1.0 - (fx ** 2)
+
+    def funcion_tangente_hiperbolica_derivada_optimizada(self, fx):
+        # Esta es la derivada de la tangente hiperbolica optimizada
+        # g = alfa * beta * (1 - g(x)^2)
+        alfa = 1.7159
+        beta = 2.0 / 3.0
+        return alfa * beta * (1.0 - (fx ** 2))
 
     def propagacion_forward(self, valores_de_entrada):
         # REF: Algoritmo Backpropagation - 6.15
@@ -196,31 +212,12 @@ class PerceptronMulticapa(object):
             return gradientes
 
     # "Eta" es el factor de aprendizaje, y "epochs" el numero maximo de epocas de entrenamiento.
-    def train(self, dataset, n_salida, eta=0.5, epochs=100):
+    def train(self, dataset, salida_esperada, eta=0.5, epochs=100, tamanio_muestra_batch=1):
         # Para cada epoca, paso por cada una de las filas de entrada del dataset
-        # y actualizo los pesos de la red con la regla delta, como la actualizacion
-        # se produce cada vez que paso por una fila nueva, es online training
-        for epoch in range(epochs):
-            funcion_de_costo = 0
-            
-            for fila in dataset:
-                salida = self.propagacion_forward(fila[:-1])
-                esperado = [0 for i in range(n_salida)]
-                esperado[fila[-1]] = 1
-
-                error_cuadratico = []
-                for i, _ in enumerate(esperado):
-                    error_cuadratico.append((esperado[i] - salida[i]) ** 2)
-
-                funcion_de_costo += sum(error_cuadratico)
-                self.propagacion_backward(esperado)
-                self.calcular_gradientes(fila[:-1], eta)
-
-            funcion_de_costo = funcion_de_costo / 2
-            
-            print 'epoca: %d, eta: %.3f, error: %.3f' % (epoch, eta, funcion_de_costo)
-
-    def train_batch(self, dataset, n_salida, eta=0.5, epochs=100, tamanio_muestra_batch=5):
+        # y actualizo los pesos de la red con la regla delta
+        # tamanio_muestra_batch = 1 ---> online learning
+        # 1 < tamanio_muestra_batch <= len(dataset) / 2 ---> mini batch
+        # tamanio_muestra_batch = len(dataset) ---> batch
         for epoch in range(epochs):
             funcion_de_costo = 0
             muestra_numero = 0
@@ -231,26 +228,31 @@ class PerceptronMulticapa(object):
                     for _ in enumerate(neurona['pesos']):
                         gradientes.append([])
             
-            for fila in dataset:
-                salida = self.propagacion_forward(fila[:-1])
-                esperado = [0 for i in range(n_salida)]
-                esperado[fila[-1]] = 1
-
+            for k, fila in enumerate(dataset):
+                salida = self.propagacion_forward(fila)
                 error_cuadratico = []
-                for i, _ in enumerate(esperado):
-                    error_cuadratico.append((esperado[i] - salida[i]) ** 2)
+
+                if isinstance(salida_esperada[k], list):
+                    for i, esperada in enumerate(salida_esperada[k]):
+                        error_cuadratico.append((esperada[i] - salida[i]) ** 2)
+                else:
+                    error_cuadratico.append((salida_esperada[k] - salida[0]) ** 2)
 
                 funcion_de_costo += sum(error_cuadratico)
-                self.propagacion_backward(esperado)
+                self.propagacion_backward([salida_esperada[k]])
+                
+                if tamanio_muestra_batch == 1:
+                    self.calcular_gradientes(fila, eta)
+                else:
+                    gradientes = [a+[b] for a, b in zip(gradientes, self.calcular_gradientes(fila, eta, False))]
+                    muestra_numero += 1
 
-                gradientes = [a+[b] for a, b in zip(gradientes, self.calcular_gradientes(fila[:-1], eta, False))]
+                    if muestra_numero == tamanio_muestra_batch:
+                        muestra_numero = 0
+                        gradientes_promedios = [np.average(a) for a in gradientes]
+                        self.actualizar_pesos_batch(gradientes_promedios)
+                
 
-                muestra_numero += 1
-                if muestra_numero == tamanio_muestra_batch:
-                    muestra_numero = 0
-                    gradientes_promedios = [np.average(a) for a in gradientes]
-                    self.actualizar_pesos_batch(gradientes_promedios)
-            
             funcion_de_costo = funcion_de_costo / 2
             
             print 'epoca: %d, eta: %.3f, error: %.3f' % (epoch, eta, funcion_de_costo)
@@ -270,7 +272,11 @@ class PerceptronMulticapa(object):
     # a partir de una red entrenada
     def predecir(self, fila):
         salida = self.propagacion_forward(fila)
-        return salida.index(max(salida))
+        
+        if salida[0] > 0.5:
+            return 1
+        else:
+            return 0
 
     # Permite medir la performance de la red para
     # realizar predicciones a partir de los resultados
