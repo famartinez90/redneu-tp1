@@ -90,6 +90,13 @@ class Parser(object):
 			del row[-1]
 			return (row, salida)
 
+
+
+		# NOTE: Common pitfall. An important point to make about the preprocessing is that any preprocessing statistics (e.g. the data mean)
+		#  must only be computed on the training data, and then applied to the validation / test data. E.g. computing the mean and subtracting
+		# it from every image across the entire dataset and then splitting the data into train/val/test splits would be a mistake. Instead,
+		# the mean must be computed only over the training data and then subtracted equally from all splits (train/val/test).
+
         # http://machinelearningmastery.com/rescaling-data-for-machine-learning-in-python-with-scikit-learn/
 		# # Standardize the data attributes for the Iris dataset.
 		# from sklearn.datasets import load_iris

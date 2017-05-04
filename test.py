@@ -11,7 +11,7 @@ DATOS = [[2.7810836, 2.550537003, 0], [1.465489372, 2.362125076, 0],
 N_ENTRADA = len(DATOS[0]) - 1
 RESULTADOS_ESPERADOS = [xs[-1] for xs in DATOS]
 PPN = ppn.PerceptronMulticapa(N_ENTRADA, [3], 1, funcion_activacion="tangente", distribucion_pesos="normal", momentum=0)
-PPN.train([xs[:-1] for xs in DATOS], RESULTADOS_ESPERADOS, eta=0.5, epochs=50, tamanio_muestra_batch=1)
+results = PPN.train([xs[:-1] for xs in DATOS], RESULTADOS_ESPERADOS, eta=0.5, epochs=500, tamanio_muestra_batch=1)
 
 DATOS_PREDICCION = [[2.7810836, 2.550537003, 0], 
                     [1.465489372, 2.362125076, 0], 
@@ -41,17 +41,19 @@ print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)
 # Se grafica la cantidad de clasificaciones incorrectas en cada epoca versus numero de epoca. 
 # MEJORAS SOLICITADAS: Mejora 1) Graficar la funcion de costo versus el numero de epoca.
 # Mejora 2) Agregar al grafico el error de costo del conjunto de validacion (o sea, debe graficar en el mismo grafico, ambos errores de costo)
-#plt.plot(range(1, len(ppn.errors_)+1), ppn.errors_, marker='o')
-#plt.xlabel('Epocas')
-#plt.ylabel('Clasificaciones erroneas')
-#plt.show()
+
+graficar = False
+
+if graficar:
+    epocas = map(lambda row: row['epoca'], results)
+    errores = map(lambda row: row['funcion_de_costo'], results)
+
+    plt.plot(epocas, errores, marker='o')
+    plt.xlabel('Epocas')
+    plt.ylabel('Error/Funcion Costo')
+    plt.show()
 
 # MEJORAS SOLICITADAS: Agregar imprimir la funcion de costo y el root-mean-square error final del conjunto de testing, 
 # para saber la performance final de la red neuronal.
 
 # NOTE: High momentum should always be accompanied by low learning rate, else you will overshoot the global optimum.
-
-# NOTE: Common pitfall. An important point to make about the preprocessing is that any preprocessing statistics (e.g. the data mean)
-#  must only be computed on the training data, and then applied to the validation / test data. E.g. computing the mean and subtracting 
-# it from every image across the entire dataset and then splitting the data into train/val/test splits would be a mistake. Instead, 
-# the mean must be computed only over the training data and then subtracted equally from all splits (train/val/test).

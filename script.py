@@ -81,7 +81,7 @@ RESULTADOS_ESPERADOS = [row[-1] for row in DATOS]
 PPN = ppn.PerceptronMulticapa(N_ENTRADA, [3], 1, funcion_activacion=f_activacion,
                               distribucion_pesos=d_pesos, momentum=momentum)
 
-PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs,
+results = PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs,
           tamanio_muestra_batch=tambatch)
 
 DATOS_PREDICCION = datos_train

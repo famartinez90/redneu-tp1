@@ -218,6 +218,8 @@ class PerceptronMulticapa(object):
         # tamanio_muestra_batch = 1 ---> online learning
         # 1 < tamanio_muestra_batch <= len(dataset) / 2 ---> mini batch
         # tamanio_muestra_batch = len(dataset) ---> batch
+
+        results = []
         for epoch in range(epochs):
             funcion_de_costo = 0
             muestra_numero = 0
@@ -254,8 +256,12 @@ class PerceptronMulticapa(object):
                 
 
             funcion_de_costo = funcion_de_costo / 2
-            
+
+            results.append({'epoca': epoch, 'eta': eta, 'funcion_de_costo': funcion_de_costo})
+
             print 'epoca: %d, eta: %.3f, error: %.3f' % (epoch, eta, funcion_de_costo)
+
+        return results
 
     def actualizar_pesos_batch(self, gradientes_promedios):
         k = 0
