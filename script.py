@@ -23,6 +23,18 @@ def iniciar():
     parser.add_argument("-tr", "--train", default=33.33, help='% de input a utilizar como training. Default = 33')
     parser.add_argument("-te", "--test", default=33.33, help='% de input a utilizar como testing. Default = 33')
     parser.add_argument("-val", "--validation", default=33.33, help='% de input a utilizar como validation. Default = 33')
+    parser.add_argument("-fa", "--factivacion", default='tangente',
+                        help='Funcion de activacion a utilizar. Valores: tangente, logistica, tangente_optimizada')
+
+    parser.add_argument("-pe", "--dpesos", default='normal',
+                        help='Distribucion de pesos a utilizar. Valores: normal, uniforme')
+
+    parser.add_argument("-tambatch", "--tambatch", default=1,
+                        help='Tamanio del batch a utilizar')
+
+    parser.add_argument("-mo", "--momentum", default=0,
+                        help='Momentum a utilizar')
+
 
     args = parser.parse_args()
 
@@ -32,6 +44,10 @@ def iniciar():
     train_pct = float(args.train)
     test_pct = float(args.test)
     validation_pct = float(args.validation)
+    f_activacion = args.factivacion
+    d_pesos = args.dpesos
+    tambatch = int(args.tambatch)
+    momentum = float(args.momentum)
 
     os.system('clear')
     print 'TP1 - Perceptrón Multicapa'
@@ -39,15 +55,20 @@ def iniciar():
     print str(train_pct) + "% del input utilizado como Entrenamiento"
     print str(test_pct) + "% del input utilizado como Testing"
     print str(validation_pct) + "% del input utilizado como Validacion"
+    print "Funcion de activacion: " + f_activacion
+    print "Distribucion de pesos: " + d_pesos
+    print "Tamanio de batch: " + str(tambatch)
+    print "Momentum: " + str(momentum)
     print '-------------------------------------------------------------------------'
 
-    return nro_ejercicio, eta, epochs, train_pct, test_pct, validation_pct
+    return nro_ejercicio, eta, epochs, train_pct, test_pct, validation_pct, f_activacion, d_pesos, tambatch, momentum
 
 ######### INICIO SCRIPT ##############
 
 # Ejemplo de ejecucion:
 
-nro_ejercicio, eta, epochs, train_pct, test_pct, validation_pct = iniciar()
+nro_ejercicio, eta, epochs, train_pct, test_pct, validation_pct, \
+    f_activacion, d_pesos, tambatch, momentum = iniciar()
 
 i = psr.Parser()
 datos_train, datos_validation, datos_test = i.parse(nro_ejercicio, train_pct, test_pct, validation_pct)
@@ -58,8 +79,11 @@ DATOS = datos_train
 N_ENTRADA = len(DATOS[0][0]) - 1
 RESULTADOS_ESPERADOS = [row[-1] for row in DATOS]
 
-PPN = ppn.PerceptronMulticapa(N_ENTRADA, [3], 1, funcion_activacion="tangente", distribucion_pesos="normal", momentum=0)
-PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=0.5, epochs=50, tamanio_muestra_batch=1)
+PPN = ppn.PerceptronMulticapa(N_ENTRADA, [3], 1, funcion_activacion=f_activacion,
+                              distribucion_pesos=d_pesos, momentum=momentum)
+
+PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs,
+          tamanio_muestra_batch=tambatch)
 
 DATOS_PREDICCION = datos_train
 
