@@ -73,7 +73,9 @@ class PerceptronMulticapa(object):
     def funcion_tangente_hiperbolica(self, x):
         # Usa la funcion tangente hiperbolica
         # g = (2 / 1 + e^-2x) - 1
-        return (2.0 / (1.0 + math.exp(-2 * x))) - 1.0
+        if x>-200:
+        	return (2.0 / (1.0 + math.exp(-2 * x))) - 1.0
+        else: return -1
 
     def funcion_tangente_hiperbolica_optimizada(self, x):
         # Usa la funcion tangente hiperbolica optimizada

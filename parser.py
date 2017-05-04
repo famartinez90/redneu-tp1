@@ -2,6 +2,8 @@
 import csv
 import random
 import ast
+import numpy as np
+import normalizer as nr
 
 class Parser(object):
 
@@ -45,7 +47,31 @@ class Parser(object):
 				values.append(value)
 
 			datos.append(values)
+'''
+		datos = np.array(datos)
+		
+		datos_t = datos.transpose()
 
+		nor = nr.Normalizador()
+
+		datos_t_normalizados = []
+		desvios = []
+		medias = []
+
+		for columna in datos_t:
+			(media_columna, desvio_columna, columna_normalizada) = nor.normalizarArray(columna)
+
+			desvios += [desvio_columna]
+			medias += [media_columna]
+
+			datos_t_normalizados.append(columna_normalizada)
+	
+		datos_t_normalizados = np.array(datos_t_normalizados)
+
+		datos_normalizados = datos_t_normalizados.transpose()
+
+		print datos_normalizados
+'''
 		# Mezclo datos para que la seleccion y division sean azarosas
 		random.shuffle(datos)
 
@@ -95,17 +121,4 @@ class Parser(object):
 		# NOTE: Common pitfall. An important point to make about the preprocessing is that any preprocessing statistics (e.g. the data mean)
 		#  must only be computed on the training data, and then applied to the validation / test data. E.g. computing the mean and subtracting
 		# it from every image across the entire dataset and then splitting the data into train/val/test splits would be a mistake. Instead,
-		# the mean must be computed only over the training data and then subtracted equally from all splits (train/val/test).
-
-        # http://machinelearningmastery.com/rescaling-data-for-machine-learning-in-python-with-scikit-learn/
-		# # Standardize the data attributes for the Iris dataset.
-		# from sklearn.datasets import load_iris
-		# from sklearn import preprocessing
-		# # load the Iris dataset
-		# iris = load_iris()
-		# print(iris.data.shape)
-		# # separate the data and target attributes
-		# X = iris.data
-		# y = iris.target
-		# # standardize the data attributes
-		# standardized_X = preprocessing.scale(X)
+		# the mean must be computed only over the training data and then subtracted equally from all splits (train/val/test). '''

@@ -69,7 +69,6 @@ def iniciar():
 nro_ejercicio, eta, epochs, train_pct, test_pct, validation_pct, \
     f_activacion, d_pesos, tambatch, momentum = iniciar()
 
-i = psr.Parser()
 datos_train, datos_validation, datos_test = i.parse(nro_ejercicio, train_pct, test_pct, validation_pct)
 
 # Ejemplo de train
