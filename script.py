@@ -6,10 +6,10 @@ import perceptron as ppn
 # import matplotlib.pyplot as plt
 
 def iniciar():
-    usage = 'Este script tiene un único parametro obligatorio, que es el path del archivo de entrada con los datos de input \n' \
+    usage = 'Este script tiene un único parametro obligatorio, que es el numero de ejercicio del TP. Puede ser 1 o 2 \n' \
           'Todos los demás son opcionales.\n' \
           'Ejemplo de ejecución: \n' \
-          '$ python perceptron.py 1 -ep=10000 -eta=0.01 -tr=20 -te=30 -val=50'
+          '$ python script.py 1 -ep=10000 -eta=0.01 -tr=20 -te=30 -val=50 -fa=tangente -dp=normal -tambatch=1 -mo=0'
 
     parser = argparse.ArgumentParser(usage=usage)
 
@@ -26,7 +26,7 @@ def iniciar():
     parser.add_argument("-fa", "--factivacion", default='tangente',
                         help='Funcion de activacion a utilizar. Valores: tangente, logistica, tangente_optimizada')
 
-    parser.add_argument("-pe", "--dpesos", default='normal',
+    parser.add_argument("-dp", "--dpesos", default='normal',
                         help='Distribucion de pesos a utilizar. Valores: normal, uniforme')
 
     parser.add_argument("-tambatch", "--tambatch", default=1,
@@ -34,7 +34,6 @@ def iniciar():
 
     parser.add_argument("-mo", "--momentum", default=0,
                         help='Momentum a utilizar')
-
 
     args = parser.parse_args()
 
