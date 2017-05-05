@@ -214,7 +214,7 @@ class PerceptronMulticapa(object):
             return gradientes
 
     # "Eta" es el factor de aprendizaje, y "epochs" el numero maximo de epocas de entrenamiento.
-    def train(self, dataset, salida_esperada, eta=0.5, epochs=100, tamanio_muestra_batch=1):
+    def train(self, dataset, salida_esperada, eta=0.5, epochs=100, tamanio_muestra_batch=1, adaptativo=False):
         # Para cada epoca, paso por cada una de las filas de entrada del dataset
         # y actualizo los pesos de la red con la regla delta
         # tamanio_muestra_batch = 1 ---> online learning
@@ -222,10 +222,15 @@ class PerceptronMulticapa(object):
         # tamanio_muestra_batch = len(dataset) ---> batch
 
         results = []
+        error_anterior = 0.0
+        imagen_de_la_red = []
+        fluctuacion_del_error = 0
+
         for epoch in range(epochs):
             funcion_de_costo = 0
             muestra_numero = 0
             gradientes = []
+            imagen_de_la_red = self.pesos_red
 
             for i, _ in enumerate(self.pesos_red):    
                 for neurona in self.pesos_red[i]:
@@ -258,6 +263,29 @@ class PerceptronMulticapa(object):
                 
 
             funcion_de_costo = funcion_de_costo / 2
+
+
+            # Si el learning rate es adaptativo, aca
+            # es donde lo va variando segun como evoluciona
+            # el error durante las epocas
+            if adaptativo:
+                if epoch == 1:
+                    error_anterior = funcion_de_costo
+                else:
+                    if funcion_de_costo != 0.0:
+                        if funcion_de_costo > error_anterior:
+                            fluctuacion_del_error += 1
+                        elif funcion_de_costo < error_anterior:
+                            fluctuacion_del_error -= 1
+                            
+                        if fluctuacion_del_error > 1:
+                            fluctuacion_del_error = 0
+                            eta *= 0.5
+                        elif fluctuacion_del_error < -1:
+                            fluctuacion_del_error = 0
+                            eta *= 1.1
+
+                        error_anterior = funcion_de_costo
 
             results.append({'epoca': epoch, 'eta': eta, 'funcion_de_costo': funcion_de_costo})
 
