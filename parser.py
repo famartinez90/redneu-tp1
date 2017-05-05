@@ -47,11 +47,9 @@ class Parser(object):
 				values.append(value)
 
 			datos.append(values)
-'''
-		datos = np.array(datos)
-		
-		datos_t = datos.transpose()
 
+		datos = np.array(datos)
+		datos_t = datos.transpose()
 		nor = nr.Normalizador()
 
 		datos_t_normalizados = []
@@ -65,18 +63,18 @@ class Parser(object):
 			medias += [media_columna]
 
 			datos_t_normalizados.append(columna_normalizada)
-	
+
 		datos_t_normalizados = np.array(datos_t_normalizados)
 
-		datos_normalizados = datos_t_normalizados.transpose()
+		datos_normalizados = datos_t_normalizados.transpose().tolist()
 
 		print datos_normalizados
-'''
+
 		# Mezclo datos para que la seleccion y division sean azarosas
 		random.shuffle(datos)
 
 		row_number = 0
-		for row in datos:
+		for row in datos_normalizados:
 		# Divido los datos del input en porciones respectivas de training, test y validation
 			index_training = (0, cant_datos_training)
 			index_test = (index_training[1], index_training[1] + cant_datos_test)

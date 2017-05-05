@@ -3,6 +3,7 @@ import argparse
 import os, sys
 import parser as psr
 import perceptron as ppn
+import matplotlib.pyplot as plt
 # import matplotlib.pyplot as plt
 
 def iniciar():
@@ -18,7 +19,7 @@ def iniciar():
 
     # Argumentos opcionales: cantidad de epocas, eta, y proporcion de los datos
     # para usar como entrenamiento, test y validacion
-    parser.add_argument("-ep", "--epochs", default=50000, help='Cantidad de epocas. Default = 50.000')
+    parser.add_argument("-ep", "--epochs", default=5000, help='Cantidad de epocas. Default = 5000')
     parser.add_argument("-eta", "--eta", default=0.01, help='Tasa de aprendizaje. Default = 0.01')
     parser.add_argument("-tr", "--train", default=33.33, help='% de input a utilizar como training. Default = 33')
     parser.add_argument("-te", "--test", default=33.33, help='% de input a utilizar como testing. Default = 33')
@@ -69,6 +70,8 @@ def iniciar():
 nro_ejercicio, eta, epochs, train_pct, test_pct, validation_pct, \
     f_activacion, d_pesos, tambatch, momentum = iniciar()
 
+i = psr.Parser()
+
 datos_train, datos_validation, datos_test = i.parse(nro_ejercicio, train_pct, test_pct, validation_pct)
 
 # Ejemplo de train
@@ -83,7 +86,7 @@ PPN = ppn.PerceptronMulticapa(N_ENTRADA, [3], 1, funcion_activacion=f_activacion
 results = PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs,
           tamanio_muestra_batch=tambatch)
 
-DATOS_PREDICCION = datos_train
+DATOS_PREDICCION = [row[0] for row in DATOS]
 
 resultados = []
 esperados = []
@@ -96,6 +99,25 @@ for _ in range(100):
     esperados = esperados + esperado
 
 print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)
+
+graficar = True
+
+if graficar:
+    # show = []
+
+    epocas = map(lambda row: row['epoca'], results)
+    errores = map(lambda row: row['funcion_de_costo'], results)
+
+    # for i in range(len(results)):
+    #     show.append(map(lambda row: row['epoca'], results[i]))
+    #     show.append(map(lambda row: row['funcion_de_costo'], results[i]))
+
+    # plt.plot(*show)
+
+    plt.plot(epocas, errores, marker='o')
+    plt.xlabel('Epocas')
+    plt.ylabel('Error/Funcion Costo')
+    plt.show()
 
 #plt.plot(range(1, len(ppn.errors_)+1), ppn.errors_, marker='o')
 #plt.xlabel('Epocas')

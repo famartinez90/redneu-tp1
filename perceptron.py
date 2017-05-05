@@ -55,7 +55,7 @@ class PerceptronMulticapa(object):
 
         for i in range(len(pesos) - 1):
             suma += pesos[i] * entrada[i]
-        
+
         return suma
 
     def funcion_de_activacion(self, suma):
@@ -73,9 +73,7 @@ class PerceptronMulticapa(object):
     def funcion_tangente_hiperbolica(self, x):
         # Usa la funcion tangente hiperbolica
         # g = (2 / 1 + e^-2x) - 1
-        if x>-200:
-        	return (2.0 / (1.0 + math.exp(-2 * x))) - 1.0
-        else: return -1
+        return (2.0 / (1.0 + math.exp(-2 * x))) - 1.0
 
     def funcion_tangente_hiperbolica_optimizada(self, x):
         # Usa la funcion tangente hiperbolica optimizada
@@ -121,6 +119,7 @@ class PerceptronMulticapa(object):
 
             for neurona in capa:
                 suma = self.funcion_de_suma(neurona['pesos'], salida)
+
                 neurona['salida'] = self.funcion_de_activacion(suma)
                 nueva_salida.append(neurona['salida'])
             
