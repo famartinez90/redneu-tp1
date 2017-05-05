@@ -23,6 +23,34 @@ class Normalizador():
 	def desnormalizarArray(self, a, media, desvio):
 		return [self.desnormalizar(elem, media, desvio) for elem in a]
 
+class Normalizador_2(object):
+	""" 
+		a = Normalizador_2([2,3,4,...])
+
+		a.original 		-> lista original transformada a array
+		a.normalizado 	-> array normalizado
+		a.desnormalizado -> array desnormalizado
+	"""
+	
+	def __init__(self, lista):
+		
+		self.original = np.array(lista)
+		self.normalizado = self.normalizar() 
+		self.desnormalizado = self.desnormalizar()
+
+	def normalizar(self):
+		
+		self.media, self.desvio = np.mean(self.original), np.std(self.original)
+		return [(( x - self.media ) / self.desvio ) for x in self.original ]
+
+	def desnormalizar(self):
+		return [ ((x * self.desvio) + self.media) for x in self.normalizado ]
+
+	
+
+		
+
+
 
 #originales = [[-1000, -75, 25, 70, 1000], [30, 75, 0, -20, 1000], [-500, -300, 100, 300, 500]]
 
