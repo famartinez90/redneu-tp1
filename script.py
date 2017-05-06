@@ -21,9 +21,9 @@ def iniciar():
     # para usar como entrenamiento, test y validacion
     parser.add_argument("-ep", "--epochs", default=5000, help='Cantidad de epocas. Default = 5000')
     parser.add_argument("-eta", "--eta", default=0.01, help='Tasa de aprendizaje. Default = 0.01')
-    parser.add_argument("-tr", "--train", default=33.33, help='% de input a utilizar como training. Default = 33')
-    parser.add_argument("-te", "--test", default=33.33, help='% de input a utilizar como testing. Default = 33')
-    parser.add_argument("-val", "--validation", default=33.33, help='% de input a utilizar como validation. Default = 33')
+    parser.add_argument("-tr", "--train", default=70, help='% de input a utilizar como training. Default = 70')
+    parser.add_argument("-te", "--test", default=20, help='% de input a utilizar como testing. Default = 20')
+    parser.add_argument("-val", "--validation", default=10, help='% de input a utilizar como validation. Default = 10')
     parser.add_argument("-fa", "--factivacion", default='tangente',
                         help='Funcion de activacion a utilizar. Valores: tangente, logistica, tangente_optimizada')
 
@@ -77,7 +77,7 @@ datos_train, datos_validation, datos_test = i.parse(nro_ejercicio, train_pct, te
 # Ejemplo de train
 DATOS = datos_train
 
-N_ENTRADA = len(DATOS[0][0]) - 1
+N_ENTRADA = len(DATOS[0][0])
 RESULTADOS_ESPERADOS = [row[-1] for row in DATOS]
 
 PPN = ppn.PerceptronMulticapa(N_ENTRADA, [3], 1, funcion_activacion=f_activacion,
@@ -86,7 +86,7 @@ PPN = ppn.PerceptronMulticapa(N_ENTRADA, [3], 1, funcion_activacion=f_activacion
 results = PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs,
           tamanio_muestra_batch=tambatch)
 
-DATOS_PREDICCION = [row[0] for row in DATOS]
+DATOS_PREDICCION = [row[0] for row in datos_validation]
 
 resultados = []
 esperados = []
@@ -95,7 +95,7 @@ for _ in range(100):
         prediccion = PPN.predecir(fila)
         resultados.append(prediccion)
 
-    esperado = map(lambda row: row[-1], DATOS_PREDICCION)
+    esperado = map(lambda row: row[-1], datos_validation)
     esperados = esperados + esperado
 
 print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)

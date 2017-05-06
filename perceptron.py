@@ -308,10 +308,10 @@ class PerceptronMulticapa(object):
     def predecir(self, fila):
         salida = self.propagacion_forward(fila)
         
-        if salida[0] > 0.5:
+        if salida[0] > 0.0:
             return 1
         else:
-            return 0
+            return -1
 
     # Permite medir la performance de la red para
     # realizar predicciones a partir de los resultados
@@ -320,7 +320,7 @@ class PerceptronMulticapa(object):
         acertados = 0
         
         for i, _ in enumerate(salida):
-            if esperado[i] == salida[i]:
+            if int(esperado[i]) == salida[i]:
                 acertados += 1
     	
         return acertados / float(len(salida)) * 100.0

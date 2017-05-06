@@ -68,10 +68,8 @@ class Parser(object):
 
 		datos_normalizados = datos_t_normalizados.transpose().tolist()
 
-		print datos_normalizados
-
 		# Mezclo datos para que la seleccion y division sean azarosas
-		random.shuffle(datos)
+		random.shuffle(datos_normalizados)
 
 		row_number = 0
 		for row in datos_normalizados:
