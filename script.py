@@ -3,6 +3,7 @@ import argparse
 import os, sys
 import parser as psr
 import perceptron as ppn
+import encoder as encoder
 import matplotlib.pyplot as plt
 # import matplotlib.pyplot as plt
 
@@ -21,13 +22,14 @@ def iniciar():
     # para usar como entrenamiento, test y validacion
     parser.add_argument("-ep", "--epochs", default=5000, help='Cantidad de epocas. Default = 5000')
     parser.add_argument("-eta", "--eta", default=0.01, help='Tasa de aprendizaje. Default = 0.01')
-    parser.add_argument("-capas", "--capas", default=5,
+    parser.add_argument("-capas", "--capas", default='10,10',
                         help='Cantidad de capas ocultas y neuronas en cada una. Se representa como una secuencia '
                              'de enteros separados por coma.'
                              'Donde cada elemento i es el número de neuronas en la capa i. '
                              ' Ejemplo: 2,4 sera una red de 2 capas, la primera de 2 y la segunda de 4'
                              'neuronas.'
                              'La longitud de elementos es la cantidad de capas ocultas. Default = 10,10. 2 capas de 10 neuronas.')
+
     parser.add_argument("-tr", "--train", default=70, help='% de input a utilizar como training. Default = 70')
     parser.add_argument("-te", "--test", default=20, help='% de input a utilizar como testing. Default = 20')
     parser.add_argument("-val", "--validation", default=10, help='% de input a utilizar como validation. Default = 10')
@@ -42,6 +44,10 @@ def iniciar():
 
     parser.add_argument("-mo", "--momentum", default=0,
                         help='Momentum a utilizar')
+
+    parser.add_argument("-red", "--red_a_utilizar", default=None,
+                        help='Permite elegir una red ya entrenada. Las redes estan almacenadas en archivos.'
+                             'Este parametro toma un filepath que contenga un txt con una red. Opciones: red_ej1.txt, red_ej2.txt')
 
     args = parser.parse_args()
 
@@ -59,6 +65,7 @@ def iniciar():
     d_pesos = args.dpesos
     tambatch = int(args.tambatch)
     momentum = float(args.momentum)
+    red_from_file = args.red_a_utilizar
 
     os.system('clear')
     print 'TP1 - Perceptrón Multicapa'
@@ -71,16 +78,17 @@ def iniciar():
     print "Distribucion de pesos: " + d_pesos
     print "Tamanio de batch: " + str(tambatch)
     print "Momentum: " + str(momentum)
+    print "Red a Utilizar: " + (red_from_file if (red_from_file is not None) else 'Nueva')
     print '-------------------------------------------------------------------------'
 
-    return nro_ejercicio, eta, epochs, capas_list, train_pct, test_pct, validation_pct, f_activacion, d_pesos, tambatch, momentum
+    return nro_ejercicio, eta, epochs, capas_list, train_pct, test_pct, validation_pct, f_activacion, d_pesos, tambatch, momentum, red_from_file
 
 ######### INICIO SCRIPT ##############
 
 # Ejemplo de ejecucion:
 
 nro_ejercicio, eta, epochs, capas, train_pct, test_pct, validation_pct, \
-    f_activacion, d_pesos, tambatch, momentum = iniciar()
+    f_activacion, d_pesos, tambatch, momentum, red_from_file = iniciar()
 
 i = psr.Parser()
 
@@ -92,11 +100,13 @@ DATOS = datos_train
 N_ENTRADA = len(DATOS[0][0])
 RESULTADOS_ESPERADOS = [row[-1] for row in DATOS]
 
-PPN = ppn.PerceptronMulticapa(N_ENTRADA, capas, 1, funcion_activacion=f_activacion,
+if red_from_file is not None:
+    PPN = encoder.from_json(red_from_file)
+else:
+    PPN = ppn.PerceptronMulticapa(N_ENTRADA, capas, 1, funcion_activacion=f_activacion,
                               distribucion_pesos=d_pesos, momentum=momentum)
-
-results = PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs,
-          tamanio_muestra_batch=tambatch)
+    results = PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs,
+              tamanio_muestra_batch=tambatch)
 
 DATOS_PREDICCION = [row[0] for row in datos_validation]
 
@@ -112,7 +122,7 @@ for _ in range(100):
 
 print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)
 
-graficar = True
+graficar = False
 
 if graficar:
     # show = []

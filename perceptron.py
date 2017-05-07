@@ -5,7 +5,8 @@ import numpy as np
 class PerceptronMulticapa(object):
 
     # Constructor de la clase. 
-    def __init__(self, n_entrada, ns_ocultas, n_salida, funcion_activacion="", distribucion_pesos="", momentum=0):
+    def __init__(self, n_entrada, ns_ocultas, n_salida, funcion_activacion="", distribucion_pesos="",
+                 momentum=0, basic_init=False, basic_init_pesos={}):
         # Inicializamos todos los pesos de los ejes de la
         # red en valores random pequeños, entre 0 y 1, 
         # provenientes de una distribución normal
@@ -15,6 +16,10 @@ class PerceptronMulticapa(object):
         self.bias = 1.0
         self.distribucion = distribucion_pesos
         self.momentum = momentum
+
+        if basic_init:
+            self.pesos_red = basic_init_pesos
+            return
 
         # Calcula pesos de ejes para la primer capa oculta + bias (último peso)
         pesos_capa_oculta_0 = []
@@ -42,12 +47,12 @@ class PerceptronMulticapa(object):
     def generate_pesos_random(self, entradas_neurona):
         return {
             # Genera pesos con una distribucion uniforme [0, 1)
-            'uniforme': np.random.rand(entradas_neurona), 
+            'uniforme': np.random.rand(entradas_neurona).tolist(),
             # Genera pesos con una distribucion normal con media 0 y 
             # varianza entradas_neurona^-1/2, basado en Efficient BackProp
             # de Yann LeCun, fórmula 15, inicialización de pesos eficiente
             # para funciones de activación sigmoideas
-            'normal': np.random.normal(0, math.sqrt(1.0 / entradas_neurona), entradas_neurona), 
+            'normal': np.random.normal(0, math.sqrt(1.0 / entradas_neurona), entradas_neurona).tolist(),
         }.get(self.distribucion, np.random.rand(entradas_neurona))
 
     def funcion_de_suma(self, pesos, entrada):
