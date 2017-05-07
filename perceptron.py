@@ -155,7 +155,10 @@ class PerceptronMulticapa(object):
                 # y el valor esperado de salida del dataset
                 # REF: Algoritmo Backpropagation - 6.17
                 for j, neurona in enumerate(capa):
-                    errores.append(salida_esperada[j] - neurona['salida'])
+                    if isinstance(salida_esperada[0], tuple): 
+                        errores.append(salida_esperada[0][j] - neurona['salida'])
+                    else:
+                        errores.append(salida_esperada[j] - neurona['salida'])
             
             # Calcula el delta para cada neurona de la capa actual
             # haciendo el producto del error por la derivada de la funcion
@@ -240,9 +243,9 @@ class PerceptronMulticapa(object):
                 salida = self.propagacion_forward(fila)
                 error_cuadratico = []
 
-                if isinstance(salida_esperada[k], list):
+                if isinstance(salida_esperada[k], tuple):
                     for i, esperada in enumerate(salida_esperada[k]):
-                        error_cuadratico.append((esperada[i] - salida[i]) ** 2)
+                        error_cuadratico.append((esperada - salida[i]) ** 2)
                 else:
                     error_cuadratico.append((salida_esperada[k] - salida[0]) ** 2)
 
