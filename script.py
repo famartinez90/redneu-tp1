@@ -21,7 +21,13 @@ def iniciar():
     # para usar como entrenamiento, test y validacion
     parser.add_argument("-ep", "--epochs", default=5000, help='Cantidad de epocas. Default = 5000')
     parser.add_argument("-eta", "--eta", default=0.01, help='Tasa de aprendizaje. Default = 0.01')
-    parser.add_argument("-capas", "--capas", default=5, help='Cantidad de capas ocultas. Default = 5')
+    parser.add_argument("-capas", "--capas", default=5,
+                        help='Cantidad de capas ocultas y neuronas en cada una. Se representa como una secuencia '
+                             'de enteros separados por coma.'
+                             'Donde cada elemento i es el número de neuronas en la capa i. '
+                             ' Ejemplo: 2,4 sera una red de 2 capas, la primera de 2 y la segunda de 4'
+                             'neuronas.'
+                             'La longitud de elementos es la cantidad de capas ocultas. Default = 10,10. 2 capas de 10 neuronas.')
     parser.add_argument("-tr", "--train", default=70, help='% de input a utilizar como training. Default = 70')
     parser.add_argument("-te", "--test", default=20, help='% de input a utilizar como testing. Default = 20')
     parser.add_argument("-val", "--validation", default=10, help='% de input a utilizar como validation. Default = 10')
@@ -42,7 +48,10 @@ def iniciar():
     nro_ejercicio = args.nro_ejercicio
     eta = float(args.eta)
     epochs = int(args.epochs)
-    capas = int(args.capas)
+    capas = args.capas
+    capas_list = capas.split(",")
+    capas_list = map(int, capas_list)
+
     train_pct = float(args.train)
     test_pct = float(args.test)
     validation_pct = float(args.validation)
@@ -64,7 +73,7 @@ def iniciar():
     print "Momentum: " + str(momentum)
     print '-------------------------------------------------------------------------'
 
-    return nro_ejercicio, eta, epochs, capas, train_pct, test_pct, validation_pct, f_activacion, d_pesos, tambatch, momentum
+    return nro_ejercicio, eta, epochs, capas_list, train_pct, test_pct, validation_pct, f_activacion, d_pesos, tambatch, momentum
 
 ######### INICIO SCRIPT ##############
 
@@ -83,13 +92,13 @@ DATOS = datos_train
 N_ENTRADA = len(DATOS[0][0])
 RESULTADOS_ESPERADOS = [row[-1] for row in DATOS]
 
-PPN = ppn.PerceptronMulticapa(N_ENTRADA, [capas], 1, funcion_activacion=f_activacion,
+PPN = ppn.PerceptronMulticapa(N_ENTRADA, capas, 1, funcion_activacion=f_activacion,
                               distribucion_pesos=d_pesos, momentum=momentum)
 
 results = PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs,
           tamanio_muestra_batch=tambatch)
 
-DATOS_PREDICCION = [row[0] for row in datos_train]
+DATOS_PREDICCION = [row[0] for row in datos_validation]
 
 resultados = []
 esperados = []
@@ -98,7 +107,7 @@ for _ in range(100):
         prediccion = PPN.predecir_ej1(fila)
         resultados.append(prediccion)
 
-    esperado = map(lambda row: row[-1], datos_train)
+    esperado = map(lambda row: row[-1], datos_validation)
     esperados = esperados + esperado
 
 print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)
