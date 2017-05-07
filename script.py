@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 # Ejemplo de ejecucion:
 
 nro_ejercicio, eta, epochs, capas, train_pct, test_pct, validation_pct, \
-    f_activacion, d_pesos, tambatch, momentum, red_desde_archivo = params.iniciar()
+    f_activacion, d_pesos, tambatch, momentum, red_desde_archivo, estop = params.iniciar()
 
 i = psr.Parser()
 
@@ -33,18 +33,18 @@ for i in range(2):
         PPN = encoder.from_json(red_desde_archivo)
     else:
         PPN = ppn.PerceptronMulticapa(N_ENTRADA, capas, N_SALIDA, funcion_activacion=f_activacion, distribucion_pesos=d_pesos, momentum=momentum)
-        results.append(PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs, tamanio_muestra_batch=tambatch))
+        results.append(PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, datos_validation, eta=eta, epochs=epochs, tamanio_muestra_batch=tambatch, early_stopping_treshold=estop))
 
-    DATOS_PREDICCION = [row[0] for row in datos_validation]
+    DATOS_PREDICCION = [row[0] for row in datos_test]
 
     resultados = []
     esperados = []
-    for _ in range(100):
+    for _ in range(10):
         for fila in DATOS_PREDICCION:
             prediccion = PPN.predecir_ej1(fila)
             resultados.append(prediccion)
 
-        esperado = map(lambda row: row[-1], datos_validation)
+        esperado = [row[-1] for row in datos_test]
         esperados = esperados + esperado
 
     print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)

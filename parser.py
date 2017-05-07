@@ -93,7 +93,7 @@ class Parser(object):
 
 			row_number += 1
 
-		return datos_train, datos_validation, datos_test
+		return datos_train, datos_test, datos_validation
 
 	def separar_salida(self, nro_ejercicio, row):
 		# Se parsea distinto si es el ejercicio 1 o el 2
