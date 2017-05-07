@@ -326,7 +326,7 @@ class PerceptronMulticapa(object):
     def predecir_ej1(self, fila):
         salida = self.propagacion_forward(fila)
 
-        if salida[0] > 0:
+        if salida[0] > 0.0:
             return 1
         else:
             return -1

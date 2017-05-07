@@ -100,43 +100,43 @@ DATOS = datos_train
 N_ENTRADA = len(DATOS[0][0])
 RESULTADOS_ESPERADOS = [row[-1] for row in DATOS]
 
-if red_from_file is not None:
-    PPN = encoder.from_json(red_from_file)
+if isinstance(RESULTADOS_ESPERADOS[0], tuple):
+    N_SALIDA = len(RESULTADOS_ESPERADOS[0])
 else:
-    PPN = ppn.PerceptronMulticapa(N_ENTRADA, capas, 1, funcion_activacion=f_activacion,
-                              distribucion_pesos=d_pesos, momentum=momentum)
-    results = PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs,
-              tamanio_muestra_batch=tambatch)
+    N_SALIDA = 1
 
-DATOS_PREDICCION = [row[0] for row in datos_validation]
+results = []
+for i in range(1):
+    if red_from_file is not None:
+        PPN = encoder.from_json(red_from_file)
+    else:
+        PPN = ppn.PerceptronMulticapa(N_ENTRADA, capas, N_SALIDA, funcion_activacion=f_activacion, distribucion_pesos=d_pesos, momentum=momentum)
+        results.append(PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs, tamanio_muestra_batch=tambatch))
 
-resultados = []
-esperados = []
-for _ in range(100):
-    for fila in DATOS_PREDICCION:
-        prediccion = PPN.predecir_ej1(fila)
-        resultados.append(prediccion)
+    DATOS_PREDICCION = [row[0] for row in datos_validation]
 
-    esperado = map(lambda row: row[-1], datos_validation)
-    esperados = esperados + esperado
+    resultados = []
+    esperados = []
+    for _ in range(100):
+        for fila in DATOS_PREDICCION:
+            prediccion = PPN.predecir_ej1(fila)
+            resultados.append(prediccion)
 
-print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)
+        esperado = map(lambda row: row[-1], datos_validation)
+        esperados = esperados + esperado
+
+    print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)
 
 graficar = False
 
 if graficar:
-    # show = []
+    show = []
 
-    epocas = map(lambda row: row['epoca'], results)
-    errores = map(lambda row: row['funcion_de_costo'], results)
+    for i in range(len(results)):
+        show.append(map(lambda row: row['epoca'], results[i]))
+        show.append(map(lambda row: row['funcion_de_costo'], results[i]))
 
-    # for i in range(len(results)):
-    #     show.append(map(lambda row: row['epoca'], results[i]))
-    #     show.append(map(lambda row: row['funcion_de_costo'], results[i]))
-
-    # plt.plot(*show)
-
-    plt.plot(epocas, errores, marker='o')
+    plt.plot(*show, marker='o')
     plt.xlabel('Epocas')
     plt.ylabel('Error/Funcion Costo')
     plt.show()
