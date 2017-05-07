@@ -1,94 +1,16 @@
 # -*- coding: utf-8 -*-
-import argparse
-import os, sys
+import parameters as params
 import parser as psr
 import perceptron as ppn
 import encoder as encoder
 import matplotlib.pyplot as plt
-# import matplotlib.pyplot as plt
-
-def iniciar():
-    usage = 'Este script tiene un único parametro obligatorio, que es el numero de ejercicio del TP. Puede ser 1 o 2 \n' \
-          'Todos los demás son opcionales.\n' \
-          'Ejemplo de ejecución: \n' \
-          '$ python script.py 1 -ep=10000 -eta=0.01 -tr=20 -te=30 -val=50 -fa=tangente -dp=normal -tambatch=1 -mo=0'
-
-    parser = argparse.ArgumentParser(usage=usage)
-
-    # Argumento obligatorio: archivo de entrada
-    parser.add_argument("nro_ejercicio", type=str, help='Numero de ejercicio. Valores: 1/2')
-
-    # Argumentos opcionales: cantidad de epocas, eta, y proporcion de los datos
-    # para usar como entrenamiento, test y validacion
-    parser.add_argument("-ep", "--epochs", default=5000, help='Cantidad de epocas. Default = 5000')
-    parser.add_argument("-eta", "--eta", default=0.01, help='Tasa de aprendizaje. Default = 0.01')
-    parser.add_argument("-capas", "--capas", default='10,10',
-                        help='Cantidad de capas ocultas y neuronas en cada una. Se representa como una secuencia '
-                             'de enteros separados por coma.'
-                             'Donde cada elemento i es el número de neuronas en la capa i. '
-                             ' Ejemplo: 2,4 sera una red de 2 capas, la primera de 2 y la segunda de 4'
-                             'neuronas.'
-                             'La longitud de elementos es la cantidad de capas ocultas. Default = 10,10. 2 capas de 10 neuronas.')
-
-    parser.add_argument("-tr", "--train", default=70, help='% de input a utilizar como training. Default = 70')
-    parser.add_argument("-te", "--test", default=20, help='% de input a utilizar como testing. Default = 20')
-    parser.add_argument("-val", "--validation", default=10, help='% de input a utilizar como validation. Default = 10')
-    parser.add_argument("-fa", "--factivacion", default='tangente',
-                        help='Funcion de activacion a utilizar. Valores: tangente, logistica, tangente_optimizada')
-
-    parser.add_argument("-dp", "--dpesos", default='normal',
-                        help='Distribucion de pesos a utilizar. Valores: normal, uniforme')
-
-    parser.add_argument("-tambatch", "--tambatch", default=1,
-                        help='Tamanio del batch a utilizar')
-
-    parser.add_argument("-mo", "--momentum", default=0,
-                        help='Momentum a utilizar')
-
-    parser.add_argument("-red", "--red_a_utilizar", default=None,
-                        help='Permite elegir una red ya entrenada. Las redes estan almacenadas en archivos.'
-                             'Este parametro toma un filepath que contenga un txt con una red. Opciones: red_ej1.txt, red_ej2.txt')
-
-    args = parser.parse_args()
-
-    nro_ejercicio = args.nro_ejercicio
-    eta = float(args.eta)
-    epochs = int(args.epochs)
-    capas = args.capas
-    capas_list = capas.split(",")
-    capas_list = map(int, capas_list)
-
-    train_pct = float(args.train)
-    test_pct = float(args.test)
-    validation_pct = float(args.validation)
-    f_activacion = args.factivacion
-    d_pesos = args.dpesos
-    tambatch = int(args.tambatch)
-    momentum = float(args.momentum)
-    red_from_file = args.red_a_utilizar
-
-    os.system('clear')
-    print 'TP1 - Perceptrón Multicapa'
-    print "Se intentará procesar los datos del ejercicio "+nro_ejercicio+" ejecutando "+str(epochs)+" épocas con ETA "+str(eta)
-    print str(train_pct) + "% del input utilizado como Entrenamiento"
-    print str(test_pct) + "% del input utilizado como Testing"
-    print str(validation_pct) + "% del input utilizado como Validacion"
-    print "Capas ocultas: " + str(capas)
-    print "Funcion de activacion: " + f_activacion
-    print "Distribucion de pesos: " + d_pesos
-    print "Tamanio de batch: " + str(tambatch)
-    print "Momentum: " + str(momentum)
-    print "Red a Utilizar: " + (red_from_file if (red_from_file is not None) else 'Nueva')
-    print '-------------------------------------------------------------------------'
-
-    return nro_ejercicio, eta, epochs, capas_list, train_pct, test_pct, validation_pct, f_activacion, d_pesos, tambatch, momentum, red_from_file
 
 ######### INICIO SCRIPT ##############
 
 # Ejemplo de ejecucion:
 
 nro_ejercicio, eta, epochs, capas, train_pct, test_pct, validation_pct, \
-    f_activacion, d_pesos, tambatch, momentum, red_from_file = iniciar()
+    f_activacion, d_pesos, tambatch, momentum, red_desde_archivo = params.iniciar()
 
 i = psr.Parser()
 
@@ -106,9 +28,9 @@ else:
     N_SALIDA = 1
 
 results = []
-for i in range(1):
-    if red_from_file is not None:
-        PPN = encoder.from_json(red_from_file)
+for i in range(2):
+    if red_desde_archivo is not None:
+        PPN = encoder.from_json(red_desde_archivo)
     else:
         PPN = ppn.PerceptronMulticapa(N_ENTRADA, capas, N_SALIDA, funcion_activacion=f_activacion, distribucion_pesos=d_pesos, momentum=momentum)
         results.append(PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs, tamanio_muestra_batch=tambatch))
@@ -127,7 +49,7 @@ for i in range(1):
 
     print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)
 
-graficar = False
+graficar = True
 
 if graficar:
     show = []
