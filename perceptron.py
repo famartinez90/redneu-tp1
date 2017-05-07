@@ -330,7 +330,7 @@ class PerceptronMulticapa(object):
         acertados = 0
         
         for i, _ in enumerate(salida):
-            if int(esperado[i]) == salida[i]:
+            if int(round(esperado[i])) == salida[i]:
                 acertados += 1
     	
         return acertados / float(len(salida)) * 100.0

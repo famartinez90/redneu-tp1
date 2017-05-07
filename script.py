@@ -21,6 +21,7 @@ def iniciar():
     # para usar como entrenamiento, test y validacion
     parser.add_argument("-ep", "--epochs", default=5000, help='Cantidad de epocas. Default = 5000')
     parser.add_argument("-eta", "--eta", default=0.01, help='Tasa de aprendizaje. Default = 0.01')
+    parser.add_argument("-capas", "--capas", default=5, help='Cantidad de capas ocultas. Default = 5')
     parser.add_argument("-tr", "--train", default=70, help='% de input a utilizar como training. Default = 70')
     parser.add_argument("-te", "--test", default=20, help='% de input a utilizar como testing. Default = 20')
     parser.add_argument("-val", "--validation", default=10, help='% de input a utilizar como validation. Default = 10')
@@ -41,6 +42,7 @@ def iniciar():
     nro_ejercicio = args.nro_ejercicio
     eta = float(args.eta)
     epochs = int(args.epochs)
+    capas = int(args.capas)
     train_pct = float(args.train)
     test_pct = float(args.test)
     validation_pct = float(args.validation)
@@ -55,19 +57,20 @@ def iniciar():
     print str(train_pct) + "% del input utilizado como Entrenamiento"
     print str(test_pct) + "% del input utilizado como Testing"
     print str(validation_pct) + "% del input utilizado como Validacion"
+    print "Capas ocultas: " + str(capas)
     print "Funcion de activacion: " + f_activacion
     print "Distribucion de pesos: " + d_pesos
     print "Tamanio de batch: " + str(tambatch)
     print "Momentum: " + str(momentum)
     print '-------------------------------------------------------------------------'
 
-    return nro_ejercicio, eta, epochs, train_pct, test_pct, validation_pct, f_activacion, d_pesos, tambatch, momentum
+    return nro_ejercicio, eta, epochs, capas, train_pct, test_pct, validation_pct, f_activacion, d_pesos, tambatch, momentum
 
 ######### INICIO SCRIPT ##############
 
 # Ejemplo de ejecucion:
 
-nro_ejercicio, eta, epochs, train_pct, test_pct, validation_pct, \
+nro_ejercicio, eta, epochs, capas, train_pct, test_pct, validation_pct, \
     f_activacion, d_pesos, tambatch, momentum = iniciar()
 
 i = psr.Parser()
@@ -80,7 +83,7 @@ DATOS = datos_train
 N_ENTRADA = len(DATOS[0][0])
 RESULTADOS_ESPERADOS = [row[-1] for row in DATOS]
 
-PPN = ppn.PerceptronMulticapa(N_ENTRADA, [3], 1, funcion_activacion=f_activacion,
+PPN = ppn.PerceptronMulticapa(N_ENTRADA, [capas], 1, funcion_activacion=f_activacion,
                               distribucion_pesos=d_pesos, momentum=momentum)
 
 results = PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs,
