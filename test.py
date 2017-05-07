@@ -16,28 +16,28 @@ for _ in range(10):
     PPN = ppn.PerceptronMulticapa(N_ENTRADA, [3], 1, funcion_activacion="tangente", distribucion_pesos="normal", momentum=0)
     results.append(PPN.train([xs[:-1] for xs in DATOS], RESULTADOS_ESPERADOS, eta=0.05, epochs=70, tamanio_muestra_batch=1, adaptativo=False))
 
-# DATOS_PREDICCION = [[2.7810836, 2.550537003, 0], 
-#                     [1.465489372, 2.362125076, 0], 
-#                     [3.396561688, 4.400293529, 0], 
-#                     [1.38807019, 1.850220317, 0], 
-#                     [3.06407232, 3.005305973, 0], 
-#                     [7.627531214, 2.759262235, 1], 
-#                     [5.332441248, 2.088626775, 1], 
-#                     [6.922596716, 1.77106367, 1], 
-#                     [8.675418651, -0.242068655, 1], 
-#                     [7.673756466, 3.508563011, 1]]
+DATOS_PREDICCION = [[2.7810836, 2.550537003, 0],
+                    [1.465489372, 2.362125076, 0],
+                    [3.396561688, 4.400293529, 0],
+                    [1.38807019, 1.850220317, 0],
+                    [3.06407232, 3.005305973, 0],
+                    [7.627531214, 2.759262235, 1],
+                    [5.332441248, 2.088626775, 1],
+                    [6.922596716, 1.77106367, 1],
+                    [8.675418651, -0.242068655, 1],
+                    [7.673756466, 3.508563011, 1]]
 
-# resultados = []
-# esperados = []
-# for _ in range(100):
-#     for fila in DATOS_PREDICCION:
-#         prediccion = PPN.predecir(fila)
-#         resultados.append(prediccion)
+resultados = []
+esperados = []
+for _ in range(100):
+    for fila in DATOS_PREDICCION:
+        prediccion = PPN.predecir_test(fila)
+        resultados.append(prediccion)
     
-#     esperado = map(lambda xs: xs[-1], DATOS_PREDICCION)
-#     esperados = esperados + esperado
+    esperado = map(lambda xs: xs[-1], DATOS_PREDICCION)
+    esperados = esperados + esperado
 
-# print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)
+print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)
 
 # print PPN.propagacion_forward([17.673756466, 13.508563011, 1])
 

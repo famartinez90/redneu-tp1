@@ -305,10 +305,20 @@ class PerceptronMulticapa(object):
 
     # Realiza una prediccion sobre una entrada
     # a partir de una red entrenada
-    def predecir(self, fila):
+    def predecir_test(self, fila):
         salida = self.propagacion_forward(fila)
         
-        if salida[0] > 0.0:
+        if salida[0] > 0.5:
+            return 1
+        else:
+            return 0
+
+    # Realiza una prediccion sobre una entrada
+    # a partir de una red entrenada
+    def predecir_ej1(self, fila):
+        salida = self.propagacion_forward(fila)
+
+        if salida[0] > 0:
             return 1
         else:
             return -1

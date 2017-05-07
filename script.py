@@ -86,16 +86,16 @@ PPN = ppn.PerceptronMulticapa(N_ENTRADA, [3], 1, funcion_activacion=f_activacion
 results = PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs,
           tamanio_muestra_batch=tambatch)
 
-DATOS_PREDICCION = [row[0] for row in datos_validation]
+DATOS_PREDICCION = [row[0] for row in datos_train]
 
 resultados = []
 esperados = []
 for _ in range(100):
     for fila in DATOS_PREDICCION:
-        prediccion = PPN.predecir(fila)
+        prediccion = PPN.predecir_ej1(fila)
         resultados.append(prediccion)
 
-    esperado = map(lambda row: row[-1], datos_validation)
+    esperado = map(lambda row: row[-1], datos_train)
     esperados = esperados + esperado
 
 print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)
