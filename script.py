@@ -30,8 +30,8 @@ def iniciar():
                              'neuronas.'
                              'La longitud de elementos es la cantidad de capas ocultas. Default = 10,10. 2 capas de 10 neuronas.')
 
-    parser.add_argument("-tr", "--train", default=70, help='% de input a utilizar como training. Default = 70')
-    parser.add_argument("-te", "--test", default=20, help='% de input a utilizar como testing. Default = 20')
+    parser.add_argument("-tr", "--train", default=70, help='% de input a utilizar como training. Default = 80')
+    parser.add_argument("-te", "--test", default=20, help='% de input a utilizar como testing. Default = 10')
     parser.add_argument("-val", "--validation", default=10, help='% de input a utilizar como validation. Default = 10')
     parser.add_argument("-fa", "--factivacion", default='tangente',
                         help='Funcion de activacion a utilizar. Valores: tangente, logistica, tangente_optimizada')
@@ -48,6 +48,9 @@ def iniciar():
     parser.add_argument("-red", "--red_a_utilizar", default=None,
                         help='Permite elegir una red ya entrenada. Las redes estan almacenadas en archivos.'
                              'Este parametro toma un filepath que contenga un txt con una red. Opciones: red_ej1.txt, red_ej2.txt')
+    
+    parser.add_argument("-estop", "--earlystopping", default=0,
+                        help='Treshold para hacer el early stopping')
 
     args = parser.parse_args()
 
@@ -66,6 +69,7 @@ def iniciar():
     tambatch = int(args.tambatch)
     momentum = float(args.momentum)
     red_from_file = args.red_a_utilizar
+    estop = float(args.earlystopping)
 
     os.system('clear')
     print 'TP1 - Perceptrón Multicapa'
@@ -81,14 +85,14 @@ def iniciar():
     print "Red a Utilizar: " + (red_from_file if (red_from_file is not None) else 'Nueva')
     print '-------------------------------------------------------------------------'
 
-    return nro_ejercicio, eta, epochs, capas_list, train_pct, test_pct, validation_pct, f_activacion, d_pesos, tambatch, momentum, red_from_file
+    return nro_ejercicio, eta, epochs, capas_list, train_pct, test_pct, validation_pct, f_activacion, d_pesos, tambatch, momentum, red_from_file, estop
 
 ######### INICIO SCRIPT ##############
 
 # Ejemplo de ejecucion:
 
 nro_ejercicio, eta, epochs, capas, train_pct, test_pct, validation_pct, \
-    f_activacion, d_pesos, tambatch, momentum, red_from_file = iniciar()
+    f_activacion, d_pesos, tambatch, momentum, red_from_file, estop = iniciar()
 
 i = psr.Parser()
 
@@ -111,18 +115,18 @@ for i in range(1):
         PPN = encoder.from_json(red_from_file)
     else:
         PPN = ppn.PerceptronMulticapa(N_ENTRADA, capas, N_SALIDA, funcion_activacion=f_activacion, distribucion_pesos=d_pesos, momentum=momentum)
-        results.append(PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, eta=eta, epochs=epochs, tamanio_muestra_batch=tambatch))
+        results.append(PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, datos_validation, eta=eta, epochs=epochs, tamanio_muestra_batch=tambatch, early_stopping_treshold=estop))
 
-    DATOS_PREDICCION = [row[0] for row in datos_validation]
+    DATOS_PREDICCION = [row[0] for row in datos_test]
 
     resultados = []
     esperados = []
-    for _ in range(100):
+    for _ in range(10):
         for fila in DATOS_PREDICCION:
             prediccion = PPN.predecir_ej1(fila)
             resultados.append(prediccion)
 
-        esperado = map(lambda row: row[-1], datos_validation)
+        esperado = [row[-1] for row in datos_test]
         esperados = esperados + esperado
 
     print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)

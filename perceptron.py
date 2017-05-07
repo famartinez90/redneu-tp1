@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import math as math
 import numpy as np
+from copy import copy, deepcopy
 
 class PerceptronMulticapa(object):
 
@@ -221,7 +222,7 @@ class PerceptronMulticapa(object):
             return gradientes
 
     # "Eta" es el factor de aprendizaje, y "epochs" el numero maximo de epocas de entrenamiento.
-    def train(self, dataset, salida_esperada, eta=0.5, epochs=100, tamanio_muestra_batch=1, adaptativo=False):
+    def train(self, dataset, salida_esperada, validacion, eta=0.5, epochs=100, tamanio_muestra_batch=1, adaptativo=False, early_stopping_treshold=0):
         # Para cada epoca, paso por cada una de las filas de entrada del dataset
         # y actualizo los pesos de la red con la regla delta
         # tamanio_muestra_batch = 1 ---> online learning
@@ -237,7 +238,9 @@ class PerceptronMulticapa(object):
             funcion_de_costo = 0
             muestra_numero = 0
             gradientes = []
-            imagen_de_la_red = self.pesos_red
+
+            if adaptativo:
+                imagen_de_la_red = deepcopy(self.pesos_red)
 
             for i, _ in enumerate(self.pesos_red):    
                 for neurona in self.pesos_red[i]:
@@ -271,6 +274,7 @@ class PerceptronMulticapa(object):
 
             funcion_de_costo = funcion_de_costo / 2
 
+            error_validacion = self.calcular_error_validacion(validacion)
 
             # Si el learning rate es adaptativo, aca
             # es donde lo va variando segun como evoluciona
@@ -287,16 +291,23 @@ class PerceptronMulticapa(object):
                             
                         if fluctuacion_del_error > 1:
                             fluctuacion_del_error = 0
+                            self.pesos_red = imagen_de_la_red
                             eta *= 0.5
                         elif fluctuacion_del_error < -1:
                             fluctuacion_del_error = 0
+                            self.pesos_red = imagen_de_la_red
                             eta *= 1.1
 
                         error_anterior = funcion_de_costo
 
             results.append({'epoca': epoch, 'eta': eta, 'funcion_de_costo': funcion_de_costo})
 
-            print 'epoca: %d, eta: %.3f, error: %.3f' % (epoch, eta, funcion_de_costo)
+            print 'epoca: %d, eta: %.3f, error: %.3f, validacion: %.2f %%' % (epoch, eta, funcion_de_costo, error_validacion)
+
+            if early_stopping_treshold > 0.0:
+                if error_validacion >= early_stopping_treshold and funcion_de_costo < 10.0:
+                    retrain = False
+                    break
 
         return results
 
@@ -330,6 +341,17 @@ class PerceptronMulticapa(object):
             return 1
         else:
             return -1
+
+    def calcular_error_validacion(self, datos_validacion):
+        entrada = [row[0] for row in datos_validacion]
+        esperados = [row[-1] for row in datos_validacion]
+        resultados = []
+
+        for fila in entrada:
+            prediccion = self.predecir_ej1(fila)
+            resultados.append(prediccion)
+
+        return self.medir_performance(esperados, resultados)
 
     # Permite medir la performance de la red para
     # realizar predicciones a partir de los resultados
