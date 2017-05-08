@@ -222,7 +222,8 @@ class PerceptronMulticapa(object):
             return gradientes
 
     # "Eta" es el factor de aprendizaje, y "epochs" el numero maximo de epocas de entrenamiento.
-    def train(self, dataset, salida_esperada, validacion, eta=0.5, epochs=100, tamanio_muestra_batch=1, adaptativo=False, early_stopping_treshold=0):
+    def train(self, dataset, salida_esperada, validacion, eta=0.5, epochs=100,
+              tamanio_muestra_batch=1, adaptativo=False, early_stopping_treshold=0, print_epochs=True):
         # Para cada epoca, paso por cada una de las filas de entrada del dataset
         # y actualizo los pesos de la red con la regla delta
         # tamanio_muestra_batch = 1 ---> online learning
@@ -302,7 +303,8 @@ class PerceptronMulticapa(object):
 
             results.append({'epoca': epoch, 'eta': eta, 'funcion_de_costo': funcion_de_costo})
 
-            print 'epoca: %d, eta: %.3f, error: %.3f, validacion: %.2f %%' % (epoch, eta, funcion_de_costo, error_validacion)
+            if print_epochs:
+                print 'epoca: %d, eta: %.3f, error: %.3f, validacion: %.2f %%' % (epoch, eta, funcion_de_costo, error_validacion)
 
             if early_stopping_treshold > 0.0:
                 if error_validacion >= early_stopping_treshold and funcion_de_costo < 10.0:

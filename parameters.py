@@ -16,7 +16,7 @@ def iniciar():
     # Argumentos opcionales: cantidad de epocas, eta, y proporcion de los datos
     # para usar como entrenamiento, test y validacion
     parser.add_argument("-ep", "--epochs", default=500, help='Cantidad de epocas. Default = 500')
-    parser.add_argument("-eta", "--eta", default=0.01, help='Tasa de aprendizaje. Default = 0.01')
+    parser.add_argument("-eta", "--eta", default=0.05, help='Tasa de aprendizaje. Default = 0.05')
     parser.add_argument("-capas", "--capas", default='10,10',
                         help='Cantidad de capas ocultas y neuronas en cada una. Se representa como una secuencia '
                              'de enteros separados por coma.'

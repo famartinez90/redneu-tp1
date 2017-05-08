@@ -14,7 +14,7 @@ nro_ejercicio, eta, epochs, capas, train_pct, test_pct, validation_pct, \
 
 i = psr.Parser()
 
-datos_train, datos_validation, datos_test = i.parse(nro_ejercicio, train_pct, test_pct, validation_pct)
+datos_train, datos_test, datos_validation = i.parse(nro_ejercicio, train_pct, test_pct, validation_pct)
 
 # Ejemplo de train
 DATOS = datos_train
@@ -28,7 +28,7 @@ else:
     N_SALIDA = 1
 
 results = []
-for i in range(2):
+for i in range(1):
     if red_desde_archivo is not None:
         PPN = encoder.from_json(red_desde_archivo)
     else:
