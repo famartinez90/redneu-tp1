@@ -22,13 +22,13 @@ if isinstance(RESULTADOS_ESPERADOS[0], tuple):
 else:
     N_SALIDA = 1
 
-rondas = 3
+rondas = 8
 
-for i in [1,2,5,10,20]:
+for i in [1,2,5,8]:
     errores_finales = []
     eficiencias = []
 
-    print "Se ejecutaran " + str(rondas) + " con " + str(i) + " capas de 10 neuronas"
+    print "Se ejecutarán " + str(rondas) + " rondas con " + str(i) + " capas de 10 neuronas"
 
     for j in range(rondas):
 
@@ -56,6 +56,9 @@ for i in [1,2,5,10,20]:
 
         eficiencias.append(PPN.medir_performance(esperados, resultados))
         errores_finales.append(results[-1][-1]['funcion_de_costo'])
+
+        print "Corrida " + str(j) + ' Error: ' + str(results[-1][-1]['funcion_de_costo']) + \
+              ' Eficiencia: ' + str(PPN.medir_performance(esperados, resultados))
 
     error_promedio = sum(errores_finales) / rondas
     eficiencia_promedio = sum(eficiencias) / rondas
