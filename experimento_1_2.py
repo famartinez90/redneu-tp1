@@ -28,7 +28,7 @@ for i in [[2,2], [5,5] ,[10,10], [20, 20]]:
     errores_finales = []
     eficiencias = []
 
-    print "Se ejecutarán " + str(rondas) + " rondas con " + str(i) + " capas de 10 neuronas"
+    print "Se ejecutarán " + str(rondas) + " rondas con 2 capas de "+ str(i[0]) +" neuronas"
 
     for j in range(rondas):
 
