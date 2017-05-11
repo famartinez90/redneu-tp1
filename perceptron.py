@@ -46,15 +46,16 @@ class PerceptronMulticapa(object):
         self.pesos_red.append(pesos_capa_salida)
 
     def generate_pesos_random(self, entradas_neurona):
-        return {
-            # Genera pesos con una distribucion uniforme [0, 1)
-            'uniforme': np.random.rand(entradas_neurona).tolist(),
-            # Genera pesos con una distribucion normal con media 0 y 
-            # varianza entradas_neurona^-1/2, basado en Efficient BackProp
-            # de Yann LeCun, fórmula 15, inicialización de pesos eficiente
-            # para funciones de activación sigmoideas
-            'normal': np.random.normal(0, math.sqrt(1.0 / entradas_neurona), entradas_neurona).tolist(),
-        }.get(self.distribucion, np.random.rand(entradas_neurona))
+		return {
+			# Genera pesos con una distribucion uniforme [0, 1)
+			'uniforme': np.random.rand(entradas_neurona).tolist(),
+			# Genera pesos con una distribucion normal con media 0 y 
+			# varianza entradas_neurona^-1/2, basado en Efficient BackProp
+			# de Yann LeCun, fórmula 15, inicialización de pesos eficiente
+			# para funciones de activación sigmoideas
+			# 'normal': np.random.normal(0, math.sqrt(1.0 / entradas_neurona), entradas_neurona).tolist(),
+			'normal': np.random.uniform(-0.1, 0.1, entradas_neurona).tolist(),
+		}.get(self.distribucion, np.random.rand(entradas_neurona))
 
     def funcion_de_suma(self, pesos, entrada):
         suma = pesos[-1] * self.bias
@@ -77,16 +78,16 @@ class PerceptronMulticapa(object):
         return 1.0 / (1.0 + math.exp(-x))
 
     def funcion_tangente_hiperbolica(self, x):
-        # Usa la funcion tangente hiperbolica
-        # g = (2 / 1 + e^-2x) - 1
-        return (2.0 / (1.0 + math.exp(-2 * x))) - 1.0
+		# Usa la funcion tangente hiperbolica
+		# g = (2 / 1 + e^-2x) - 1
+		return np.tanh(x)
 
-    def funcion_tangente_hiperbolica_optimizada(self, x):
-        # Usa la funcion tangente hiperbolica optimizada
-        # g = alfa * ((2 / 1 + e^-(2*beta*x)) - 1)
-        alfa = 1.7159
-        beta = 2.0 / 3.0
-        return alfa * ((2.0 / (1.0 + math.exp(-2 * (beta * x)))) - 1.0)
+	def funcion_tangente_hiperbolica_optimizada(self, x):
+		# Usa la funcion tangente hiperbolica optimizada
+		# g = alfa * ((2 / 1 + e^-(2*beta*x)) - 1)
+		alfa = 1.7159
+		beta = 2.0 / 3.0
+		return alfa * np.tanh(beta * x)
 
     def derivada_funcion_de_activacion(self, suma):
         return {
@@ -96,21 +97,21 @@ class PerceptronMulticapa(object):
         }[self.activacion_elegida](suma)
 
     def funcion_logistica_derivada(self, fx):
-        # Esta es la derivada de la logistica
-        # g' = g(x) * (1 - g(x))
-        return fx * (1.0 - fx)
+		# Esta es la derivada de la logistica
+		# g' = g(x) * (1 - g(x))
+		return fx * (1.0 - fx)
 
-    def funcion_tangente_hiperbolica_derivada(self, fx):
-        # Esta es la derivada de la tangente hiperbolica
-        # g = 1 - g(x)^2
-        return 1.0 - (fx ** 2)
+	def funcion_tangente_hiperbolica_derivada(self, fx):
+		# Esta es la derivada de la tangente hiperbolica
+		# g = 1 - g(x)^2
+		return 1.0 - (fx ** 2)
 
-    def funcion_tangente_hiperbolica_derivada_optimizada(self, fx):
-        # Esta es la derivada de la tangente hiperbolica optimizada
-        # g = alfa * beta * (1 - g(x)^2)
-        alfa = 1.7159
-        beta = 2.0 / 3.0
-        return alfa * beta * (1.0 - (fx ** 2))
+	def funcion_tangente_hiperbolica_derivada_optimizada(self, fx):
+		# Esta es la derivada de la tangente hiperbolica optimizada
+		# g = alfa * beta * (1 - g(x)^2)
+		alfa = 1.7159
+		beta = 2.0 / 3.0
+		return alfa * beta * (1.0 - (fx ** 2))
 
     def propagacion_forward(self, valores_de_entrada):
         # REF: Algoritmo Backpropagation - 6.15
@@ -273,7 +274,7 @@ class PerceptronMulticapa(object):
                         self.actualizar_pesos_batch(gradientes_promedios)
                 
 
-            funcion_de_costo = funcion_de_costo / 2
+            funcion_de_costo = (funcion_de_costo / 2.0) / len(dataset)
 
             error_validacion = self.calcular_error_validacion(validacion)
 
@@ -304,7 +305,7 @@ class PerceptronMulticapa(object):
             results.append({'epoca': epoch, 'eta': eta, 'funcion_de_costo': funcion_de_costo})
 
             if print_epochs:
-                print 'epoca: %d, eta: %.3f, error: %.3f, validacion: %.2f %%' % (epoch, eta, funcion_de_costo, error_validacion)
+                print 'epoca: %d, eta: %.3f, error: %.5f, validacion: %.5f' % (epoch, eta, funcion_de_costo, error_validacion)
 
             if early_stopping_treshold > 0.0:
                 if error_validacion >= early_stopping_treshold and funcion_de_costo < 10.0:
@@ -345,15 +346,30 @@ class PerceptronMulticapa(object):
             return -1
 
     def calcular_error_validacion(self, datos_validacion):
-        entrada = [row[0] for row in datos_validacion]
-        esperados = [row[-1] for row in datos_validacion]
-        resultados = []
+		entrada = [row[0] for row in datos_validacion]
+		esperados = [row[-1] for row in datos_validacion]
+		resultados = []
+		funcion_de_costo = 0;
 
-        for fila in entrada:
-            prediccion = self.predecir_ej1(fila)
-            resultados.append(prediccion)
+		for k, fila in enumerate(entrada):
+			error_cuadratico = []
+			salida = self.propagacion_forward(fila)
 
-        return self.medir_performance(esperados, resultados)
+			if isinstance(esperados[k], tuple):
+				for i, esperada in enumerate(esperados[k]):
+					error_cuadratico.append((esperada - salida[i]) ** 2)
+			else:
+				error_cuadratico.append((esperados[k] - salida[0]) ** 2)
+
+			funcion_de_costo += sum(error_cuadratico)
+
+		return (funcion_de_costo / 2.0) / len(entrada)
+
+		# for fila in entrada:
+		#     prediccion = self.predecir_ej1(fila)
+		#     resultados.append(prediccion)
+
+		# return self.medir_performance(esperados, resultados)
 
     # Permite medir la performance de la red para
     # realizar predicciones a partir de los resultados
