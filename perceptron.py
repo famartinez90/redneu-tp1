@@ -302,7 +302,8 @@ class PerceptronMulticapa(object):
 
 						error_anterior = funcion_de_costo
 
-			results.append({'epoca': epoch, 'eta': eta, 'funcion_de_costo': funcion_de_costo})
+			results.append({'epoca': epoch, 'eta': eta,
+							'funcion_de_costo': funcion_de_costo, 'validacion': error_validacion})
 
 			if print_epochs:
 				print 'epoca: %d, eta: %.3f, error: %.5f, validacion: %.5f' % (epoch, eta, funcion_de_costo, error_validacion)
@@ -365,11 +366,6 @@ class PerceptronMulticapa(object):
 
 		return (funcion_de_costo / 2.0) / len(entrada)
 
-		# for fila in entrada:
-		#     prediccion = self.predecir_ej1(fila)
-		#     resultados.append(prediccion)
-
-		# return self.medir_performance(esperados, resultados)
 
 	# Permite medir la performance de la red para
 	# realizar predicciones a partir de los resultados
