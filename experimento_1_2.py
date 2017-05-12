@@ -22,9 +22,9 @@ if isinstance(RESULTADOS_ESPERADOS[0], tuple):
 else:
     N_SALIDA = 1
 
-rondas = 8
+rondas = 10
 
-for i in [[2,2], [5,5] ,[10,10], [20, 20]]:
+for i in [[10, 10], [15, 15],[20, 20]]:
     errores_finales = []
     eficiencias = []
 
