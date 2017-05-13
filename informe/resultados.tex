@@ -46,7 +46,7 @@ Para el error final, obtuvimos los siguientes resultados:
 
 \begin{figure}[h]
   \begin{center}
-  \includegraphics[scale=0.8]{graficos/fig1_cant_neuro_error_final.png}
+  \includegraphics[scale=0.70]{graficos/fig1_cant_neuro_error_final.png}
   \caption{Error final (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de entrenamiento}
   \end{center}
 \end{figure}
@@ -58,7 +58,7 @@ Para el error final, obtuvimos los siguientes resultados:
 
 \begin{figure}[h]
   \begin{center}
-  \includegraphics[scale=0.8]{graficos/fig2_cant_neuro_error_valid.png}
+  \includegraphics[scale=0.70]{graficos/fig2_cant_neuro_error_valid.png}
   \caption{Error (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de validación}
   \end{center}
 \end{figure}
@@ -70,7 +70,7 @@ Para la efectividad en la predicción de los datos de testing, observamos:
 
 \begin{figure}[h]
   \begin{center}
-  \includegraphics[scale=0.8]{graficos/fig3_cant_neuro_testing.png}
+  \includegraphics[scale=0.70]{graficos/fig3_cant_neuro_testing.png}
   \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
   \end{center}
 \end{figure}
@@ -78,7 +78,7 @@ Para la efectividad en la predicción de los datos de testing, observamos:
 Nuevamente podemos apreciar en la figura 3, que a medida que crece la cantidad de neuronas, crece la cantidad de aciertos sobre el conjunto de datos de test. Sin embargo, los resultados se comienzan a estancar a partir de las 10 neuronas en valores cercanos al 90 \% de aciertos.\\
 
 Observando los resultados obtenidos en las pruebas, decidimos que la mejor configuración es con 10 neuronas por capa. Esta decisión se justifica teniendo en cuenta que los resultados no mejoran demasiado pasando de 10 y si empeora notablemente la velocidad de la red.\\
-Por ende, en vistas a los buenos resultados obtenidos con 10 neuronas y no obteniendo mejoras sustanciales con cantidades mayores, nos quedaremos con este valor.
+Por ende, \textbf{en vistas a los buenos resultados obtenidos con 10 neuronas y no obteniendo mejoras sustanciales con cantidades mayores}, nos quedaremos con este valor.
 
 \subsubsection{Performance de la red, con entrenamiento sin momentum y con momentum.}
 

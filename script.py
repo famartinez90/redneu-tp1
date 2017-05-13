@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 # Ejemplo de ejecucion:
 
 nro_ejercicio, eta, epochs, capas, train_pct, test_pct, validation_pct, \
-    f_activacion, d_pesos, tambatch, momentum, red_desde_archivo, estop = params.iniciar()
+    f_activacion, d_pesos, tambatch, momentum, red_desde_archivo, estop, adaptativo = params.iniciar()
 
 i = psr.Parser()
 
@@ -33,7 +33,8 @@ for i in range(1):
         PPN = encoder.from_json(red_desde_archivo)
     else:
         PPN = ppn.PerceptronMulticapa(N_ENTRADA, capas, N_SALIDA, funcion_activacion=f_activacion, distribucion_pesos=d_pesos, momentum=momentum)
-        results.append(PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, datos_validation, eta=eta, epochs=epochs, tamanio_muestra_batch=tambatch, early_stopping_treshold=estop))
+        results.append(PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, datos_validation, eta=eta, epochs=epochs,
+                                 tamanio_muestra_batch=tambatch, early_stopping_treshold=estop, adaptativo=adaptativo))
 
     DATOS_PREDICCION = [row[0] for row in datos_test]
 

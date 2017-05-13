@@ -47,6 +47,9 @@ def iniciar():
     parser.add_argument("-estop", "--earlystopping", default=0,
                         help='Treshold para hacer el early stopping')
 
+    parser.add_argument("-adap", "--adaptativo", default=0,
+                        help='Ejecutar con o sin parámetros adaptativos. Valores = 0 / 1')
+
     args = parser.parse_args()
 
     nro_ejercicio = args.nro_ejercicio
@@ -65,6 +68,7 @@ def iniciar():
     momentum = float(args.momentum)
     red_desde_archivo = args.red_desde_archivo
     estop = float(args.earlystopping)
+    adaptativo = bool(args.adaptativo)
 
     os.system('clear')
     print 'TP1 - Perceptrón Multicapa'
@@ -77,8 +81,10 @@ def iniciar():
     print "Distribucion de pesos: " + d_pesos
     print "Tamanio de batch: " + str(tambatch)
     print "Momentum: " + str(momentum)
+    print "Early Stopping: " + str(estop)
+    print "Parámetros Adaptativos: " + str(adaptativo)
     print "Red a Utilizar: " + (red_desde_archivo if (red_desde_archivo is not None) else 'Nueva')
     print '-------------------------------------------------------------------------'
 
     return nro_ejercicio, eta, epochs, capas_list, train_pct, test_pct, validation_pct, \
-           f_activacion, d_pesos, tambatch, momentum, red_desde_archivo, estop
+           f_activacion, d_pesos, tambatch, momentum, red_desde_archivo, estop, adaptativo
