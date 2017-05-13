@@ -82,6 +82,80 @@ Por ende, \textbf{en vistas a los buenos resultados obtenidos con 10 neuronas y 
 
 \subsubsection{Performance de la red, con entrenamiento sin momentum y con momentum.}
 
+El momentum es una memoria o inercia que nos permite que los cambios en el vector de pesos $w$ sean suaves ya que incluyen información sobre el cambio de peso anterior. 
+En el proceso de backpropagation de la red, cuando actualizamos los pesos, utilizaremos el momentum de la siguiente manera:
+\\
+\\
+$\Delta w_{ij}^{m} = \eta \delta_{i}^{m}V_{j}^{m} + \alpha \Delta w_{pq}^{m-1}$
+\\
+
+Para este experimento, mantenemos la configuración que veniamos utilizando en experimentos anteriores con 2 capas de 10 neuronas. Probaremos el comportamiento de la red 
+variando el momentum desde $0$ (o sin momentum) hasta un valor de momentum de $0.9$. No utilizaremos valores mayores de $0.9$ ya que significaría que el peso anterior que 
+tenía el eje se estaría acumulando con el nuevo peso en su completitud, lo cual nos parece una exageración en este caso. Dado que en posteriores experimentos realizaremos
+pruebas variando el momentum y el learning rate en conjunto, para este experimento, mantendremos el learning rate de $0.05$.
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/momentum_0.png}
+  \caption{Evolución del error de entrenamiento para momentum 0 (sin momentum)}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/momentum_0_05.png}
+  \caption{Evolución del error de entrenamiento para momentum 0.05}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/momentum_0_1.png}
+  \caption{Evolución del error de entrenamiento para momentum 0.1}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/momentum_0_5.png}
+  \caption{Evolución del error de entrenamiento para momentum 0.5}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/momentum_0_9.png}
+  \caption{Evolución del error de entrenamiento para momentum 0.9}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/momentum_promedios_entrenamiento.png}
+  \caption{Evolución del error de entrenamiento promedio para todos los valores de momentum}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+A partir de los resultados podemos intuir que manteniendo el learning rate elegido, no usar momentum o usar momentum $0.05$ o $0.5$ da los mejores resultados. Claramente
+usar $0.9$ es casi como al nuevo peso de cada eje sumarle el peso anterior, por eso la oscilación tan pronunciada. Sin embargo, y para llegar a una conclusión del mejor 
+valor de momentum, analizemos los resultados de la evolución del error para nuestro conjunto de validación:
+
+\begin{figure}[!htbp]
+  \begin{center}
+  \includegraphics[scale=0.80]{graficos/momentum_promedios_validacion.png}
+  \caption{Evolución del error de validación promedio para todos los valores de momentum}
+  \end{center}
+\end{figure}
+
+Teniendo en cuenta ahora también nuestro error de validación final para todas las corridas y valores de momentum, podemos concluir entonces que manteniendo nuestro learning
+rate fijo en $0.05$, lo mejor es no usar momentum.
+
 \subsubsection{Performance de la red, con entrenamiento sin y con parámetros adaptativos.}
 
 \subsubsection{Performance de la red, con entrenamiento estocástico, batch y mini-batch.}
