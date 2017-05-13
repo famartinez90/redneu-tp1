@@ -29,7 +29,8 @@ rondas = 6
 if csv:
     print "Ejecución" + ', ' + "Error Final" + ', ' + "Error Validación" + ', ' + "Eficiencia Testing"
 
-for i in [[10], [10,10], [10,10,10], [10,10,10,10,10], [10,10,10,10,10,10,10]]:
+# for i in [[10], [10,10], [10,10,10], [10,10,10,10,10], [10,10,10,10,10,10,10]]:
+for i in [[10, 10], [10, 10, 10]]:
 
     errores_finales = []
     eficiencias = []

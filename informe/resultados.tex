@@ -1,3 +1,4 @@
+\section{Resultados}
 En esta sección incluiremos los resultados de la experimentación que realizamos con el perceptrón desarrollado.\\
 La idea general de los experimentos es intentar medir la influencia de alguna(s) variable(s) específicas sobre la performance
 de la red. Para ello intentamos fijar todas las demás variables en valores óptimos y poner a prueba las que nos interesaban.\\
@@ -5,7 +6,6 @@ de la red. Para ello intentamos fijar todas las demás variables en valores ópt
 A medida que fuimos encontrando valores óptimos para las distintas variables, los fuimos utilizando para el resto de los experimentos subsiguientes.\\
 
 En el primer experimento, intentamos determinar el mejor número de capas ocultas para utilizar en el ejercicio 1. A continuación, los resultados.
-
 
 \subsection{Ejercicio 1}
 
@@ -15,9 +15,10 @@ La idea de este experimento es determinar la cantidad de capas ocultas óptimas 
 \begin{itemize}
 \item Épocas: 250
 \item ETA: 0.05
+\item 10 neuronas por capa.
 \item 70 \% del dataset como training, 20 \% training, 10\% validación.
 \item Distribución de Pesos: Normal
-\item Batch Estocástico
+\item Entrenamiento Estocástico
 \item Sin Momentum
 \item Sin Early Stopping
 \end{itemize}
@@ -33,49 +34,88 @@ Es decir, primero se ejecutaron 8 veces el entrenamiento, validación y testing 
 \item El error final de cada ronda corresponde a la función de costo de dicha corrida dividido la cantidad de patrones procesados.
 \end{itemize}
 
-Observemos los resultados:
-
-\subsubsection{Variación del número de neuronas ocultas.}
-Una vez obtenido el número óptimo de capas ocultas, quisimos determinar cual era la cantidad de nueronas que debía contener
-cada una de estas capas. Para simplificar el problema, decidimos que todas las capas tuvieran la misma cantidad de neuronas.\\
-De esta forma, elegimos las siguientes medidas: capas de 2, 5, 7, 10, 15 y 20 neuronas. Estas medidas fueron elegidas para intentar representar una cantidad baja de neuronas como 2,5,7 y otras más altas, por arriba de 10. No consideramos cantidades mayores de neuronas ya que los resultados no mejoran ostensiblemente pasando las 20 neuronas, teniendo en cuenta la relativa
-sencillez del ejercicio en cuestión. Además, arquitecturas con más de 20 neuronas por capa afectan notablemente la velocidad de ejecución de la red, relentizando las pruebas y haciéndolas engorrosas e innecesarias.\\
-
-De forma similar al experimento anterior, esta prueba consistió en procesar el dataset completo 8 veces con cada cantidad de neuronas distintas, promediar los errores finales de entrenamiento y de validación junto con la eficiencia obtenida en los datos de testing.\\
-Para el error final, obtuvimos los siguientes resultados:
+Observemos los resultados:\\
 
 \begin{figure}[h]
   \begin{center}
-  \includegraphics[scale=0.70]{graficos/fig1_cant_neuro_error_final.png}
+  \includegraphics[scale=0.75]{graficos/fig1_cant_capas_error_final.png}
   \caption{Error final (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de entrenamiento}
   \end{center}
 \end{figure}
 
-En la figura 1 se puede observar que el valor de la función de costo decrece a medida que la cantidad
-de neuronas crece. Este efecto se vuelve mucho menos notable a partir de las 10 neuronas por capa.\\
+Podemos ver en la figura 1 que los mejores errores fueron obtenidos con 2 y 3 capas. Estos datos pertenecen al error final promediado, usando el dataset de entrenamiento.\\
+Notamos también que con más de 3 capas ya los números se empiezan a distorsionar y perder mucha precisión.
 
-Para el error final, obtuvimos los siguientes resultados:
+Para el error final en los datos de validación, obtuvimos los siguientes resultados:\\
 
 \begin{figure}[h]
   \begin{center}
-  \includegraphics[scale=0.70]{graficos/fig2_cant_neuro_error_valid.png}
+  \includegraphics[scale=0.75]{graficos/fig2_cant_capas_error_valid.png}
   \caption{Error (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de validación}
   \end{center}
 \end{figure}
 
-En la figura 2 podemos notar que el valor de error con el dataset de validación también decrece a medida que sube la cantidad
-de neuronas, aunque no de forma uniforme. Podemos apreciar que a partir de las 10 neuronas, el error se mantiene por debajo de 0.15.\\
 
-Para la efectividad en la predicción de los datos de testing, observamos:
+En la figura 5 podemos notar que el valor de error con el dataset de validación también 
+genera mejores números con 2 y 3 capas. Especialmente se aprecia un mejor valor para la arquitectura de 2 capas.\\
+Observamos nuevamente que los valores más altos no rinden igual de bien que los anteriores.
 
 \begin{figure}[h]
   \begin{center}
-  \includegraphics[scale=0.70]{graficos/fig3_cant_neuro_testing.png}
+  \includegraphics[scale=0.75]{graficos/fig3_cant_capas_testing.png}
   \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
   \end{center}
 \end{figure}
 
-Nuevamente podemos apreciar en la figura 3, que a medida que crece la cantidad de neuronas, crece la cantidad de aciertos sobre el conjunto de datos de test. Sin embargo, los resultados se comienzan a estancar a partir de las 10 neuronas en valores cercanos al 90 \% de aciertos.\\
+Para la efectividad en la predicción de los datos de testing, observamos que la red de 1 capa generó aciertos cercanos al 82\%, mientras que las de 2 y 3 capas superan el 90\%, teniendo la de 2 capas un desempeño levemente mejor.\\
+Nos sorprendíó ver que las redes de 5 y 10 capas lograron una muy baja eficiencia, cercana al 50\%.\\
+
+Teniendo en cuenta los resultados presentados en estas pruebas, nos decidimos por una arquitectura de 2 capas ocultas. Aunque se obtuvieron resultados casi igual de buenos con arquitectura de 3 capas, \textbf{la de 2 capas presenta mejor velocidad de ejecución y resultados levemente mejores}.\\
+
+\newpage
+
+\subsubsection{Variación del número de neuronas ocultas.}
+
+Una vez obtenido el número óptimo de capas ocultas, quisimos determinar cual era la cantidad de nueronas que debía contener
+cada una de estas capas. Para simplificar el problema, decidimos que todas las capas tuvieran la misma cantidad de neuronas.\\
+De esta forma, elegimos las siguientes medidas: 2 capas de 2, 5, 7, 10, 15 y 20 neuronas. Estas medidas fueron elegidas para intentar representar una cantidad baja de neuronas como 2,5,7 y otras más altas, por arriba de 10. No consideramos cantidades mayores de neuronas ya que los resultados no mejoran ostensiblemente pasando las 20 neuronas, teniendo en cuenta la relativa
+sencillez del ejercicio en cuestión. Además, arquitecturas con más de 20 neuronas por capa afectan notablemente la velocidad de ejecución de la red, relentizando las pruebas y haciéndolas engorrosas e innecesarias.\\
+
+De forma similar al experimento anterior, esta prueba consistió en procesar el dataset completo 8 veces con cada cantidad de neuronas distintas, promediar los errores finales de entrenamiento y de validación junto con la eficiencia obtenida en los datos de testing.\\
+Para el error final, obtuvimos los siguientes resultados:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/fig4_cant_neuro_error_final.png}
+  \caption{Error final (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de entrenamiento}
+  \end{center}
+\end{figure}
+
+En la figura 4 se puede observar que el valor de la función de costo decrece a medida que la cantidad
+de neuronas crece. Este efecto se vuelve mucho menos notable a partir de las 10 neuronas por capa.\\
+
+Para el error final en los datos de validación, obtuvimos los siguientes resultados:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/fig5_cant_neuro_error_valid.png}
+  \caption{Error (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de validación}
+  \end{center}
+\end{figure}
+
+En la figura 5 podemos notar que el valor de error con el dataset de validación también decrece a medida que sube la cantidad
+de neuronas, aunque no de forma uniforme. Podemos apreciar que a partir de las 10 neuronas, el error se mantiene por debajo de 0.15.\\
+
+Para la efectividad en la predicción de los datos de testing, observamos:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/fig6_cant_neuro_testing.png}
+  \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
+  \end{center}
+\end{figure}
+
+Nuevamente podemos apreciar en la figura 6, que a medida que crece la cantidad de neuronas, crece la cantidad de aciertos sobre el conjunto de datos de test. Sin embargo, los resultados se comienzan a estancar a partir de las 10 neuronas en valores cercanos al 90 \% de aciertos.\\
 
 Observando los resultados obtenidos en las pruebas, decidimos que la mejor configuración es con 10 neuronas por capa. Esta decisión se justifica teniendo en cuenta que los resultados no mejoran demasiado pasando de 10 y si empeora notablemente la velocidad de la red.\\
 Por ende, \textbf{en vistas a los buenos resultados obtenidos con 10 neuronas y no obteniendo mejoras sustanciales con cantidades mayores}, nos quedaremos con este valor.
@@ -242,11 +282,64 @@ tamaño total del dataset de entrenamiento, mejor funciona el learning rate adap
 Nuestra conclusión para este experimento es que si bien se llegan a alcanzar buenos resultados con el entrenamiento batch, es necesario utilizar el doble de épocas
 lo cual hace que tarde mucho más el entrenamiento. Online learning en la mitad de las épocas y sin learning rate adaptativo obtiene resultados similares.
 
-\subsubsection{Performance de la red, con entrenamiento estocástico, batch y mini-batch.}
-
 \subsubsection{Performance de la red, variando simultáneamente el factor de aprendizaje $\mu$, y el parámetro $\alpha$ del momentum.}
 
-\subsubsection{Performance de la red, con distintas técnicas de inicialización de los pesos de la red.}
+\subsubsection{Performance de la red, variando técnicas de entrenamiento (estocástico, batch y mini batch) y de inicialización de pesos}
+
+En este experimento decidimos probar dos variables en simultáneo. Probamos la performance de las redes utilizando
+distintas técnicas de entrenamiento: estocástico, batch y mini batch con distintos tamaños. Al mismo tiempo, variamos 
+la distribución utilizada para la inicialización de los pesos de la red. Utilizamos distribución normal y uniforme.\\
+
+A la hora de elegir tamaños de batch para las ejecuciones mini batch, elegimos los siguientes tamaños: 5,10,100, mitad del dataset y dataset completo (batch). La idea es probar con batchs pequeños como 5 y 10, cercanos en teoría al online learning y también con algunos tamaños más grandes. Probamos también utilizando el dataset completo.\\
+
+Al igual que en los primeros dos experimentos, juzgaremos las modalidades midiendo la performance final de error sobre dataset de training, error sobre el de validación y efectividad de aciertos prediciendo los patrones de testing.\\
+Observemos los resultados:
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/distribucion_error_final.png}
+  \caption{Error final (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de entrenamiento}
+  \end{center}
+\end{figure}
+
+En la primera figura de este experimento mostramos la función de costo obtenida con las diferentes técnicas.
+
+Notación:
+\begin{itemize}
+\item $B1$ = Entrenamiento estocástico.
+\item $BX$ = Mini batch de tamaño $X$.
+\item $B Mitad$ = Mini batch de tamaño equivalente a la mitad del dataset.
+\item $B Entero$ = Batch común.
+\end{itemize}
+
+A su vez, mostramos en color azul los resultados obtenidos utilizando distribución de pesos uniforme y en naranja, distribución normal.\\
+Podemos ver que, tanto para aprendizaje estocástico como para los mini batchs más pequeños, se obtuvieron mejores resultados utilizando la distribución normal.
+
+Para el error final en los datos de validación, obtuvimos los siguientes resultados:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/distribucion_error_validacion.png}
+  \caption{Error (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de validación}
+  \end{center}
+\end{figure}
+
+% En la figura 5 podemos notar que el valor de error con el dataset de validación también decrece a medida que sube la cantidad
+% de neuronas, aunque no de forma uniforme. Podemos apreciar que a partir de las 10 neuronas, el error se mantiene por debajo de 0.15.\\
+
+% Para la efectividad en la predicción de los datos de testing, observamos:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/distribucion_eficiencia.png}
+  \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
+  \end{center}
+\end{figure}
+
+% Nuevamente podemos apreciar en la figura 6, que a medida que crece la cantidad de neuronas, crece la cantidad de aciertos sobre el conjunto de datos de test. Sin embargo, los resultados se comienzan a estancar a partir de las 10 neuronas en valores cercanos al 90 \% de aciertos.\\
+
+% Observando los resultados obtenidos en las pruebas, decidimos que la mejor configuración es con 10 neuronas por capa. Esta decisión se justifica teniendo en cuenta que los resultados no mejoran demasiado pasando de 10 y si empeora notablemente la velocidad de la red.\\
+% Por ende, \textbf{en vistas a los buenos resultados obtenidos con 10 neuronas y no obteniendo mejoras sustanciales con cantidades mayores}, nos quedaremos con este valor.
 
 \subsubsection{Performance de la red, sin y con preprocesamiento de los patrones.}
 
