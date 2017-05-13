@@ -110,6 +110,10 @@ pruebas variando el momentum y el learning rate en conjunto, para este experimen
 \end{subfigure}
 \end{figure}
 
+A partir de los resultados podemos intuir que manteniendo el learning rate elegido, no usar momentum o usar momentum $0.05$ o $0.5$ da los mejores resultados. Claramente
+usar $0.9$ es casi como al nuevo peso de cada eje sumarle el peso anterior, por eso la oscilación tan pronunciada. Sin embargo, y para llegar a una conclusión del mejor 
+valor de momentum, analizemos los resultados de la evolución del error para nuestro conjunto de validación:
+
 \begin{figure}[!htbp]
 \centering
 \begin{subfigure}{.5\textwidth}
@@ -142,10 +146,6 @@ pruebas variando el momentum y el learning rate en conjunto, para este experimen
 \end{subfigure}
 \end{figure}
 
-A partir de los resultados podemos intuir que manteniendo el learning rate elegido, no usar momentum o usar momentum $0.05$ o $0.5$ da los mejores resultados. Claramente
-usar $0.9$ es casi como al nuevo peso de cada eje sumarle el peso anterior, por eso la oscilación tan pronunciada. Sin embargo, y para llegar a una conclusión del mejor 
-valor de momentum, analizemos los resultados de la evolución del error para nuestro conjunto de validación:
-
 \begin{figure}[!htbp]
   \begin{center}
   \includegraphics[scale=0.80]{graficos/momentum_promedios_validacion.png}
@@ -157,6 +157,90 @@ Teniendo en cuenta ahora también nuestro error de validación final para todas 
 rate fijo en $0.05$, lo mejor es no usar momentum.
 
 \subsubsection{Performance de la red, con entrenamiento sin y con parámetros adaptativos.}
+
+Utilizar parámetros adaptativos, como variar el learning rate, nos permiten volver a un estado anterior de la red y corregir el learning rate que usamos en 
+ese momento para que esta vez nos de un mejor resultado. Para nuestra configuración adaptativa, si el error crece continuamente reducimos el learning a la mitad, 
+mientras que si el error va en bajada, aumentamos el learning rate en un $10\%$. Manteniendo los parámetros de configuración que venimos utilizando, hicimos experimentos
+sobre entrenamientos estocásticos, batch y mini batch. 
+
+A partir de los resultados de entrenamiento estocástico, podemos observar que usar parámetros adaptativos no solo no ayuda al aprendizaje de la red, sino que
+además lo perjudica en gran magnitud. Esto puede deberse principalmente a que la red esta continuamente ajustando sus pesos en cada entrada del dataset para
+poder con el learning rate actual, mejorar la precisión y reducir el error. Si cambiamos el learning rate los pesos que ajustamos en cada paso dejan de tener
+sentido y el entrenamiento termina dando malos resultados.
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/adaptativos_promedios_entrenamiento.png}
+  \caption{Comparación del error en el conjunto de entrenamiento para estocástico (250 épocas)}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/adaptativos_promedios_validacion.png}
+  \caption{Comparación del error en el conjunto de validación para estocástico (250 épocas)}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+Con respecto a batch, nos dimos cuenta que los parámetros adaptativos permiten que se obtengan muy buenos resultados. Incluso se puede ver que el error de 
+validación llega a ser menor que en el entrenamiento estocástico. Sin embargo, tuvimos que utilizar el doble de épocas para conseguir los mismos. 
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/adaptativos_promedios_entrenamiento_batch_05.png}
+  \caption{Comparación del error en el conjunto de entrenamiento para batch (250 épocas)}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/adaptativos_promedios_validacion_batch_05.png}
+  \caption{Comparación del error en el conjunto de validación para batch (250 épocas)}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/adaptativos_promedios_entrenamiento_batch_500ep.png}
+  \caption{Comparación del error en el conjunto de entrenamiento para batch (500 épocas)}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/adaptativos_promedios_validacion_batch_500ep.png}
+  \caption{Comparación del error en el conjunto de validación para batch (500 épocas)}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+Para el entrenamiento mini batch, confirma la idea de que el learning rate adaptativo es útil solo en batch y no para estocástico. Realizamos un par de
+pruebas y vimos que mientras más cerca de 1 (estocástico) estuviese el tamaño del batch, peor resultados da el adaptivo, mientras que si más cerca está del
+tamaño total del dataset de entrenamiento, mejor funciona el learning rate adaptativo. 
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/adaptativos_promedios_entrenamiento_batch.png}
+  \caption{Comparación del error en el conjunto de entrenamiento para mini batch de 10, cercano a ser estocástico (500 épocas)}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/adaptativos_promedios_validacion_batch.png}
+  \caption{Comparación del error en el conjunto de validación para batch de 10, cercano a ser estocástico (500 épocas)}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+Nuestra conclusión para este experimento es que si bien se llegan a alcanzar buenos resultados con el entrenamiento batch, es necesario utilizar el doble de épocas
+lo cual hace que tarde mucho más el entrenamiento. Online learning en la mitad de las épocas y sin learning rate adaptativo obtiene resultados similares.
 
 \subsubsection{Performance de la red, con entrenamiento estocástico, batch y mini-batch.}
 
