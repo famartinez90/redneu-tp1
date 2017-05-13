@@ -18,7 +18,7 @@ La idea de este experimento es determinar la cantidad de capas ocultas óptimas 
 \item 10 neuronas por capa.
 \item 70 \% del dataset como training, 20 \% training, 10\% validación.
 \item Distribución de Pesos: Normal
-\item Batch Estocástico
+\item Entrenamiento Estocástico
 \item Sin Momentum
 \item Sin Early Stopping
 \end{itemize}
@@ -198,11 +198,64 @@ rate fijo en $0.05$, lo mejor es no usar momentum.
 
 \subsubsection{Performance de la red, con entrenamiento sin y con parámetros adaptativos.}
 
-\subsubsection{Performance de la red, con entrenamiento estocástico, batch y mini-batch.}
-
 \subsubsection{Performance de la red, variando simultáneamente el factor de aprendizaje $\mu$, y el parámetro $\alpha$ del momentum.}
 
-\subsubsection{Performance de la red, con distintas técnicas de inicialización de los pesos de la red.}
+\subsubsection{Performance de la red, variando técnicas de entrenamiento y de inicialización de pesos}
+
+En este experimento decidimos probar dos variables en simultáneo. Probamos la performance de las redes utilizando
+distintas técnicas de entrenamiento: estocástico, batch y mini batch con distintos tamaños. Al mismo tiempo, variamos 
+la distribución utilizada para la inicialización de los pesos de la red. Utilizamos distribución normal y uniforme.\\
+
+A la hora de elegir tamaños de batch para las ejecuciones mini batch, elegimos los siguientes tamaños: 5,10,100, mitad del dataset y dataset completo (batch). La idea es probar con batchs pequeños como 5 y 10, cercanos en teoría al online learning y también con algunos tamaños más grandes. Probamos también utilizando el dataset completo.\\
+
+Al igual que en los primeros dos experimentos, juzgaremos las modalidades midiendo la performance final de error sobre dataset de training, error sobre el de validación y efectividad de aciertos prediciendo los patrones de testing.\\
+Observemos los resultados:
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/distribucion_error_final.png}
+  \caption{Error final (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de entrenamiento}
+  \end{center}
+\end{figure}
+
+En la primera figura de este experimento mostramos la función de costo obtenida con las diferentes técnicas.
+
+Notación:
+\begin{itemize}
+\item $B1$ = Entrenamiento estocástico.
+\item $BX$ = Mini batch de tamaño $X$.
+\item $B Mitad$ = Mini batch de tamaño equivalente a la mitad del dataset.
+\item $B Entero$ = Batch común.
+\end{itemize}
+
+A su vez, mostramos en color azul los resultados obtenidos utilizando distribución de pesos uniforme y en naranja, distribución normal.\\
+Podemos ver que, tanto para aprendizaje estocástico como para los mini batchs más pequeños, se obtuvieron mejores resultados utilizando la distribución normal.
+
+Para el error final en los datos de validación, obtuvimos los siguientes resultados:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/distribucion_error_validacion.png}
+  \caption{Error (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de validación}
+  \end{center}
+\end{figure}
+
+% En la figura 5 podemos notar que el valor de error con el dataset de validación también decrece a medida que sube la cantidad
+% de neuronas, aunque no de forma uniforme. Podemos apreciar que a partir de las 10 neuronas, el error se mantiene por debajo de 0.15.\\
+
+% Para la efectividad en la predicción de los datos de testing, observamos:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/distribucion_eficiencia.png}
+  \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
+  \end{center}
+\end{figure}
+
+% Nuevamente podemos apreciar en la figura 6, que a medida que crece la cantidad de neuronas, crece la cantidad de aciertos sobre el conjunto de datos de test. Sin embargo, los resultados se comienzan a estancar a partir de las 10 neuronas en valores cercanos al 90 \% de aciertos.\\
+
+% Observando los resultados obtenidos en las pruebas, decidimos que la mejor configuración es con 10 neuronas por capa. Esta decisión se justifica teniendo en cuenta que los resultados no mejoran demasiado pasando de 10 y si empeora notablemente la velocidad de la red.\\
+% Por ende, \textbf{en vistas a los buenos resultados obtenidos con 10 neuronas y no obteniendo mejoras sustanciales con cantidades mayores}, nos quedaremos con este valor.
 
 \subsubsection{Performance de la red, sin y con preprocesamiento de los patrones.}
 

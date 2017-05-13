@@ -15,5 +15,5 @@ def from_json(filepath):
     return ppn.PerceptronMulticapa(None, None,
                                    None, funcion_activacion=json_object['activacion_elegida'],
                                    distribucion_pesos=json_object['distribucion'],
-                                   momentum=json_object['distribucion'],
+                                   momentum=json_object['momentum'],
                                    basic_init=True, basic_init_pesos=json_object['pesos_red'])
