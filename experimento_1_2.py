@@ -26,8 +26,10 @@ debug = False
 csv = True
 rondas = 6
 
-# for i in [[2,2],[5,5],[10, 10],[15, 15],[20, 20]]:
-for i in [[10, 10],[15, 15],[20, 20]]:
+if csv:
+    print "Ejecución" + ', ' + "Error Final" + ', ' + "Error Validación" + ', ' + "Eficiencia Testing"
+
+for i in [[2,2],[5,5], [7,7], [10, 10],[15, 15],[20, 20]]:
 
     errores_finales = []
     eficiencias = []
@@ -63,6 +65,7 @@ for i in [[10, 10],[15, 15],[20, 20]]:
 
         if debug:
             print "Corrida " + str(j) + ' Error: ' + str(results[-1][-1]['funcion_de_costo']) + \
+                  ' Error Validacion: ' + str(results[-1][-1]['validacion']) + \
                   ' Eficiencia: ' + str(PPN.medir_performance(esperados, resultados))
 
     error_promedio = sum(errores_finales) / rondas
@@ -75,5 +78,4 @@ for i in [[10, 10],[15, 15],[20, 20]]:
         print "Eficiencia: %.2f %%" % eficiencia_promedio
 
     if csv:
-        print "Capas: "+ str(i)
-        print str(error_promedio) + ', ' + str(error_promedio) + ', ' + str(eficiencia_promedio)
+        print "Capas: "+ str(i[0]) + ', ' + str(error_promedio) + ', ' + str(error_validaciones) + ', ' + str(eficiencia_promedio)

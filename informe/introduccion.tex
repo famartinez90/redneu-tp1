@@ -1,9 +1,53 @@
+
 \section{Introducción}
 
 
+\textit{En este documento se realizan las actividades propuestas en el TP 1, actividades relacionadas con la implementación de una red neuronal feedforward multicapa, con el fin de lograr predicciones sobre un set de datos, mientras se estudia su comportamiento durante el entrenamiento, en el contexto de un paradigma de aprendizaje supervizado.}
+
+
+
+\subsection{Introducción al problema}
+Las redes neuronales son modelos computacionales, en los que se intenta emular el funcionamiento fisiológico de un conjunto de neuronas biológicas, interconectadas, con el fin de lograr predicciones a partir de un conjunto de datos similares, presentados previamente. Para ello se modelan, en cada unidad de procesamiento, características que tienen que ver con las condiciones de propagación de señales electroquímicas. Estas condiciones se describen y modelan a partir de observaciones de sobre cómo es transmitida información entre una neurona y otra (o sobre si), y sobre como se encuentran interconectadas.
+
+La suma de las interacciones entre estas unidades modeladas en una topología dada, genera propiedades emergentes que permiten  resolver cierto tipos de  problemas (caracterizados por el \textit{Teorema de la Aproximación Universal}). 
+Para intentar resolver estos problemas utilizando una red neuronal, es necesario recurrir a diversas técnicas para el ajuste de las variables de la red, y en muchos casos se requiere un paso de preprocesamiento de los datos. 
+
+Se implemento una red neuronal multicapa para la predicción de dos set de datos: el primer set, tiene que ver con el diagnóstico de cancer de mamas, los datos de entrada son valores reales, mientras que el dato de salida es la presencia o no de la enfermedad; el segundo set de datos tiene que ver con la eficiencia energética de la regulación de la temperatura de un edificio, los valores de entrada son tanto enteros como reales, existen dos valores de salida reales, que tienen que ver con la carga de calefacción y de refrigeración.  
+
 \subsection{Entrega}
+\subsection{Requerimientos}
+\begin{itemize}
+\item Intérprete python 2.7.
+\item Librerías estandar, y librería \textit{numpy.}
+\item Archivo csv con uno de los dos formatos propuestos en el tp. 
+
+\end{itemize}
+
+\subsection{Modo de uso y opciones}
+Para usar este programa, se deben posicionar los archivos csv requeridos, junto a los archivos del programa, el programa se ejecuta desde python 2.7 :
+
+\texttt{\$python script.py N args}
+
+donde \texttt{N} es el número de ejercicio y \texttt{args} son los argumentos optativos.
 
 
-\subsection{Requisitos y Modo de uso}
+\subsubsection{Opciones}
 
 
+\textbf{-ep}: Cantidad de epocas por default, 500.
+
+\textbf{-eta}: Tasa de aprendizaje, por default $\eta$ = 0.05
+
+\textbf{-capas}: Capas ocultas de la red, cada numero separado por una coma representa una capa y cada magnitud de la capa representa el numero de neuronas de esa capa, por default = '10,10', o sea, dos capas de 10 neuronas cada una.
+
+\textbf{-tr}:  Cantidad en \% del total de datos utilizado para entrenar a la red, por default = 70.
+
+\textbf{-te}: Cantidad en \% del total de datos utilizado para testing, por default = 20
+
+\textbf{-val}: Cantidad en \% del total de datos utilizados como validación, por default = 10
+
+\textbf{-fa}: Función de activación, puede ser \textit{tangente, tangente\_optimizada o logística}, por default es \textit{tangente}.
+
+\textbf{-dp}: Distribución de inicialización de pesos a utilizar, puede ser \textit{normal} o \textit{uniforme}, por default se usa \textit{normal}.
+
+\textbf{-rda}: Permite cargar una red entrenada desde un archivo con formato \textit{json}.

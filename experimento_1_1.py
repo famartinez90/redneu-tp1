@@ -22,25 +22,30 @@ if isinstance(RESULTADOS_ESPERADOS[0], tuple):
 else:
     N_SALIDA = 1
 
-rondas = 5
+debug = False
+csv = True
+rondas = 6
 
-for i in [1,2,3,4,5,6]:
+if csv:
+    print "Ejecución" + ', ' + "Error Final" + ', ' + "Error Validación" + ', ' + "Eficiencia Testing"
+
+for i in [[10], [10,10], [10,10,10], [10,10,10,10,10], [10,10,10,10,10,10,10]]:
+
     errores_finales = []
     eficiencias = []
+    validaciones = []
 
-    print "Se ejecutarán " + str(rondas) + " rondas con " + str(i) + " capas de 10 neuronas"
+    if debug:
+        print "Se ejecutarán " + str(rondas) + " rondas con" + str(len(i)) +"capas de 10 neuronas"
 
     for j in range(rondas):
 
-        # Las capas seran listas de i veces 10 neuronas. Para la primera corrida, 1 capa de 10, para la 2da 2 capas de 10, tercera 5 capas de 10 etc
-        capas = [10] * i
         results = []
 
-        PPN = ppn.PerceptronMulticapa(N_ENTRADA, capas, N_SALIDA, funcion_activacion=f_activacion,
+        PPN = ppn.PerceptronMulticapa(N_ENTRADA, i, N_SALIDA, funcion_activacion=f_activacion,
                                       distribucion_pesos=d_pesos, momentum=momentum)
-        results.append(PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, datos_validation, eta=eta, epochs=500,
+        results.append(PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, datos_validation, eta=eta, epochs=epochs,
                                  tamanio_muestra_batch=tambatch, early_stopping_treshold=estop, print_epochs=False))
-
 
         DATOS_PREDICCION = [row[0] for row in datos_test]
 
@@ -56,12 +61,21 @@ for i in [1,2,3,4,5,6]:
 
         eficiencias.append(PPN.medir_performance(esperados, resultados))
         errores_finales.append(results[-1][-1]['funcion_de_costo'])
+        validaciones.append(results[-1][-1]['validacion'])
 
-        print "Corrida " + str(j) + ' Error: ' + str(results[-1][-1]['funcion_de_costo']) + \
-              ' Eficiencia: ' + str(PPN.medir_performance(esperados, resultados))
+        if debug:
+            print "Corrida " + str(j) + ' Error: ' + str(results[-1][-1]['funcion_de_costo']) + \
+                  ' Error Validacion: ' + str(results[-1][-1]['validacion']) + \
+                  ' Eficiencia: ' + str(PPN.medir_performance(esperados, resultados))
 
     error_promedio = sum(errores_finales) / rondas
     eficiencia_promedio = sum(eficiencias) / rondas
+    error_validaciones = sum(validaciones) / rondas
 
-    print "Error final promediado:" + str(error_promedio)
-    print "Eficiencia: %.2f %%" % eficiencia_promedio
+    if debug:
+        print "Error final promediado:" + str(error_promedio)
+        print "Error final validaciones: " + str(error_validaciones)
+        print "Eficiencia: %.2f %%" % eficiencia_promedio
+
+    if csv:
+        print "Capas: "+ str(i[0]) + ', ' + str(error_promedio) + ', ' + str(error_validaciones) + ', ' + str(eficiencia_promedio)
