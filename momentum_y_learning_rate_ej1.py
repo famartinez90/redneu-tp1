@@ -26,8 +26,8 @@ else:
 
 rondas = 5
 capas = [10, 10]
-momentums = [0, 0.05, 0.1, 0.5, 0.9]
-etas = [0.1, 0.05, 0.01, 0.005, 0.001]
+momentums = [0, 0.05, 0.1]
+etas = [0.05, 0.08, 0.1, 0.12]
 
 for q, eta in enumerate(etas):
     datos_graficos_avg = [[] for i in range(len(momentums))]
@@ -97,7 +97,7 @@ for q, eta in enumerate(etas):
     plt.xlabel('Epocas')
     plt.ylabel('Error/Funcion Costo')
     plt.legend(loc=1)
-    plt.savefig('informe/graficos/eta_x_momentum_promedios_entrenamiento_'+str(q)+'.png')
+    plt.savefig('informe/graficos/eta_x_momentum_promedios_entrenamiento__'+str(q)+'.png')
     plt.clf()
 
     # Para validaciones
@@ -107,5 +107,5 @@ for q, eta in enumerate(etas):
     plt.xlabel('Epocas')
     plt.ylabel('Error/Funcion Costo')
     plt.legend(loc=1)
-    plt.savefig('informe/graficos/eta_x_momentum_promedios_validacion_'+str(q)+'.png')
+    plt.savefig('informe/graficos/eta_x_momentum_promedios_validacion__'+str(q)+'.png')
     plt.clf()
