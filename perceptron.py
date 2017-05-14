@@ -346,6 +346,11 @@ class PerceptronMulticapa(object):
 		else:
 			return -1
 
+	# Realiza una prediccion sobre una entrada
+	# a partir de una red entrenada
+	def predecir_ej2(self, fila):
+		return self.propagacion_forward(fila)
+
 	def calcular_error_validacion(self, datos_validacion):
 		entrada = [row[0] for row in datos_validacion]
 		esperados = [row[-1] for row in datos_validacion]
@@ -374,7 +379,21 @@ class PerceptronMulticapa(object):
 		acertados = 0
 
 		for i, _ in enumerate(salida):
-			if int(round(esperado[i])) == salida[i]:
-				acertados += 1
+            # Si son valores del ejercicio 2
+			if isinstance(salida[i], list):
+				val_esperado1 = esperado[i][0]
+				val_esperado2 = esperado[i][1]
+				val_salida1 = salida[i][0]
+				val_salida2 = salida[i][1]
+
+				diff1 = val_esperado1 - val_salida1
+				diff2 = val_esperado2 - val_salida2
+
+				if abs(diff1) < 0.25 and abs(diff2) < 0.25:
+					acertados += 1
+			else:
+			# Si son valores del ejercicio 1
+				if int(round(esperado[i])) == salida[i]:
+					acertados += 1
 
 		return acertados / float(len(salida)) * 100.0
