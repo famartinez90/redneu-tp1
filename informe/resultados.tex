@@ -130,9 +130,9 @@ $\Delta w_{ij}^{m} = \eta \delta_{i}^{m}V_{j}^{m} + \alpha \Delta w_{pq}^{m-1}$
 \\
 
 Para este experimento, mantenemos la configuración que veniamos utilizando en experimentos anteriores con 2 capas de 10 neuronas. Probaremos el comportamiento de la red 
-variando el momentum desde $0$ (o sin momentum) hasta un valor de momentum de $0.9$. No utilizaremos valores mayores de $0.9$ ya que significaría que el peso anterior que 
+variando el momentum desde $0$ (o sin momentum) hasta un valor de momentum de \textbf{0.9}. No utilizaremos valores mayores de \textbf{0.9} ya que significaría que el peso anterior que 
 tenía el eje se estaría acumulando con el nuevo peso en su completitud, lo cual nos parece una exageración en este caso. Dado que en posteriores experimentos realizaremos
-pruebas variando el momentum y el learning rate en conjunto, para este experimento, mantendremos el learning rate de $0.05$.
+pruebas variando el momentum y el learning rate en conjunto, para este experimento, mantendremos el learning rate de \textbf{0.05}.
 
 \begin{figure}[!htbp]
 \centering
@@ -150,8 +150,8 @@ pruebas variando el momentum y el learning rate en conjunto, para este experimen
 \end{subfigure}
 \end{figure}
 
-A partir de los resultados podemos intuir que manteniendo el learning rate elegido, no usar momentum o usar momentum $0.05$ o $0.5$ da los mejores resultados. Claramente
-usar $0.9$ es casi como al nuevo peso de cada eje sumarle el peso anterior, por eso la oscilación tan pronunciada. Sin embargo, y para llegar a una conclusión del mejor 
+A partir de los resultados podemos intuir que manteniendo el learning rate elegido, no usar momentum o usar momentum \textbf{0.05 o 0.5} da los mejores resultados. Claramente
+usar \textbf{0.9} es casi como al nuevo peso de cada eje sumarle el peso anterior, por eso la oscilación tan pronunciada. Sin embargo, y para llegar a una conclusión del mejor 
 valor de momentum, analizemos los resultados de la evolución del error para nuestro conjunto de validación:
 
 \begin{figure}[!htbp]
@@ -194,7 +194,7 @@ valor de momentum, analizemos los resultados de la evolución del error para nue
 \end{figure}
 
 Teniendo en cuenta ahora también nuestro error de validación final para todas las corridas y valores de momentum, podemos concluir entonces que manteniendo nuestro learning
-rate fijo en $0.05$, lo mejor es no usar momentum.
+rate fijo en \textbf{0.05}, lo mejor es no usar momentum.
 
 \subsubsection{Performance de la red, con entrenamiento sin y con parámetros adaptativos.}
 
@@ -283,6 +283,148 @@ Nuestra conclusión para este experimento es que si bien se llegan a alcanzar bu
 lo cual hace que tarde mucho más el entrenamiento. Online learning en la mitad de las épocas y sin learning rate adaptativo obtiene resultados similares.
 
 \subsubsection{Performance de la red, variando simultáneamente el factor de aprendizaje $\mu$, y el parámetro $\alpha$ del momentum.}
+
+Para este experimento, utilizamos un conjunto de diferentes valores de momentums para diferentes valores del learning rate de manera de poder encontrar
+donde se comportaba de mejor manera la red. El conjunto de valores de momentums es \textbf{0, 0.05, 0.1, 0.5 y 0.9}, los cuales se probaron con los valores
+de learning rate \textbf{0.1, 0.05, 0.01, 0.005, 0.001}.
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_entrenamiento_0.png}
+  \caption{Evolución del error de entrenamiento con momentum variable y learning rate fijo 0.1}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_validacion_0.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.1}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_entrenamiento_1.png}
+  \caption{Evolución del error de entrenamiento con momentum variable y learning rate fijo 0.05}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_validacion_1.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.05}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_entrenamiento_2.png}
+  \caption{Evolución del error de entrenamiento con momentum variable y learning rate fijo 0.01}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_validacion_2.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.01}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_entrenamiento_3.png}
+  \caption{Evolución del error de entrenamiento con momentum variable y learning rate fijo 0.005}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_validacion_3.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.005}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_entrenamiento_4.png}
+  \caption{Evolución del error de entrenamiento con momentum variable y learning rate fijo 0.001}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_validacion_4.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.001}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+A partir de los resultados podemos apreciar que los valores más bajos de error en entrenamiento y, aún más importante, en validación, se obtuvieron con
+learning rate \textbf{0.1 y 0.05}. Es por eso que, siendo que cercanos a estos valores están nuestros mejores resultados, hicimos unas pruebas extras sobre
+valores cercanos a los mismos. Esto es, probamos también con \textbf{0.08, 0.15 y 0.2} para intentar encontrar el mejor valor para nuestro learning rate en
+entrenamiento estocástico.
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_entrenamiento__0.png}
+  \caption{Evolución del error de entrenamiento con momentum variable y learning rate fijo 0.08}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_validacion__0.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.08}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_entrenamiento__1.png}
+  \caption{Evolución del error de entrenamiento con momentum variable y learning rate fijo 0.15}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_validacion__1.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.15}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_entrenamiento__2.png}
+  \caption{Evolución del error de entrenamiento con momentum variable y learning rate fijo 0.2}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/eta_x_momentum_promedios_validacion__2.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.2}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+Como se puede observar, los mejores resultados siguen siendo usando un learning rate de \textbf{0.1 y de 0.05}. Más interesante todavía es que en 
+anteriores experimentos con el momentum y un learning rate de \textbf{0.05} habíamos visto que el momentum en \textbf{0} era la mejor opción. Sin embargo,
+ en estos nuevos resultados se puede ver que usar momentum \textbf{0.1} es mejor que \textbf{0} tanto para el learning rate de \textbf{0.1 y de 0.05}. 
+ Esto puede deberse a como se armaron los conjuntos de entrenamiento y validación.
 
 \subsubsection{Performance de la red, variando técnicas de entrenamiento (estocástico, batch y mini batch) y de inicialización de pesos}
 
