@@ -25,7 +25,7 @@ else:
 debug = False
 csv = True
 rondas = 5
-capas = [10,10]
+capas = [5]
 
 if csv:
     print "Ejecución" + ', ' + "Error Final" + ', ' + "Error Validación" + ', ' + "Eficiencia Testing"
@@ -68,20 +68,27 @@ for i in [1, 5, 10, 100, 'mitad', 'batch']:
             esperados = []
             for _ in range(100):
                 for fila in DATOS_PREDICCION:
-                    prediccion = PPN.predecir_ej1(fila)
+
+                    if nro_ejercicio == '1':
+                        prediccion = PPN.predecir_ej1(fila)
+                    else:
+                        prediccion = PPN.predecir_ej2(fila)
+
                     resultados.append(prediccion)
 
                 esperado = map(lambda row: row[-1], datos_test)
                 esperados = esperados + esperado
 
-            eficiencias.append(PPN.medir_performance(esperados, resultados))
+
+            performance = PPN.medir_performance(esperados, resultados)
+            eficiencias.append(performance)
             errores_finales.append(results[-1][-1]['funcion_de_costo'])
             validaciones.append(results[-1][-1]['validacion'])
 
             if debug:
                 print "Corrida " + str(j) + ' Error: ' + str(results[-1][-1]['funcion_de_costo']) + \
                       ' Error Validacion: ' + str(results[-1][-1]['validacion']) + \
-                      ' Eficiencia: ' + str(PPN.medir_performance(esperados, resultados))
+                      ' Eficiencia: ' + str(performance)
 
         error_promedio = sum(errores_finales) / rondas
         eficiencia_promedio = sum(eficiencias) / rondas

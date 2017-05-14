@@ -24,7 +24,7 @@ else:
 
 debug = False
 csv = True
-rondas = 5
+rondas = 8
 
 if csv:
     print "Ejecución" + ', ' + "Error Final" + ', ' + "Error Validación" + ', ' + "Eficiencia Testing"

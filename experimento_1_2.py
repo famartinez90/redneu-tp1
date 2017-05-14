@@ -24,12 +24,12 @@ else:
 
 debug = False
 csv = True
-rondas = 5
+rondas = 8
 
 if csv:
     print "Ejecución" + ', ' + "Error Final" + ', ' + "Error Validación" + ', ' + "Eficiencia Testing"
 
-for i in [[2,2],[5,5], [7,7], [10, 10],[15, 15],[20, 20]]:
+for i in [[2],[5], [7], [10],[15],[20]]:
 
     errores_finales = []
     eficiencias = []
