@@ -426,13 +426,15 @@ anteriores experimentos con el momentum y un learning rate de \textbf{0.05} hab�
  en estos nuevos resultados se puede ver que usar momentum \textbf{0.1} es mejor que \textbf{0} tanto para el learning rate de \textbf{0.1 y de 0.05}. 
  Esto puede deberse a como se armaron los conjuntos de entrenamiento y validación.
 
-\subsubsection{Performance de la red, variando técnicas de entrenamiento (estocástico, batch y mini batch) y de inicialización de pesos}
+\subsubsection{Performance de la red, variando simultáneamente técnicas de entrenamiento y de inicialización de pesos}
 
-En este experimento decidimos probar dos variables en simultáneo. Probamos la performance de las redes utilizando
+En este experimento decidimos también probar dos variables en simultáneo. Probamos la performance de las redes utilizando
 distintas técnicas de entrenamiento: estocástico, batch y mini batch con distintos tamaños. Al mismo tiempo, variamos 
 la distribución utilizada para la inicialización de los pesos de la red. Utilizamos distribución normal y uniforme.\\
 
-A la hora de elegir tamaños de batch para las ejecuciones mini batch, elegimos los siguientes tamaños: 5,10,100, mitad del dataset y dataset completo (batch). La idea es probar con batchs pequeños como 5 y 10, cercanos en teoría al online learning y también con algunos tamaños más grandes. Probamos también utilizando el dataset completo.\\
+A la hora de elegir tamaños de batch para las ejecuciones mini batch, elegimos los siguientes tamaños: 5,10,100, mitad del dataset y dataset completo (batch). La idea es probar con batchs pequeños como 5 y 10, 
+cercanos al online learning y también con algunos tamaños más grandes. 
+Probamos también utilizando el dataset completo.\\
 
 Al igual que en los primeros dos experimentos, juzgaremos las modalidades midiendo la performance final de error sobre dataset de training, error sobre el de validación y efectividad de aciertos prediciendo los patrones de testing.\\
 Observemos los resultados:
@@ -450,12 +452,14 @@ Notación:
 \begin{itemize}
 \item $B1$ = Entrenamiento estocástico.
 \item $BX$ = Mini batch de tamaño $X$.
-\item $B Mitad$ = Mini batch de tamaño equivalente a la mitad del dataset.
-\item $B Entero$ = Batch común.
+\item $B$ $Mitad$ = Mini batch de tamaño equivalente a la mitad del dataset.
+\item $B$ $Entero$ = Batch común.
 \end{itemize}
 
 A su vez, mostramos en color azul los resultados obtenidos utilizando distribución de pesos uniforme y en naranja, distribución normal.\\
-Podemos ver que, tanto para aprendizaje estocástico como para los mini batchs más pequeños, se obtuvieron mejores resultados utilizando la distribución normal.
+Con respecto a los diferentes tipos de entrenamiento, notamos que el aprendizaje online obtiene mucho mejores resultados que las demás técnicas. El experimento muestra también que a medida que se utiliza un batch más grande, la precisión del modelo empeora. En algunos casos, muy notablemente.\\
+
+Podemos ver además que,  para los mini batchs más pequeños, se obtuvieron mejores resultados utilizando la distribución uniforme. Sin embargo, tanto el aprendizaje estocástico como los batchs más grandes mostraron mejor rendimiento con la distribución normal. Es necesario aclarar que en el caso del entrenamiento estocástico la diferencia es muy pequeña y los resultados con ambas modalidades fueron muy parejos.\\
 
 Para el error final en los datos de validación, obtuvimos los siguientes resultados:\\
 
@@ -466,10 +470,9 @@ Para el error final en los datos de validación, obtuvimos los siguientes result
   \end{center}
 \end{figure}
 
-% En la figura 5 podemos notar que el valor de error con el dataset de validación también decrece a medida que sube la cantidad
-% de neuronas, aunque no de forma uniforme. Podemos apreciar que a partir de las 10 neuronas, el error se mantiene por debajo de 0.15.\\
+Aquí en la figura 24 se mantiene la misma tendencia que en los números anteriores. Los mejores resultados se obtuvieron con el online learning y con los mini batchs más pequeños.\\
 
-% Para la efectividad en la predicción de los datos de testing, observamos:\\
+En cuanto a los pesos iniciales, nuevamente observamos que la uniforme genera mejores resultados en los batchs más pequeños y la normal en los mayores.
 
 \begin{figure}[h]
   \begin{center}
@@ -478,10 +481,13 @@ Para el error final en los datos de validación, obtuvimos los siguientes result
   \end{center}
 \end{figure}
 
-% Nuevamente podemos apreciar en la figura 6, que a medida que crece la cantidad de neuronas, crece la cantidad de aciertos sobre el conjunto de datos de test. Sin embargo, los resultados se comienzan a estancar a partir de las 10 neuronas en valores cercanos al 90 \% de aciertos.\\
+Por último la figura 25 muestra la tasa de aciertos sobre el dataset de testing. El mejor puntaje fue obtenido nuevamente por el entrenamientoe estocástico, con distribución normal. Estocástico con distribución uniforme también obtuvo buen número de aciertos, levemente menor que la normal.\\
 
-% Observando los resultados obtenidos en las pruebas, decidimos que la mejor configuración es con 10 neuronas por capa. Esta decisión se justifica teniendo en cuenta que los resultados no mejoran demasiado pasando de 10 y si empeora notablemente la velocidad de la red.\\
-% Por ende, \textbf{en vistas a los buenos resultados obtenidos con 10 neuronas y no obteniendo mejoras sustanciales con cantidades mayores}, nos quedaremos con este valor.
+Curiosamente todas las demás técnicas de entrenamiento muestran mejores predicciones con distribución uniforme. Esto contradice lo que había sucedido con las funciones de costo de los batchs B5 y B10 en las figuras 23 y 24. Sin embargo para B100, BM y BE, la uniforme nuevamente obtuvo los mejores resultados.\\
+
+En vistas a los número registrados en el experimento, \textbf{resulta evidente que el entrenamiento estocástico tuvo mucho mejor rendimiento que todas las demás modalidades}. Particularmente los batchs mayores tuvieron una performance pobre, con altos valores de error y mala tasa de predicción.\\
+
+En cuanto a distribución de pesos, el estocástico presentó menor error de entrenamiento y mejor tasa de predicción con distribución normal. La distribución uniforme tuvo un error levemente inferior para el dataset de validación. Los resultados en cuanto este factor fueron muy parejos.
 
 \subsubsection{Performance de la red, sin y con preprocesamiento de los patrones.}
 
@@ -489,6 +495,100 @@ Para el error final en los datos de validación, obtuvimos los siguientes result
 
 \subsubsection{Performance de la red, variando las funciones de activación y/o sus parámetros.}
 
+\newpage
+\subsection{Ejercicio 2}
+
+Repetimos los experimentos para el ejercicio 2 para intentar obtener la mejor arquitectura para la solución de este problema.
+
+\subsubsection{Variación del número de capas ocultas.}
+La idea de este experimento, al igual que en el ejercicio 1, es determinar la cantidad de capas ocultas óptimas para la solución. Fijamos todas las variables con los mismos valores que para el experimento análogo del ejercicio 1.\\
+Esta configuración es arbitraria y su propósito es únicamente setear valores fijos para experimentar con la cantidad de capas ocultas.\\
+
+La modalidad del experimento fue la misma, probamos la performance de la red con 1, 2, 3 y 5 capas. No utilizamos valores mayores ya que fueron filtrados previamente debido a sus muy inferiores resultados.\\
+
+Observemos los resultados de los distintos valores seleccionados:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/ej2_cant_capas_error_final.png}
+  \caption{Error final (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de entrenamiento}
+  \end{center}
+\end{figure}
+
+Podemos ver aquí que todas las modalidades obtuvieron un error final bastante similar, prácticamente igual. Nos sorprendió la similitud de los resultados ya que no esperábamos tan pequeña diferencia.\\
+Sabíamos previamente por consultas en clase que era probable que los valores más bajos de capas fueran los más óptimos para el problema, pero nuestros resultados muestran que subiendo incluso hasta 5 capas, el error final empeora pero muy sensiblemente.
+
+Para el error final en los datos de validación, obtuvimos los siguientes resultados:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/ej2_cant_capas_error_valid.png}
+  \caption{Error (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de validación}
+  \end{center}
+\end{figure}
+
+\newpage
+
+Aquí se repite la tendencia, valores muy cercanos para todas las configuraciones.\\
+
+Analicemos la tasa de aciertos sobre el dataset de testing.
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/ej2_cant_capas_testing.png}
+  \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
+  \end{center}
+\end{figure}
+
+Antes de explicar los números, aclaremos que para calcular la tasa de aciertos se utilizó el siguiente criterio. Primero, como este es un problema con 2 salidas, para considerar un patrón como bien predecido consideramos que ambos valores de salida debían estar cercanos a los valores esperados. La definición de \lq cercano \rq corresponde a estar a una distancia de al menos $0,25$ con el valor esperado. Este criterio es para poder salvar las pequeñas diferencias que surgen en el cálculo de cada salida. Al ser valores flotantes, no se obtienen coincidencias perfectas, sino aproximaciones.\\
+
+Lo que nos interesaba es poder medir la cantidad de aciertos, con algún margen de error de tolerancia.\\
+
+Podemos ver en los números que la arquitectura de 1 capa obtuvo mejores resultados que las demás, aunque no muy superiores. Es destacable que los porcentajes de aciertos son mucho menores que los del mismo experimento del ejercicio 1. Atribuimos esto al criterio antes explicado de cálculo de aciertos. Modificando el criterio de tolerancia se podrían obtener valores mayores, pero no es realmente lo que nos interesaba. Además en este problema se deben predecir 2 valores de salida distintos y se considera un acierto sólo si ambos están en el rango de tolerancia, por ende el criterio es más exigente.\\
+
+Teniendo en cuenta los resultados presentados en estas pruebas, \textbf{nos decidimos por una arquitectura de 1 capa oculta como parte de la solución óptima.} Aunque se obtuvieron resultados casi igual de buenos con arquitecturas de 2 y 3 capas, notando una leve desmejora a medida que se subió la cantidad utilizada.
+
+\subsubsection{Variación del número de neuronas ocultas.}
+
+Este experimento es análogo al del número de neuronas ocultas del experimento 1. 
+Elegimos las siguientes medidas: 1 capa de 2, 5, 7, 10, 15 y 20 neuronas. 
+
+Para el error final, obtuvimos los siguientes resultados:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.70]{graficos/ej2_cant_neuro_error_final.png}
+  \caption{Error final (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de entrenamiento}
+  \end{center}
+\end{figure}
+
+En la figura anterior se puede observar que todas las configuraciones obtuvieron valores de función de costo en el rango de $0,8$ - $0,12$ notando una muy leve mejora para las capas de 5 y 7 neuronas. Al igual que en el experimento anterior, resulta llamativa la similitud de los resultados. \\
+
+Para el error final en los datos de validación, obtuvimos los siguientes resultados:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.70]{graficos/ej2_cant_neuro_error_valid.png}
+  \caption{Error (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de validación}
+  \end{center}
+\end{figure}
+
+\newpage
+
+Se mantiene la tendencia para el dataset de validación. Levemente mejores resultados para la arquitectura de 7 neuronas por capa.
+
+Para la efectividad en la predicción de los datos de testing, obtuvimos:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.70]{graficos/ej2_cant_neuro_testing.png}
+  \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
+  \end{center}
+\end{figure}
+
+La tasa de aciertos se calculó con el método explicado en el experimento anterior. Notamos que la arquitectura de 2 neuronas obtuvo un resultado inferior a las demás. En cuanto a éstas, se destaca la de 5 y 7 neuronas con un porcentaje muy levemente mayor. Es curioso que, sacando el primer caso, todas hayan obtenido números tan similares. No logramos explicar con claridad el motivo de esta similitud.\\
+
+Observando los resultados obtenidos en las pruebas, \textbf{decidimos que la configuración a utilizar es es 1 capa con 7 neuronas}. Podríamos haber elegido también la de 5 neuronas, ya que los resultados son prácticamente idénticos, con una leve ventaja para la arquitectura de 7.\\
 
 \subsection{Descripción, justificación y performance, de la solución óptima propuesta.}
 
