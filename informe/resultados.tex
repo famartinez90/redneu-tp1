@@ -31,6 +31,7 @@ El experimento fue desarrollado así:
 \item Con la configuración mencionada, corrimos 8 rondas de cada número de capas ocultas utilizando: 1, 2, 3, 5 y 10 capas.
 Es decir, primero se ejecutaron 8 veces el entrenamiento, validación y testing de una red con 1 capa. Luego repetimos con 2, con 3, etc.
 \item Para cada cantidad de capas, promediamos los resultados de cada una de las 8 rondas. Con ello obtuvimos un error final (función de costo) de entrenamiento promedio , un error de validación promedio y una efectividad de testing promedio. Llamamos efectividad de testing a la cantidad de resultados del dataset de testing correctamente predichos.
+
 \item El error final de cada ronda corresponde a la función de costo de dicha corrida dividido la cantidad de patrones procesados.
 \end{itemize}
 
@@ -56,7 +57,7 @@ Para el error final en los datos de validación, obtuvimos los siguientes result
 \end{figure}
 
 
-En la figura 5 podemos notar que el valor de error con el dataset de validación también 
+En la figura 2 podemos notar que el valor de error con el dataset de validación también 
 genera mejores números con 2 y 3 capas. Especialmente se aprecia un mejor valor para la arquitectura de 2 capas.\\
 Observamos nuevamente que los valores más altos no rinden igual de bien que los anteriores.
 
@@ -67,7 +68,7 @@ Observamos nuevamente que los valores más altos no rinden igual de bien que los
   \end{center}
 \end{figure}
 
-Para la efectividad en la predicción de los datos de testing, observamos que la red de 1 capa generó aciertos cercanos al 82\%, mientras que las de 2 y 3 capas superan el 90\%, teniendo la de 2 capas un desempeño levemente mejor.\\
+Para la efectividad en la predicción de los datos de testing, observamos en la figura 3 que la red de 1 capa generó aciertos cercanos al 82\%, mientras que las de 2 y 3 capas superan el 90\%, teniendo la de 2 capas un desempeño levemente mejor.\\
 Nos sorprendíó ver que las redes de 5 y 10 capas lograron una muy baja eficiencia, cercana al 50\%.\\
 
 Teniendo en cuenta los resultados presentados en estas pruebas, nos decidimos por una arquitectura de 2 capas ocultas. Aunque se obtuvieron resultados casi igual de buenos con arquitectura de 3 capas, \textbf{la de 2 capas presenta mejor velocidad de ejecución y resultados levemente mejores}.\\
@@ -463,20 +464,22 @@ Finalmente, confirmamos que, con estos resultados entre learning rate \textbf{0.
 confirmado en experimentos anteriores, y learning rate (si bien no hay grandes diferencias en el error de validación obtenido) de \textbf{0.05} ya que 
 registra el error más bajo tanto para entrenamiento como para validación.
 
-\subsubsection{Performance de la red, variando técnicas de entrenamiento (estocástico, batch y mini batch) y de inicialización de pesos}
+\subsubsection{Performance de la red, variando simultáneamente técnicas de entrenamiento y de inicialización de pesos}
 
-En este experimento decidimos probar dos variables en simultáneo. Probamos la performance de las redes utilizando
+En este experimento decidimos también probar dos variables en simultáneo. Probamos la performance de las redes utilizando
 distintas técnicas de entrenamiento: estocástico, batch y mini batch con distintos tamaños. Al mismo tiempo, variamos 
 la distribución utilizada para la inicialización de los pesos de la red. Utilizamos distribución normal y uniforme.\\
 
-A la hora de elegir tamaños de batch para las ejecuciones mini batch, elegimos los siguientes tamaños: 5,10,100, mitad del dataset y dataset completo (batch). La idea es probar con batchs pequeños como 5 y 10, cercanos en teoría al online learning y también con algunos tamaños más grandes. Probamos también utilizando el dataset completo.\\
+A la hora de elegir tamaños de batch para las ejecuciones mini batch, elegimos los siguientes tamaños: 5,10,100, mitad del dataset y dataset completo (batch). La idea es probar con batchs pequeños como 5 y 10, 
+cercanos al online learning y también con algunos tamaños más grandes. 
+Probamos también utilizando el dataset completo.\\
 
 Al igual que en los primeros dos experimentos, juzgaremos las modalidades midiendo la performance final de error sobre dataset de training, error sobre el de validación y efectividad de aciertos prediciendo los patrones de testing.\\
 Observemos los resultados:
 
 \begin{figure}[h]
   \begin{center}
-  \includegraphics[scale=0.75]{graficos/distribucion_error_final.png}
+  \includegraphics[scale=0.65]{graficos/distribucion_error_final.png}
   \caption{Error final (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de entrenamiento}
   \end{center}
 \end{figure}
@@ -487,38 +490,42 @@ Notación:
 \begin{itemize}
 \item $B1$ = Entrenamiento estocástico.
 \item $BX$ = Mini batch de tamaño $X$.
-\item $B Mitad$ = Mini batch de tamaño equivalente a la mitad del dataset.
-\item $B Entero$ = Batch común.
+\item $B$ $Mitad$ = Mini batch de tamaño equivalente a la mitad del dataset.
+\item $B$ $Entero$ = Batch común.
 \end{itemize}
 
 A su vez, mostramos en color azul los resultados obtenidos utilizando distribución de pesos uniforme y en naranja, distribución normal.\\
-Podemos ver que, tanto para aprendizaje estocástico como para los mini batchs más pequeños, se obtuvieron mejores resultados utilizando la distribución normal.
+Con respecto a los diferentes tipos de entrenamiento, notamos que el aprendizaje online obtiene mucho mejores resultados que las demás técnicas. El experimento muestra también que a medida que se utiliza un batch más grande, la precisión del modelo empeora. En algunos casos, muy notablemente.\\
+
+Podemos ver además que,  para los mini batchs más pequeños, se obtuvieron mejores resultados utilizando la distribución uniforme. Sin embargo, tanto el aprendizaje estocástico como los batchs más grandes mostraron mejor rendimiento con la distribución normal. Es necesario aclarar que en el caso del entrenamiento estocástico la diferencia es muy pequeña y los resultados con ambas modalidades fueron muy parejos.\\
 
 Para el error final en los datos de validación, obtuvimos los siguientes resultados:\\
 
 \begin{figure}[h]
   \begin{center}
-  \includegraphics[scale=0.75]{graficos/distribucion_error_validacion.png}
+  \includegraphics[scale=0.65]{graficos/distribucion_error_validacion.png}
   \caption{Error (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de validación}
   \end{center}
 \end{figure}
 
-% En la figura 5 podemos notar que el valor de error con el dataset de validación también decrece a medida que sube la cantidad
-% de neuronas, aunque no de forma uniforme. Podemos apreciar que a partir de las 10 neuronas, el error se mantiene por debajo de 0.15.\\
+Aquí en la figura 24 se mantiene la misma tendencia que en los números anteriores. Los mejores resultados se obtuvieron con el online learning y con los mini batchs más pequeños.\\
 
-% Para la efectividad en la predicción de los datos de testing, observamos:\\
+En cuanto a los pesos iniciales, nuevamente observamos que la uniforme genera mejores resultados en los batchs más pequeños y la normal en los mayores.
 
 \begin{figure}[h]
   \begin{center}
-  \includegraphics[scale=0.75]{graficos/distribucion_eficiencia.png}
+  \includegraphics[scale=0.65]{graficos/distribucion_eficiencia.png}
   \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
   \end{center}
 \end{figure}
 
-% Nuevamente podemos apreciar en la figura 6, que a medida que crece la cantidad de neuronas, crece la cantidad de aciertos sobre el conjunto de datos de test. Sin embargo, los resultados se comienzan a estancar a partir de las 10 neuronas en valores cercanos al 90 \% de aciertos.\\
+Por último la figura 25 muestra la tasa de aciertos sobre el dataset de testing. El mejor puntaje fue obtenido nuevamente por el entrenamientoe estocástico, con distribución normal. Estocástico con distribución uniforme también obtuvo buen número de aciertos, levemente menor que la normal.\\
 
-% Observando los resultados obtenidos en las pruebas, decidimos que la mejor configuración es con 10 neuronas por capa. Esta decisión se justifica teniendo en cuenta que los resultados no mejoran demasiado pasando de 10 y si empeora notablemente la velocidad de la red.\\
-% Por ende, \textbf{en vistas a los buenos resultados obtenidos con 10 neuronas y no obteniendo mejoras sustanciales con cantidades mayores}, nos quedaremos con este valor.
+Curiosamente todas las demás técnicas de entrenamiento muestran mejores predicciones con distribución uniforme. Esto contradice lo que había sucedido con las funciones de costo de los batchs B5 y B10 en las figuras 23 y 24. Sin embargo para B100, BM y BE, la uniforme nuevamente obtuvo los mejores resultados.\\
+
+En vistas a los número registrados en el experimento, \textbf{resulta evidente que el entrenamiento estocástico tuvo mucho mejor rendimiento que todas las demás modalidades}. Particularmente los batchs mayores tuvieron una performance pobre, con altos valores de error y mala tasa de predicción.\\
+
+En cuanto a distribución de pesos, el estocástico presentó menor error de entrenamiento y mejor tasa de predicción con distribución normal. La distribución uniforme tuvo un error levemente inferior para el dataset de validación. Los resultados en cuanto este factor fueron muy parejos.
 
 \subsubsection{Performance de la red, sin y con preprocesamiento de los patrones.}
 
@@ -614,6 +621,151 @@ red utilizada durante el entrenamiento, para evitar caer en los 2 casos antes me
 
 \subsubsection{Performance de la red, variando las funciones de activación y/o sus parámetros.}
 
+\newpage
+\subsection{Ejercicio 2}
+
+Repetimos los experimentos para el ejercicio 2 para intentar obtener la mejor arquitectura para la solución de este problema.
+
+\subsubsection{Variación del número de capas ocultas.}
+La idea de este experimento, al igual que en el ejercicio 1, es determinar la cantidad de capas ocultas óptimas para la solución. Fijamos todas las variables con los mismos valores que para el experimento análogo del ejercicio 1.\\
+Esta configuración es arbitraria y su propósito es únicamente setear valores fijos para experimentar con la cantidad de capas ocultas.\\
+
+La modalidad del experimento fue la misma, probamos la performance de la red con 1, 2, 3 y 5 capas. No utilizamos valores mayores ya que fueron filtrados previamente debido a sus muy inferiores resultados.\\
+
+Observemos los resultados de los distintos valores seleccionados:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/ej2_cant_capas_error_final.png}
+  \caption{Error final (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de entrenamiento}
+  \end{center}
+\end{figure}
+
+Podemos ver aquí que todas las modalidades obtuvieron un error final bastante similar, prácticamente igual. Nos sorprendió la similitud de los resultados ya que no esperábamos tan pequeña diferencia.\\
+Sabíamos previamente por consultas en clase que era probable que los valores más bajos de capas fueran los más óptimos para el problema, pero nuestros resultados muestran que subiendo incluso hasta 5 capas, el error final empeora pero muy sensiblemente.
+
+Para el error final en los datos de validación, obtuvimos los siguientes resultados:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/ej2_cant_capas_error_valid.png}
+  \caption{Error (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de validación}
+  \end{center}
+\end{figure}
+
+\newpage
+
+Aquí se repite la tendencia, valores muy cercanos para todas las configuraciones.\\
+
+Analicemos la tasa de aciertos sobre el dataset de testing.
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.75]{graficos/ej2_cant_capas_testing.png}
+  \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
+  \end{center}
+\end{figure}
+
+Antes de explicar los números, aclaremos que para calcular la tasa de aciertos se utilizó el siguiente criterio. Primero, como este es un problema con 2 salidas, para considerar un patrón como bien predicho consideramos que ambos valores de salida debían estar cercanos a los valores esperados. La definición de \lq cercano \rq corresponde a estar a una distancia de al menos $0,25$ con el valor esperado. Este criterio es para poder salvar las pequeñas diferencias que surgen en el cálculo de cada salida. Al ser valores flotantes, no se obtienen coincidencias perfectas, sino aproximaciones.\\
+
+Lo que nos interesaba es poder medir la cantidad de aciertos, con algún margen de error de tolerancia.\\
+
+Podemos ver en los números que la arquitectura de 1 capa obtuvo mejores resultados que las demás, aunque no muy superiores. Es destacable que los porcentajes de aciertos son mucho menores que los del mismo experimento del ejercicio 1. Atribuimos esto al criterio antes explicado de cálculo de aciertos. Modificando el criterio de tolerancia se podrían obtener valores mayores, pero no es realmente lo que nos interesaba. Además en este problema se deben predecir 2 valores de salida distintos y se considera un acierto sólo si ambos están en el rango de tolerancia, por ende el criterio es más exigente.\\
+
+Teniendo en cuenta los resultados presentados en estas pruebas, \textbf{nos decidimos por una arquitectura de 1 capa oculta como parte de la solución óptima.} Aunque se obtuvieron resultados casi igual de buenos con arquitecturas de 2 y 3 capas, notando una leve desmejora a medida que se subió la cantidad utilizada.
+
+\subsubsection{Variación del número de neuronas ocultas.}
+
+Este experimento es análogo al del número de neuronas ocultas del experimento 1. 
+Elegimos las siguientes medidas: 1 capa de 2, 5, 7, 10, 15 y 20 neuronas. 
+
+Para el error final, obtuvimos los siguientes resultados:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.70]{graficos/ej2_cant_neuro_error_final.png}
+  \caption{Error final (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de entrenamiento}
+  \end{center}
+\end{figure}
+
+En la figura anterior se puede observar que todas las configuraciones obtuvieron valores de función de costo en el rango de $0,8$ - $0,12$ notando una muy leve mejora para las capas de 5 y 7 neuronas. Al igual que en el experimento anterior, resulta llamativa la similitud de los resultados. \\
+
+Para el error final en los datos de validación, obtuvimos los siguientes resultados:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.70]{graficos/ej2_cant_neuro_error_valid.png}
+  \caption{Error (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de validación}
+  \end{center}
+\end{figure}
+
+\newpage
+
+Se mantiene la tendencia para el dataset de validación. Levemente mejores resultados para la arquitectura de 7 neuronas por capa.
+
+Para la efectividad en la predicción de los datos de testing, obtuvimos:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.70]{graficos/ej2_cant_neuro_testing.png}
+  \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
+  \end{center}
+\end{figure}
+
+La tasa de aciertos se calculó con el método explicado en el experimento anterior. Notamos que la arquitectura de 2 neuronas obtuvo un resultado inferior a las demás. En cuanto a éstas, se destaca la de 5 y 7 neuronas con un porcentaje muy levemente mayor. Es curioso que, sacando el primer caso, todas hayan obtenido números tan similares. No logramos explicar con claridad el motivo de esta similitud.\\
+
+Observando los resultados obtenidos en las pruebas, \textbf{decidimos que la configuración a utilizar es es 1 capa con 7 neuronas}. Podríamos haber elegido también la de 5 neuronas, ya que los resultados son prácticamente idénticos, con una leve ventaja para la arquitectura de 7.\\
+
+\subsubsection{Performance de la red, variando simultáneamente técnicas de entrenamiento y de inicialización de pesos}
+
+Este experimento es análogo al realizado para el ejercicio 1. Probamos la performance de las redes utilizando
+distintas técnicas de entrenamiento: estocástico, batch y mini batch con distintos tamaños. Al mismo tiempo, variamos 
+la distribución utilizada para la inicialización de los pesos de la red. Utilizamos distribución normal y uniforme.\\
+
+Utilizamos los mismos valores de batch que en el ejercicio 1 y las mismas distribuciones, normal y uniforme.\\
+Observemos los resultados:
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.65]{graficos/ej2_distribucion_error_final.png}
+  \caption{Error final (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de entrenamiento}
+  \end{center}
+\end{figure}
+
+En la primera figura de este experimento mostramos la función de costo obtenida con las diferentes técnicas.\\
+
+Al igual que en el problema del ejercicio 1, el aprendizaje estocástico obtuvo mejores resultados que los demás métodos, aunque de forma menos marcada. Nuevamente se observa también que los batchs más pequeños generan errores menores. \\
+
+Notamos que para este ejercicio, las modalidades de batch y mini batch mostraron mucho mejor rendimiento que para el ejercicio 1. En aquel, estas modalidades, especialmente las de batchs grandes, generaban un error muy alto y resultados pobres.\\
+
+Con respecto a las diferentes técnicas de inicialización, notamos que en todas las modalidades de entrenamiento, se observan resultados similares entre utilizar distribución normal y uniforme. Otra diferencia con los resultados del ejercicio 1, es que aquí no se notó tanta diferencia entre las distribuciones.\\
+
+Para el error final en los datos de validación, obtuvimos los siguientes resultados:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.65]{graficos/ej2_distribucion_error_validacion.png}
+  \caption{Error (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de validación}
+  \end{center}
+\end{figure}
+
+En la prueba de validación obtuvimos resultados en la misma sintonía. Ventaja en rendimiento del aprendizaje online y números parejos para la comparación entre distribuciones.
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.65]{graficos/ej2_distribucion_eficiencia.png}
+  \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
+  \end{center}
+\end{figure}
+
+En los resultados de testing observamos la misma tendencia. Mejores resultados del aprendimiento online, con la curiosidad que aquí, a diferencia del ejercicio 1, la distribución uniforme presenta una leve ventaja.\\
+En todos los demás casos, predomina la normal. Nuevamente esto resultó contrario a lo analizado en este mismo experimento para el ejercicio 1.\\
+
+Para todos los tamaños de batch, se mantuvo fijo la relación de efectividad entre cada una de las distribuciones.\\
+
+Teniendo en cuenta los resultados obtenidos, podemos concluir que \textbf{el entrenamiento estocástico tuvo levemente mejor rendimiento que las demás modalidades}. Los resultados no son tan contundentes como en el ejercicio 1.\\
+
+En cuanto a distribución de pesos, el aprendizaje estocástico presentó una muy leve ventaja en resultados utilizando distribución uniforme. La diferencia es mínima, al igual que en el problema 1. Sospechamos que la elección de distrubición de pesos no afecta muy significativamente los resultados finales de la red, al menos en estos casos analizados.\\
 
 \subsection{Descripción, justificación y performance, de la solución óptima propuesta.}
 
