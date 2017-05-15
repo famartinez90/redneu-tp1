@@ -4,8 +4,8 @@ import perceptron as ppn
 import matplotlib.pyplot as plt
 from parameters import iniciar
 
-nro_ejercicio, eta, epochs, capas, train_pct, test_pct, validation_pct, \
-    f_activacion, d_pesos, tambatch, momentum, red_desde_archivo, estop, adaptativo = iniciar()
+nro_ejercicio, filepath, eta, epochs, capas, train_pct, test_pct, validation_pct, \
+    f_activacion, d_pesos, tambatch, momentum, red_desde_archivo, red_hacia_archivo, estop, adaptativo = iniciar()
 
 i = psr.Parser()
 
