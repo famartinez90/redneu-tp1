@@ -308,8 +308,8 @@ class PerceptronMulticapa(object):
 			if print_epochs:
 				print 'epoca: %d, eta: %.3f, error: %.5f, validacion: %.5f' % (epoch, eta, funcion_de_costo, error_validacion)
 
-			if early_stopping_treshold > 0.0:
-				if error_validacion >= early_stopping_treshold:
+			if early_stopping_treshold != 0.0:
+				if error_validacion <= early_stopping_treshold:
 					break
 
 		return results

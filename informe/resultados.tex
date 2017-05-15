@@ -529,7 +529,110 @@ En cuanto a distribución de pesos, el estocástico presentó menor error de ent
 
 \subsubsection{Performance de la red, sin y con preprocesamiento de los patrones.}
 
+Una vez finalizado el desarrollo del perceptrón, comenzamos a probarlo con distintos datasets sencillos y pequeños encontrados en internet. En cuanto verificamos que estábamos obteniendo resultados coherentes, decidimos empezar a probar con los datos reales de los problemas del enunciado.\\
+
+A esa altura, aún no teníamos listos los métodos de preprocesamiento de patrones. Lo que observamos fue que no nos era posible procesar los patrones del ejercicio 1 ya que al momento de aplicar varias de las operaciones matemáticas con los pesos y los inputs, se generaban errores de overflowing. Es decir, los valores con los que se estaba operando eran tan grandes que no permitía a la red almacenarlos en variables. Esto sucedió con los cálculos de las funciones de activación, usanto tando la logística como la tangente.\\
+
+Decidimos entonces preprocesar los datos. Lo que realiza el programa es una normalización de los datos. Toma cada valor de cada atributo del problema y realiza 
+la siguiente operación:\\
+
+\begin{center}
+	$valor_normalizado = (valor_original - media) / desvio$
+\end{center}
+
+Donde $media$ y $desvio$ son la media y el desvío estándar de todos los valores del atributo. De esta forma, se reducen los viejos valores a nuevos números más pequeños, centrados alrededor de la media.\\
+
+Utilizamos este método a lo largo de todos los experimentos del trabajo. El resultado es que no podemos realizar pruebas sin normalizar los datos, ya que el programa genera errores de ejecución por overflow. Como consecuencia, no podemos experimentar en las diferencias de performance entre utilizar o no preprocesamiento de patrones ya que no utilizarlos nos impide ejecutar nuestro programa. Por ello, no presentamos experimentos con esta modalidad.
+
 \subsubsection{Performance de la red, sin y con early-stopping.}
+
+Early stopping es un método que nos permmite frenar el entrenamiento antes de que nuestra red sea afectada por el \textbf{overfitting}. Para implementarlo, 
+luego de finalizada cada época del entrenamiento, si el error de validación esta por debajo del threshold (o valor del early stopping), entonces el 
+entrenamiento termina sin necesidad de terminar de correr las épocas faltantes. De esta manera, la red no seguirá entrenando sobre el mismo conjunto de 
+entrenamiento hasta que el error sea casi nulo, provocando así que al intentar predecir con nuevos datos, la red tenga una efectividad muy baja.
+
+Para este experimento decidimos entrenar la red con diferentes valores del threshold, los cuales son \textbf{0, 0.2, 0.15, 0.1, 0.05 y 0.01}. La 
+idea es poder determinar cual arroja mejores resultados sobre el conjunto de testing cuando se corta el entrenamiento para errores de validación por 
+debajo de estos thresholds. Además, utilizamos entrenamientos de 500 épocas, para poder ver un poco mejor la diferencia entre tener y no tener 
+early stopping.
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/early_stopping_validacion_0.png}
+  \caption{Evolución del error de validación sin early stopping.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/early_stopping_validacion_0_2.png}
+  \caption{Evolución del error de validación con early stopping. Threshold: 0.2}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/early_stopping_validacion_0_15.png}
+  \caption{Evolución del error de validación sin early stopping. Threshold: 0.15}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/early_stopping_validacion_0_1.png}
+  \caption{Evolución del error de validación con early stopping. Threshold: 0.1}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/early_stopping_validacion_0_05.png}
+  \caption{Evolución del error de validación sin early stopping. Threshold: 0.05}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/early_stopping_validacion_0_01.png}
+  \caption{Evolución del error de validación con early stopping. Threshold: 0.01}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+  \begin{center}
+  \includegraphics[scale=0.60]{graficos/early_stopping_testing_250ep.png}
+  \caption{Resultados de eficiencia en la precisión al predecir los resultados del conjunto de datos de testing por threshold con 250 épocas}
+  \end{center}
+\end{figure}
+
+Viendo los resultados, podemos aprecir que al no usar early stopping o usar un threshold de 0.01 se obtienen los mejores 
+resultados sobre nuevos datos provenientes del conjunto de testing. Se puede ver además que usar un threshold muy bajo puede no ser alcanzado nunca por 
+el conjunto de validación lo cual es lo mismo que entrenar la red sin early stopping, y esto es lo que sucedió al usar el threshold de 0.01. Contrario 
+a esto, elegir un threshold muy alto produce que el entrenamiento termine rápidamente sin obtener una buena precisión para ningún tipo de dato, tanto 
+los de entrenamiento y validación, como los de testing. Que no usar early stopping de los mejores resultados nos hace pensar que la cantidad de épocas 
+durante las cuales corre nuestro entrenamiento no son lo suficientemente extensas como para provocar overfitting y saturar la red al punto que 
+nueva información sea predecida erróneamente. 
+
+Entendemos que, si bien en nuestro escenario el early stopping no mejoró nuestros resultados, en casos donde las épocas son muchas o las condiciones de 
+la red provocan que si hay overfitting el error de validación comience a subir rápidamente, el early stopping puede hacer la diferencia en gran medidad. 
+Para intentar simular esta situación, corrimos nuevamente las pruebas para 750 épocas, y los resultados apoyan esta idea: usar un threshold de \textbf{0.1} 
+arrojo una eficiencia en \textbf{3\%} por encima de no usar early stopping.
+
+\begin{figure}[!htbp]
+  \begin{center}
+  \includegraphics[scale=0.60]{graficos/early_stopping_testing_750ep.png}
+  \caption{Resultados de eficiencia en la precisión al predecir los resultados del conjunto de datos de testing por threshold con 750 épocas}
+  \end{center}
+\end{figure}
+
+Sabiendo esto, es importante a su vez saber seleccionar el threshold de early stopping entendiendo el conjunto de datos y analizando como evoluciona la 
+red utilizada durante el entrenamiento, para evitar caer en los 2 casos antes mencionados. 
 
 \subsubsection{Performance de la red, variando las funciones de activación y/o sus parámetros.}
 
@@ -678,6 +781,77 @@ Para todos los tamaños de batch, se mantuvo fijo la relación de efectividad en
 Teniendo en cuenta los resultados obtenidos, podemos concluir que \textbf{el entrenamiento estocástico tuvo levemente mejor rendimiento que las demás modalidades}. Los resultados no son tan contundentes como en el ejercicio 1.\\
 
 En cuanto a distribución de pesos, el aprendizaje estocástico presentó una muy leve ventaja en resultados utilizando distribución uniforme. La diferencia es mínima, al igual que en el problema 1. Sospechamos que la elección de distrubición de pesos no afecta muy significativamente los resultados finales de la red, al menos en estos casos analizados.\\
+
+\subsubsection{Performance de la red, variando simultáneamente el factor de aprendizaje $\mu$, y el parámetro $\alpha$ del momentum.}
+
+Para el ejercicio 2 decidimos, en vez de hacer pruebas con y sin momentum por un lado, y variar el eta y el momentum por otro, de hacerlo todo junto.
+El experimento es similar que en el ej1 pero tomamos los siguiente valores de momentum: \textbf{0, 0.05, 0.1, 0.5 y 0.9}, los cuales se 
+probaron con los valores de learning rate \textbf{0.05, 0.08, 0.1, 0.12, 0.15 y 0.2}. Vamos a mostrar solo los resultados sobre el error de validación 
+en conjunto con el error de testing, que son los datos que definen que tan bien está preparada la red para predecir nuevos datos.
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/eta_x_momentum_promedios_validacion_0_05.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.05}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/eta_x_momentum_promedios_validacion_0_08.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.08}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/eta_x_momentum_promedios_validacion_0_1.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.1}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/eta_x_momentum_promedios_validacion_0_12.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.12}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/eta_x_momentum_promedios_validacion_0_15.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.15}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/eta_x_momentum_promedios_validacion_0_2.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.2}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+
+A partir de los resultados podemos apreciar que los valores más bajos del error de validación se obtuvieron con learning rate \textbf{0.05}. Dado esto,
+decidimos hacer unas pruebas extras con learning rates de \textbf{0.01 y 0.03} pero no conseguimos mejores resultados. 
+
+\begin{figure}[!htbp]
+  \begin{center}
+  \includegraphics[scale=1]{graficos/ej2/error_testing_eta_x_momentum.png}
+  \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
+  \end{center}
+\end{figure}
+
+Analizando también los datos de eficiencia sobre el conjunto de testing, podemos ver que la combinación de momentum 0 y learning rate 0.05 es la que 
+mejor resultados da, y será nuestra elección. Sin embargo, es importante notar que muy buenos resultados se pueden lograr también con learnig rate 
+0.1 y momentum 0, y con learning rate 0.12 y momentum 0.05.
+
 
 \subsection{Descripción, justificación y performance, de la solución óptima propuesta.}
 
