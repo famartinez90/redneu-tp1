@@ -529,6 +529,21 @@ En cuanto a distribución de pesos, el estocástico presentó menor error de ent
 
 \subsubsection{Performance de la red, sin y con preprocesamiento de los patrones.}
 
+Una vez finalizado el desarrollo del perceptrón, comenzamos a probarlo con distintos datasets sencillos y pequeños encontrados en internet. En cuanto verificamos que estábamos obteniendo resultados coherentes, decidimos empezar a probar con los datos reales de los problemas del enunciado.\\
+
+A esa altura, aún no teníamos listos los métodos de preprocesamiento de patrones. Lo que observamos fue que no nos era posible procesar los patrones del ejercicio 1 ya que al momento de aplicar varias de las operaciones matemáticas con los pesos y los inputs, se generaban errores de overflowing. Es decir, los valores con los que se estaba operando eran tan grandes que no permitía a la red almacenarlos en variables. Esto sucedió con los cálculos de las funciones de activación, usanto tando la logística como la tangente.\\
+
+Decidimos entonces preprocesar los datos. Lo que realiza el programa es una normalización de los datos. Toma cada valor de cada atributo del problema y realiza 
+la siguiente operación:\\
+
+\begin{center}
+	$valor_normalizado = (valor_original - media) / desvio$
+\end{center}
+
+Donde $media$ y $desvio$ son la media y el desvío estándar de todos los valores del atributo. De esta forma, se reducen los viejos valores a nuevos números más pequeños, centrados alrededor de la media.\\
+
+Utilizamos este método a lo largo de todos los experimentos del trabajo. El resultado es que no podemos realizar pruebas sin normalizar los datos, ya que el programa genera errores de ejecución por overflow. Como consecuencia, no podemos experimentar en las diferencias de performance entre utilizar o no preprocesamiento de patrones ya que no utilizarlos nos impide ejecutar nuestro programa. Por ello, no presentamos experimentos con esta modalidad.
+
 \subsubsection{Performance de la red, sin y con early-stopping.}
 
 Early stopping es un método que nos permmite frenar el entrenamiento antes de que nuestra red sea afectada por el \textbf{overfitting}. Para implementarlo, 
