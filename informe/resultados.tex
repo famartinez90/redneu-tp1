@@ -767,6 +767,77 @@ Teniendo en cuenta los resultados obtenidos, podemos concluir que \textbf{el ent
 
 En cuanto a distribución de pesos, el aprendizaje estocástico presentó una muy leve ventaja en resultados utilizando distribución uniforme. La diferencia es mínima, al igual que en el problema 1. Sospechamos que la elección de distrubición de pesos no afecta muy significativamente los resultados finales de la red, al menos en estos casos analizados.\\
 
+\subsubsection{Performance de la red, variando simultáneamente el factor de aprendizaje $\mu$, y el parámetro $\alpha$ del momentum.}
+
+Para el ejercicio 2 decidimos, en vez de hacer pruebas con y sin momentum por un lado, y variar el eta y el momentum por otro, de hacerlo todo junto.
+El experimento es similar que en el ej1 pero tomamos los siguiente valores de momentum: \textbf{0, 0.05, 0.1, 0.5 y 0.9}, los cuales se 
+probaron con los valores de learning rate \textbf{0.05, 0.08, 0.1, 0.12, 0.15 y 0.2}. Vamos a mostrar solo los resultados sobre el error de validación 
+en conjunto con el error de testing, que son los datos que definen que tan bien está preparada la red para predecir nuevos datos.
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/eta_x_momentum_promedios_validacion_0_05.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.05}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/eta_x_momentum_promedios_validacion_0_08.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.08}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/eta_x_momentum_promedios_validacion_0_1.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.1}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/eta_x_momentum_promedios_validacion_0_12.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.12}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/eta_x_momentum_promedios_validacion_0_15.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.15}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/eta_x_momentum_promedios_validacion_0_2.png}
+  \caption{Evolución del error de validación con momentum variable y learning rate fijo 0.2}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+
+A partir de los resultados podemos apreciar que los valores más bajos del error de validación se obtuvieron con learning rate \textbf{0.05}. Dado esto,
+decidimos hacer unas pruebas extras con learning rates de \textbf{0.01 y 0.03} pero no conseguimos mejores resultados. 
+
+\begin{figure}[!htbp]
+  \begin{center}
+  \includegraphics[scale=1]{graficos/ej2/error_testing_eta_x_momentum.png}
+  \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
+  \end{center}
+\end{figure}
+
+Analizando también los datos de eficiencia sobre el conjunto de testing, podemos ver que la combinación de momentum 0 y learning rate 0.05 es la que 
+mejor resultados da, y será nuestra elección. Sin embargo, es importante notar que muy buenos resultados se pueden lograr también con learnig rate 
+0.1 y momentum 0, y con learning rate 0.12 y momentum 0.05.
+
+
 \subsection{Descripción, justificación y performance, de la solución óptima propuesta.}
 
 
