@@ -14,12 +14,13 @@ class Parser(object):
 	    except ValueError:
 	        return False
 
-	def parse(self, nro_ejercicio, train_pct, test_pct, validation_pct):
+	def parse(self, filepath, nro_ejercicio, train_pct, test_pct, validation_pct):
 
-		if nro_ejercicio == '1':
-			filepath = 'tp1_ej1_training.csv'
-		else:
-			filepath = 'tp1_ej2_training.csv'
+		if filepath is None:
+			if nro_ejercicio == '1':
+				filepath = 'tp1_ej1_training.csv'
+			else:
+				filepath = 'tp1_ej2_training.csv'
 
 		reader = csv.reader(open(filepath, 'r'))
 		cant_datos = len(open(filepath).readlines())

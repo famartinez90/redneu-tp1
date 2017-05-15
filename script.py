@@ -9,12 +9,12 @@ import matplotlib.pyplot as plt
 
 # Ejemplo de ejecucion:
 
-nro_ejercicio, eta, epochs, capas, train_pct, test_pct, validation_pct, \
-    f_activacion, d_pesos, tambatch, momentum, red_desde_archivo, estop, adaptativo = params.iniciar()
+nro_ejercicio, filepath, eta, epochs, capas, train_pct, test_pct, validation_pct, \
+    f_activacion, d_pesos, tambatch, momentum, red_desde_archivo, red_hacia_archivo, estop, adaptativo = params.iniciar()
 
 i = psr.Parser()
 
-datos_train, datos_test, datos_validation = i.parse(nro_ejercicio, train_pct, test_pct, validation_pct)
+datos_train, datos_test, datos_validation = i.parse(filepath, nro_ejercicio, train_pct, test_pct, validation_pct)
 
 # Ejemplo de train
 DATOS = datos_train
@@ -28,27 +28,36 @@ else:
     N_SALIDA = 1
 
 results = []
-for i in range(1):
-    if red_desde_archivo is not None:
-        PPN = encoder.from_json(red_desde_archivo)
-    else:
-        PPN = ppn.PerceptronMulticapa(N_ENTRADA, capas, N_SALIDA, funcion_activacion=f_activacion, distribucion_pesos=d_pesos, momentum=momentum)
-        results.append(PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, datos_validation, eta=eta, epochs=epochs,
-                                 tamanio_muestra_batch=tambatch, early_stopping_treshold=estop, adaptativo=adaptativo))
 
-    DATOS_PREDICCION = [row[0] for row in datos_test]
+if red_desde_archivo is not None:
+    PPN = encoder.from_json(red_desde_archivo)
+else:
+    PPN = ppn.PerceptronMulticapa(N_ENTRADA, capas, N_SALIDA, funcion_activacion=f_activacion, distribucion_pesos=d_pesos, momentum=momentum)
+    results.append(PPN.train([row[0] for row in DATOS], RESULTADOS_ESPERADOS, datos_validation, eta=eta, epochs=epochs,
+                             tamanio_muestra_batch=tambatch, early_stopping_treshold=estop, adaptativo=adaptativo))
 
-    resultados = []
-    esperados = []
-    for _ in range(10):
-        for fila in DATOS_PREDICCION:
+DATOS_PREDICCION = [row[0] for row in datos_test]
+
+resultados = []
+esperados = []
+for _ in range(10):
+    for fila in DATOS_PREDICCION:
+
+        if nro_ejercicio == '1':
             prediccion = PPN.predecir_ej1(fila)
-            resultados.append(prediccion)
+        else:
+            prediccion = PPN.predecir_ej2(fila)
 
-        esperado = [row[-1] for row in datos_test]
-        esperados = esperados + esperado
+        resultados.append(prediccion)
 
-    print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)
+    esperado = [row[-1] for row in datos_test]
+    esperados = esperados + esperado
+
+print "Eficiencia: %.2f %%" % PPN.medir_performance(esperados, resultados)
+
+
+if red_hacia_archivo:
+    encoder.to_json(red_hacia_archivo, PPN)
 
 graficar = True
 
