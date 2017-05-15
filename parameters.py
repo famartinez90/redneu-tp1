@@ -10,11 +10,12 @@ def iniciar():
 
     parser = argparse.ArgumentParser(usage=usage)
 
-    # Argumento obligatorio: archivo de entrada
+    # Argumento obligatorio: ejercicio a resolver
     parser.add_argument("nro_ejercicio", type=str, help='Numero de ejercicio. Valores: 1/2')
 
-    # Argumentos opcionales: cantidad de epocas, eta, y proporcion de los datos
-    # para usar como entrenamiento, test y validacion
+    # Argumentos opcionales:
+
+    parser.add_argument("-file", "--filepath", default=None, help='Ubicacion del archivo con los datasets a procesar')
     parser.add_argument("-ep", "--epochs", default=500, help='Cantidad de epocas. Default = 500')
     parser.add_argument("-eta", "--eta", default=0.05, help='Tasa de aprendizaje. Default = 0.05')
     parser.add_argument("-capas", "--capas", default='10,10',
@@ -44,6 +45,10 @@ def iniciar():
                         help='Permite elegir una red ya entrenada. Las redes estan almacenadas en archivos.'
                              'Este parametro toma un filepath que contenga un txt con una red. Opciones: red_ej1.txt, red_ej2.txt')
 
+    parser.add_argument("-rha", "--red_hacia_archivo", default=None,
+                        help='Permite elegir una red ya entrenada. Las redes estan almacenadas en archivos json.'
+                             'Este parametro toma un filepath que contenga una red en formato json. Opciones: red_ej1.json, red_ej2.json')
+
     parser.add_argument("-estop", "--earlystopping", default=0,
                         help='Treshold para hacer el early stopping')
 
@@ -53,6 +58,8 @@ def iniciar():
     args = parser.parse_args()
 
     nro_ejercicio = args.nro_ejercicio
+    filepath = args.filepath
+
     eta = float(args.eta)
     epochs = int(args.epochs)
     capas = args.capas
@@ -67,6 +74,8 @@ def iniciar():
     tambatch = int(args.tambatch)
     momentum = float(args.momentum)
     red_desde_archivo = args.red_desde_archivo
+    red_hacia_archivo = args.red_hacia_archivo
+
     estop = float(args.earlystopping)
     adaptativo = bool(args.adaptativo)
 
@@ -86,5 +95,5 @@ def iniciar():
     print "Red a Utilizar: " + (red_desde_archivo if (red_desde_archivo is not None) else 'Nueva')
     print '-------------------------------------------------------------------------'
 
-    return nro_ejercicio, eta, epochs, capas_list, train_pct, test_pct, validation_pct, \
-           f_activacion, d_pesos, tambatch, momentum, red_desde_archivo, estop, adaptativo
+    return nro_ejercicio, filepath, eta, epochs, capas_list, train_pct, test_pct, validation_pct, \
+           f_activacion, d_pesos, tambatch, momentum, red_desde_archivo, red_hacia_archivo, estop, adaptativo
