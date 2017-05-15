@@ -21,7 +21,8 @@
 \contentsline {subsection}{\numberline {3.2}Ejercicio 2}{20}{subsection.3.2}
 \contentsline {subsubsection}{\numberline {3.2.1}Variaci\IeC {\'o}n del n\IeC {\'u}mero de capas ocultas.}{20}{subsubsection.3.2.1}
 \contentsline {subsubsection}{\numberline {3.2.2}Variaci\IeC {\'o}n del n\IeC {\'u}mero de neuronas ocultas.}{22}{subsubsection.3.2.2}
-\contentsline {subsection}{\numberline {3.3}Descripci\IeC {\'o}n, justificaci\IeC {\'o}n y performance, de la soluci\IeC {\'o}n \IeC {\'o}ptima propuesta.}{23}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Conclusiones.}{23}{subsection.3.4}
-\contentsline {section}{\numberline {4}Ap\IeC {\'e}ndice - C\IeC {\'o}digo}{24}{section.4}
-\contentsline {section}{\numberline {5}Bibliograf\IeC {\'\i }a}{25}{section.5}
+\contentsline {subsubsection}{\numberline {3.2.3}Performance de la red, variando simult\IeC {\'a}neamente t\IeC {\'e}cnicas de entrenamiento y de inicializaci\IeC {\'o}n de pesos}{23}{subsubsection.3.2.3}
+\contentsline {subsection}{\numberline {3.3}Descripci\IeC {\'o}n, justificaci\IeC {\'o}n y performance, de la soluci\IeC {\'o}n \IeC {\'o}ptima propuesta.}{25}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Conclusiones.}{25}{subsection.3.4}
+\contentsline {section}{\numberline {4}Ap\IeC {\'e}ndice - C\IeC {\'o}digo}{26}{section.4}
+\contentsline {section}{\numberline {5}Bibliograf\IeC {\'\i }a}{27}{section.5}

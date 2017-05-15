@@ -20,7 +20,8 @@
 \BOOKMARK [2][-]{subsection.3.2}{Ejercicio 2}{section.3}% 20
 \BOOKMARK [3][-]{subsubsection.3.2.1}{Variaci\363n del n\372mero de capas ocultas.}{subsection.3.2}% 21
 \BOOKMARK [3][-]{subsubsection.3.2.2}{Variaci\363n del n\372mero de neuronas ocultas.}{subsection.3.2}% 22
-\BOOKMARK [2][-]{subsection.3.3}{Descripci\363n, justificaci\363n y performance, de la soluci\363n \363ptima propuesta.}{section.3}% 23
-\BOOKMARK [2][-]{subsection.3.4}{Conclusiones.}{section.3}% 24
-\BOOKMARK [1][-]{section.4}{Ap\351ndice - C\363digo}{}% 25
-\BOOKMARK [1][-]{section.5}{Bibliograf\355a}{}% 26
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Performance de la red, variando simult\341neamente t\351cnicas de entrenamiento y de inicializaci\363n de pesos}{subsection.3.2}% 23
+\BOOKMARK [2][-]{subsection.3.3}{Descripci\363n, justificaci\363n y performance, de la soluci\363n \363ptima propuesta.}{section.3}% 24
+\BOOKMARK [2][-]{subsection.3.4}{Conclusiones.}{section.3}% 25
+\BOOKMARK [1][-]{section.4}{Ap\351ndice - C\363digo}{}% 26
+\BOOKMARK [1][-]{section.5}{Bibliograf\355a}{}% 27
