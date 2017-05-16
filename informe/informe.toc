@@ -5,24 +5,28 @@
 \contentsline {subsection}{\numberline {1.3}Requerimientos}{3}{subsection.1.3}
 \contentsline {subsection}{\numberline {1.4}Modo de uso y opciones}{3}{subsection.1.4}
 \contentsline {subsubsection}{\numberline {1.4.1}Opciones}{3}{subsubsection.1.4.1}
-\contentsline {section}{\numberline {2}Desarrollo}{5}{section.2}
-\contentsline {subsection}{\numberline {2.1}Decisiones tomadas y su justificaci\IeC {\'o}n.}{5}{subsection.2.1}
-\contentsline {section}{\numberline {3}Resultados}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}Ejercicio 1}{6}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Variaci\IeC {\'o}n del n\IeC {\'u}mero de capas ocultas.}{6}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Variaci\IeC {\'o}n del n\IeC {\'u}mero de neuronas ocultas.}{8}{subsubsection.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.3}Performance de la red, con entrenamiento sin momentum y con momentum.}{10}{subsubsection.3.1.3}
-\contentsline {subsubsection}{\numberline {3.1.4}Performance de la red, con entrenamiento sin y con par\IeC {\'a}metros adaptativos.}{10}{subsubsection.3.1.4}
-\contentsline {subsubsection}{\numberline {3.1.5}Performance de la red, variando simult\IeC {\'a}neamente el factor de aprendizaje $\mu $, y el par\IeC {\'a}metro $\alpha $ del momentum.}{13}{subsubsection.3.1.5}
-\contentsline {subsubsection}{\numberline {3.1.6}Performance de la red, variando simult\IeC {\'a}neamente t\IeC {\'e}cnicas de entrenamiento y de inicializaci\IeC {\'o}n de pesos}{17}{subsubsection.3.1.6}
-\contentsline {subsubsection}{\numberline {3.1.7}Performance de la red, sin y con preprocesamiento de los patrones.}{19}{subsubsection.3.1.7}
-\contentsline {subsubsection}{\numberline {3.1.8}Performance de la red, sin y con early-stopping.}{19}{subsubsection.3.1.8}
-\contentsline {subsubsection}{\numberline {3.1.9}Performance de la red, variando las funciones de activaci\IeC {\'o}n y/o sus par\IeC {\'a}metros.}{19}{subsubsection.3.1.9}
-\contentsline {subsection}{\numberline {3.2}Ejercicio 2}{20}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Variaci\IeC {\'o}n del n\IeC {\'u}mero de capas ocultas.}{20}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Variaci\IeC {\'o}n del n\IeC {\'u}mero de neuronas ocultas.}{22}{subsubsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.3}Performance de la red, variando simult\IeC {\'a}neamente t\IeC {\'e}cnicas de entrenamiento y de inicializaci\IeC {\'o}n de pesos}{23}{subsubsection.3.2.3}
-\contentsline {subsection}{\numberline {3.3}Descripci\IeC {\'o}n, justificaci\IeC {\'o}n y performance, de la soluci\IeC {\'o}n \IeC {\'o}ptima propuesta.}{25}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Conclusiones.}{25}{subsection.3.4}
-\contentsline {section}{\numberline {4}Ap\IeC {\'e}ndice - C\IeC {\'o}digo}{26}{section.4}
-\contentsline {section}{\numberline {5}Bibliograf\IeC {\'\i }a}{27}{section.5}
+\contentsline {subsection}{\numberline {1.5}Archivos}{4}{subsection.1.5}
+\contentsline {subsection}{\numberline {1.6}Otros scripts}{4}{subsection.1.6}
+\contentsline {section}{\numberline {2}Resultados}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Ejercicio 1}{5}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Variaci\IeC {\'o}n del n\IeC {\'u}mero de capas ocultas.}{5}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Variaci\IeC {\'o}n del n\IeC {\'u}mero de neuronas ocultas.}{7}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.3}Performance de la red, con entrenamiento sin momentum y con momentum.}{9}{subsubsection.2.1.3}
+\contentsline {subsubsection}{\numberline {2.1.4}Performance de la red, con entrenamiento sin y con par\IeC {\'a}metros adaptativos.}{9}{subsubsection.2.1.4}
+\contentsline {subsubsection}{\numberline {2.1.5}Performance de la red, variando simult\IeC {\'a}neamente el factor de aprendizaje $\mu $, y el par\IeC {\'a}metro $\alpha $ del momentum.}{12}{subsubsection.2.1.5}
+\contentsline {subsubsection}{\numberline {2.1.6}Performance de la red, variando simult\IeC {\'a}neamente t\IeC {\'e}cnicas de entrenamiento y de inicializaci\IeC {\'o}n de pesos}{16}{subsubsection.2.1.6}
+\contentsline {subsubsection}{\numberline {2.1.7}Performance de la red, sin y con preprocesamiento de los patrones.}{18}{subsubsection.2.1.7}
+\contentsline {subsubsection}{\numberline {2.1.8}Performance de la red, sin y con early-stopping.}{19}{subsubsection.2.1.8}
+\contentsline {subsubsection}{\numberline {2.1.9}Performance de la red, variando las funciones de activaci\IeC {\'o}n y/o sus par\IeC {\'a}metros.}{21}{subsubsection.2.1.9}
+\contentsline {subsection}{\numberline {2.2}Ejercicio 2}{22}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Variaci\IeC {\'o}n del n\IeC {\'u}mero de capas ocultas.}{22}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Variaci\IeC {\'o}n del n\IeC {\'u}mero de neuronas ocultas.}{24}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}Performance de la red, con entrenamiento sin y con par\IeC {\'a}metros adaptativos.}{25}{subsubsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.4}Performance de la red, variando simult\IeC {\'a}neamente el factor de aprendizaje $\mu $, y el par\IeC {\'a}metro $\alpha $ del momentum.}{27}{subsubsection.2.2.4}
+\contentsline {subsubsection}{\numberline {2.2.5}Performance de la red, variando simult\IeC {\'a}neamente t\IeC {\'e}cnicas de entrenamiento y de inicializaci\IeC {\'o}n de pesos}{29}{subsubsection.2.2.5}
+\contentsline {subsubsection}{\numberline {2.2.6}Performance de la red, sin y con early-stopping.}{30}{subsubsection.2.2.6}
+\contentsline {subsubsection}{\numberline {2.2.7}Performance de la red, variando las funciones de activaci\IeC {\'o}n y/o sus par\IeC {\'a}metros.}{32}{subsubsection.2.2.7}
+\contentsline {subsection}{\numberline {2.3}Descripci\IeC {\'o}n, justificaci\IeC {\'o}n y performance, de la soluci\IeC {\'o}n \IeC {\'o}ptima propuesta.}{32}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Conclusiones.}{32}{subsection.2.4}
+\contentsline {section}{\numberline {3}Ap\IeC {\'e}ndice - C\IeC {\'o}digo}{33}{section.3}
+\contentsline {section}{\numberline {4}Bibliograf\IeC {\'\i }a}{34}{section.4}

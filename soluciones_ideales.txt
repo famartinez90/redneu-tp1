@@ -1,0 +1,2 @@
+
+python script.py 1 -ep=250 -capas=10,10 -eta=0.05 -estop=0.1

@@ -4,8 +4,6 @@
 
 \textit{En este documento se realizan las actividades propuestas en el TP 1, actividades relacionadas con la implementación de una red neuronal feedforward multicapa, con el fin de lograr predicciones sobre un set de datos, mientras se estudia su comportamiento durante el entrenamiento, en el contexto de un paradigma de aprendizaje supervizado.}
 
-
-
 \subsection{Introducción al problema}
 Las redes neuronales son modelos computacionales, en los que se intenta emular el funcionamiento fisiológico de un conjunto de neuronas biológicas, interconectadas, con el fin de lograr predicciones a partir de un conjunto de datos similares, presentados previamente. Para ello se modelan, en cada unidad de procesamiento, características que tienen que ver con las condiciones de propagación de señales electroquímicas. Estas condiciones se describen y modelan a partir de observaciones de sobre cómo es transmitida información entre una neurona y otra (o sobre si), y sobre como se encuentran interconectadas.
 
@@ -18,27 +16,30 @@ Se implemento una red neuronal multicapa para la predicción de dos set de datos
 \subsection{Requerimientos}
 \begin{itemize}
 \item Intérprete python 2.7.
-\item Librerías estandar, y librería \textit{numpy.}
-\item Archivo csv con uno de los dos formatos propuestos en el tp. 
-
+\item Librerías estandar, librería \textit{matplotlib} y \textit{numpy}.
+\item Archivo CSV con uno de los dos formatos propuestos en el TP. 
+\item Puede ser necesario instalar el paquete python-tk:
+\textit{sudo apt-get install python-tk}
 \end{itemize}
 
 \subsection{Modo de uso y opciones}
-Para usar este programa, se deben posicionar los archivos csv requeridos, junto a los archivos del programa, el programa se ejecuta desde python 2.7 :
+Para usar este programa, se deben ejecutar el archivo \textbf{script.py}, el cual contiene todas las opciones de ejecución. Para ello, tipear por consola :
 
 \texttt{\$python script.py N args}
 
-donde \texttt{N} es el número de ejercicio y \texttt{args} son los argumentos optativos.
+donde \texttt{N} es el número de ejercicio y \texttt{args} son los argumentos optativos. Es obligatorio proveer el número de ejercicio, ya que se parsean los inputs de forma distinta. A su vez, cambian los métodos de cálculo de eficacia de la red.\\
 
+Las opciones disponibles son:
 
 \subsubsection{Opciones}
 
+\textbf{-file}: Filepath del dataset que se desee utilizar para entrenar o predecir resultados. Si no se lo provee, por default el programa buscará el archivo $tp1_ej1_training.csv$ o $tp1_ej2_training.csv$ en la carpeta donde se esté ejecutando, dependiendo del número de ejercicio pasado anteriormente.
 
-\textbf{-ep}: Cantidad de epocas por default, 500.
+\textbf{-ep}: Cantidad de épocas por default, 500.
 
 \textbf{-eta}: Tasa de aprendizaje, por default $\eta$ = 0.05
 
-\textbf{-capas}: Capas ocultas de la red, cada numero separado por una coma representa una capa y cada magnitud de la capa representa el numero de neuronas de esa capa, por default = '10,10', o sea, dos capas de 10 neuronas cada una.
+\textbf{-capas}: Capas ocultas de la red, cada número separado por una coma representa una capa y cada magnitud de la capa representa la cantaidad de neuronas de esa capa, por default = '10,10', o sea, dos capas de 10 neuronas cada una.
 
 \textbf{-tr}:  Cantidad en \% del total de datos utilizado para entrenar a la red, por default = 70.
 
@@ -46,8 +47,30 @@ donde \texttt{N} es el número de ejercicio y \texttt{args} son los argumentos o
 
 \textbf{-val}: Cantidad en \% del total de datos utilizados como validación, por default = 10
 
-\textbf{-fa}: Función de activación, puede ser \textit{tangente, tangente\_optimizada o logística}, por default es \textit{tangente}.
+\textbf{-tambatch}: Tamaño del batch de aprendizaje a utilizar. Por default el valor es $1$, es decir entrenamiento estocástico.
+
+\textbf{-mo}: Magnitud del momentum a utilizar. Default es 0.
+
+\textbf{-fa}: Función de activación, puede ser \textit{tangente o logística}, por default es \textit{tangente}.
 
 \textbf{-dp}: Distribución de inicialización de pesos a utilizar, puede ser \textit{normal} o \textit{uniforme}, por default se usa \textit{normal}.
 
-\textbf{-rda}: Permite cargar una red entrenada desde un archivo con formato \textit{json}.
+\textbf{-rda}: Permite cargar una red entrenada desde un archivo con formato \textit{JSON}. Se debe proveer el filepath del archivo JSON. En caso de no proveer este parámetro, se generará una red nueva, entrenándola con el dataset seleccionado.
+
+\textbf{-rha}: Permite almacenar una red entrenada a un archivo con \textit{JSON}. Se debe proveer el filepath destino del archivo JSON.
+
+\textbf{-estop}: Utilizado para activar early stopping. El argumento es el treshold a considerar. Default = 0.
+
+\textbf{-adap}: Define si se utiliza o no parámetros adaptativos. Valores = 0 o 1. Default = 0.
+
+\subsection{Archivos}
+Para la resolución del trabajo, fue necesario desarrollar en primer lugar un parser de los datos de entrada. El código de las funciones de parsing esta en \textbf{parser.py}.\\
+
+El código propiamente de la red se encuentra en \textbf{perceptron.py}. Allí están todas las funciones de los procesos de inicialización, feedforward, backpropagation y otros asociados.\\
+
+El parsing y definición de parámetros está en \textbf{parameters.py}. Las funciones encargadas de la normalización de los datos se encuentra en \textbf{normalizer.py}. Las funciones encargadas de codificar y decodificar redes entrenadas en formato json se hallan en \textbf{encoder.py}
+
+
+\subsection{Otros scripts}
+
+Se proveen a su vez los scripts utilizados para los experimentos, en caso de desear ejecutarlos. En la sección Resultados comentaremos donde se encuentra el código utilizado para cada uno.
