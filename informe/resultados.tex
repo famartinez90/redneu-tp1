@@ -1048,6 +1048,47 @@ En nuestros resultados, además, se puede apreciar claramente el problema de usa
 
 \subsubsection{Performance de la red, variando las funciones de activación y/o sus parámetros.}
 
+Aplicamos la misma lógica que en el ej1, usando los parámetros óptimos que venimos utilizando para ej2.
+Vamos a correr cara a cara tangente contra logística con una configuración estándar (como la que veniamos utilizando), con 
+learning rate de 0.05, 250 épocas y distribución de pesos uniforme $[-0.1, 0.1]$.
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/factivaciones_promedios_entrenamiento_normal.png}
+  \caption{Evolución del error promedio de entrenamiento entre funciones de activación tangente y logística}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/factivaciones_promedios_validacion_normal.png}
+  \caption{Evolución del error promedio de validación entre funciones de activación tangente y logística}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+Como se puede ver, la logística queda estancada en un error alto otra vez y es superada por la función tangente. 
+Modifiquemos un poco los parámetros de entrada, tomando learning rate 0.1 y distribución de pesos uniforme $[0, 1)$ y 500 épocas. 
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/factivaciones_promedios_entrenamiento.png}
+  \caption{Evolución del error promedio de entrenamiento entre funciones de activación tangente y logística con learning rate 0.1 y distribución de pesos entre 0 y 1}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/factivaciones_promedios_validacion.png}
+  \caption{Evolución del error promedio de validación entre funciones de activación tangente y logística con learning rate 0.1 y distribución de pesos entre 0 y 1}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+Esta vez no hay mejoría detectable, y sigue a gran distancia de la función tangente, mucho mayor que la presente en el ej1. 
+Finalmente, para este ejercicio nuestra elección sigue siendo la función tangente.
 
 
 \newpage
