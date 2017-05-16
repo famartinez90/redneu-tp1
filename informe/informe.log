@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.12)  14 MAY 2017 21:16
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.12)  15 MAY 2017 22:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1095,6 +1095,150 @@ LaTeX Warning: Label `fig:sub2' multiply defined.
 
 LaTeX Warning: Label `sub@fig:sub2' multiply defined.
 
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub1' multiply defined.
+
+
+LaTeX Warning: Label `fig:sub2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:sub2' multiply defined.
+
 )
 \openout1 = `informe.aux'.
 
@@ -1215,7 +1359,7 @@ Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count150
-<logo_dc.jpg, id=112, 215.6055pt x 83.5923pt>
+<logo_dc.jpg, id=128, 215.6055pt x 83.5923pt>
 File: logo_dc.jpg Graphic file (type jpg)
  <use logo_dc.jpg>
 Package pdftex.def Info: logo_dc.jpg used on input line 70.
@@ -1234,7 +1378,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 70.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<logo_uba.jpg, id=113, 225.4824pt x 231.7458pt>
+<logo_uba.jpg, id=129, 225.4824pt x 231.7458pt>
 File: logo_uba.jpg Graphic file (type jpg)
  <use logo_uba.jpg>
 Package pdftex.def Info: logo_uba.jpg used on input line 70.
@@ -1327,59 +1471,63 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 2.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 9.
+(babel)             in language append on input line 7.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 9.
+(babel)             in language append on input line 7.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 9.
+(babel)             in language append on input line 7.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 9.
+(babel)             in language append on input line 7.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 9.
+(babel)             in language append on input line 7.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 9.
+(babel)             in language append on input line 7.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 17.
+(babel)             in language append on input line 15.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 17.
+(babel)             in language append on input line 15.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 17.
+(babel)             in language append on input line 15.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 17.
+(babel)             in language append on input line 15.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 17.
+(babel)             in language append on input line 15.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 17.
+(babel)             in language append on input line 15.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 18.
+(babel)             in language append on input line 16.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 18.
+(babel)             in language append on input line 16.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 18.
+(babel)             in language append on input line 16.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 18.
+(babel)             in language append on input line 16.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 18.
+(babel)             in language append on input line 16.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 18.
+(babel)             in language append on input line 16.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 26.
+(babel)             in language append on input line 25.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 26.
+(babel)             in language append on input line 25.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 26.
+(babel)             in language append on input line 25.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 26.
+(babel)             in language append on input line 25.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 26.
+(babel)             in language append on input line 25.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 26.
-LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 29.
+(babel)             in language append on input line 25.
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 28.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
+Underfull \hbox (badness 10000) in paragraph at lines 30--31
+
+ []
+
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language append on input line 34.
 Package babel Info: Redefining spanish shorthand >>
@@ -1392,33 +1540,73 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 34.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 34.
-LaTeX Info: Redefining \. on input line 53.
-LaTeX Info: Redefining \% on input line 53.
+LaTeX Info: Redefining \. on input line 43.
+LaTeX Info: Redefining \% on input line 43.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 53.
+(babel)             in language append on input line 43.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 53.
+(babel)             in language append on input line 43.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 53.
+(babel)             in language append on input line 43.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 53.
+(babel)             in language append on input line 43.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 53.
+(babel)             in language append on input line 43.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 53.
+(babel)             in language append on input line 43.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 53.
+(babel)             in language append on input line 43.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 53.
+(babel)             in language append on input line 43.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 53.
+(babel)             in language append on input line 43.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 53.
+(babel)             in language append on input line 43.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 53.
+(babel)             in language append on input line 43.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 53.
- [3])
+(babel)             in language append on input line 43.
+[3]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 66.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 66.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 66.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 66.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 66.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 66.
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+
+ []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 73.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 73.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 73.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 73.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 73.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 73.
+)
 LaTeX Info: Redefining \. on input line 75.
 LaTeX Info: Redefining \% on input line 75.
 Package babel Info: Redefining spanish shorthand <<
@@ -1445,60 +1633,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 75.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 75.
- [4]
-(./desarrollo.tex
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 1.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 1.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 1.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 1.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 1.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 1.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 4.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 4.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 4.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 4.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 4.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 4.
-)
-LaTeX Info: Redefining \. on input line 77.
-LaTeX Info: Redefining \% on input line 77.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 77.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 77.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 77.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 77.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 77.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 77.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 77.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 77.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 77.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 77.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 77.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 77.
- [5] (./resultados.tex
+ [4] (./resultados.tex
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language append on input line 1.
 Package babel Info: Redefining spanish shorthand >>
@@ -1555,7 +1690,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
 
-<graficos/fig1_cant_capas_error_final.png, id=178, 455.45157pt x 255.95625pt>
+<graficos/fig1_cant_capas_error_final.png, id=196, 455.45157pt x 255.95625pt>
 File: graficos/fig1_cant_capas_error_final.png Graphic file (type png)
 
 <use graficos/fig1_cant_capas_error_final.png>
@@ -1571,7 +1706,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-<graficos/fig2_cant_capas_error_valid.png, id=179, 454.69875pt x 255.95625pt>
+<graficos/fig2_cant_capas_error_valid.png, id=197, 454.69875pt x 255.95625pt>
 File: graficos/fig2_cant_capas_error_valid.png Graphic file (type png)
 
 <use graficos/fig2_cant_capas_error_valid.png>
@@ -1604,8 +1739,8 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 57.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 57.
- [6]
-<graficos/fig3_cant_capas_testing.png, id=184, 455.45157pt x 255.95625pt>
+ [5]
+<graficos/fig3_cant_capas_testing.png, id=202, 455.45157pt x 255.95625pt>
 File: graficos/fig3_cant_capas_testing.png Graphic file (type png)
 
 <use graficos/fig3_cant_capas_testing.png>
@@ -1652,7 +1787,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 76.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 76.
-[7 <./graficos/fig1_cant_capas_error_final.png (PNG copy)> <./graficos/fig2_can
+[6 <./graficos/fig1_cant_capas_error_final.png (PNG copy)> <./graficos/fig2_can
 t_capas_error_valid.png (PNG copy)>]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language append on input line 78.
@@ -1676,7 +1811,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--87
 
  []
 
-<graficos/fig4_cant_neuro_error_final.png, id=194, 455.45157pt x 255.95625pt>
+<graficos/fig4_cant_neuro_error_final.png, id=211, 455.45157pt x 255.95625pt>
 File: graficos/fig4_cant_neuro_error_final.png Graphic file (type png)
 
 <use graficos/fig4_cant_neuro_error_final.png>
@@ -1714,13 +1849,13 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 97.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 97.
-[8 <./graficos/fig3_cant_capas_testing.png (PNG copy)> <./graficos/fig4_cant_ne
+[7 <./graficos/fig3_cant_capas_testing.png (PNG copy)> <./graficos/fig4_cant_ne
 uro_error_final.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 98--99
 
  []
 
-<graficos/fig5_cant_neuro_error_valid.png, id=201, 454.69875pt x 255.95625pt>
+<graficos/fig5_cant_neuro_error_valid.png, id=219, 454.69875pt x 255.95625pt>
 File: graficos/fig5_cant_neuro_error_valid.png Graphic file (type png)
 
 <use graficos/fig5_cant_neuro_error_valid.png>
@@ -1737,7 +1872,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 110--111
 
  []
 
-<graficos/fig6_cant_neuro_testing.png, id=202, 455.45157pt x 255.95625pt>
+<graficos/fig6_cant_neuro_testing.png, id=220, 455.45157pt x 255.95625pt>
 File: graficos/fig6_cant_neuro_testing.png Graphic file (type png)
 
 <use graficos/fig6_cant_neuro_testing.png>
@@ -1775,7 +1910,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 123.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 123.
-[9 <./graficos/fig5_cant_neuro_error_valid.png (PNG copy)> <./graficos/fig6_can
+[8 <./graficos/fig5_cant_neuro_error_valid.png (PNG copy)> <./graficos/fig6_can
 t_neuro_testing.png (PNG copy)>]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language append on input line 124.
@@ -1799,42 +1934,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 126--132
 
  []
 
-<graficos/momentum_0.png, id=209, 462.528pt x 346.896pt>
+<graficos/momentum_0.png, id=227, 462.528pt x 346.896pt>
 File: graficos/momentum_0.png Graphic file (type png)
 
 <use graficos/momentum_0.png>
 Package pdftex.def Info: graficos/momentum_0.png used on input line 142.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/momentum_0_05.png, id=211, 462.528pt x 346.896pt>
+<graficos/momentum_0_05.png, id=229, 462.528pt x 346.896pt>
 File: graficos/momentum_0_05.png Graphic file (type png)
 
 <use graficos/momentum_0_05.png>
 Package pdftex.def Info: graficos/momentum_0_05.png used on input line 148.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/momentum_0_1.png, id=212, 462.528pt x 346.896pt>
+<graficos/momentum_0_1.png, id=230, 462.528pt x 346.896pt>
 File: graficos/momentum_0_1.png Graphic file (type png)
 
 <use graficos/momentum_0_1.png>
 Package pdftex.def Info: graficos/momentum_0_1.png used on input line 162.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/momentum_0_5.png, id=213, 462.528pt x 346.896pt>
+<graficos/momentum_0_5.png, id=231, 462.528pt x 346.896pt>
 File: graficos/momentum_0_5.png Graphic file (type png)
 
 <use graficos/momentum_0_5.png>
 Package pdftex.def Info: graficos/momentum_0_5.png used on input line 168.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/momentum_0_9.png, id=214, 462.528pt x 346.896pt>
+<graficos/momentum_0_9.png, id=232, 462.528pt x 346.896pt>
 File: graficos/momentum_0_9.png Graphic file (type png)
 
 <use graficos/momentum_0_9.png>
 Package pdftex.def Info: graficos/momentum_0_9.png used on input line 178.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/momentum_promedios_entrenamiento.png, id=215, 462.528pt x 346.896pt>
+<graficos/momentum_promedios_entrenamiento.png, id=233, 462.528pt x 346.896pt>
 File: graficos/momentum_promedios_entrenamiento.png Graphic file (type png)
 
 <use graficos/momentum_promedios_entrenamiento.png>
@@ -1842,7 +1977,7 @@ Package pdftex.def Info: graficos/momentum_promedios_entrenamiento.png used on
 input line 184.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/momentum_promedios_validacion.png, id=216, 462.528pt x 346.896pt>
+<graficos/momentum_promedios_validacion.png, id=234, 462.528pt x 346.896pt>
 File: graficos/momentum_promedios_validacion.png Graphic file (type png)
 
 <use graficos/momentum_promedios_validacion.png>
@@ -1862,7 +1997,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 200.
 
-<graficos/adaptativos_promedios_entrenamiento.png, id=217, 592.2125pt x 428.601
+<graficos/adaptativos_promedios_entrenamiento.png, id=235, 592.2125pt x 428.601
 26pt>
 File: graficos/adaptativos_promedios_entrenamiento.png Graphic file (type png)
  <use graficos/adaptativos_promedios_entrenamiento.png>
@@ -1870,7 +2005,7 @@ Package pdftex.def Info: graficos/adaptativos_promedios_entrenamiento.png used
 on input line 216.
 (pdftex.def)             Requested size: 240.00037pt x 173.69373pt.
 
-<graficos/adaptativos_promedios_validacion.png, id=218, 592.2125pt x 428.60126p
+<graficos/adaptativos_promedios_validacion.png, id=236, 592.2125pt x 428.60126p
 t>
 File: graficos/adaptativos_promedios_validacion.png Graphic file (type png)
  <use graficos/adaptativos_promedios_validacion.png>
@@ -1903,7 +2038,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 230.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 230.
- [10 <./graficos/momentum_0.png> <./graficos/momentum_0_05.png>]
+ [9 <./graficos/momentum_0.png> <./graficos/momentum_0_05.png>]
 LaTeX Info: Redefining \. on input line 230.
 LaTeX Info: Redefining \% on input line 230.
 Package babel Info: Redefining spanish shorthand <<
@@ -1930,7 +2065,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 230.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 230.
- [11 <./graficos/momentum_0_1.png> <./graficos/momentum_0_5.png> <./graficos/mo
+ [10 <./graficos/momentum_0_1.png> <./graficos/momentum_0_5.png> <./graficos/mo
 mentum_0_9.png> <./graficos/momentum_promedios_entrenamiento.png>]
 LaTeX Info: Redefining \. on input line 230.
 LaTeX Info: Redefining \% on input line 230.
@@ -1958,9 +2093,9 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 230.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 230.
- [12 <./graficos/momentum_promedios_validacion.png> <./graficos/adaptativos_pro
+ [11 <./graficos/momentum_promedios_validacion.png> <./graficos/adaptativos_pro
 medios_entrenamiento.png> <./graficos/adaptativos_promedios_validacion.png>]
-<graficos/adaptativos_promedios_entrenamiento_batch_05.png, id=247, 591.20876pt
+<graficos/adaptativos_promedios_entrenamiento_batch_05.png, id=264, 591.20876pt
  x 427.5975pt>
 File: graficos/adaptativos_promedios_entrenamiento_batch_05.png Graphic file (t
 ype png)
@@ -1969,7 +2104,7 @@ Package pdftex.def Info: graficos/adaptativos_promedios_entrenamiento_batch_05.
 png used on input line 235.
 (pdftex.def)             Requested size: 240.00037pt x 173.58055pt.
 
-<graficos/adaptativos_promedios_validacion_batch_05.png, id=248, 592.2125pt x 4
+<graficos/adaptativos_promedios_validacion_batch_05.png, id=265, 592.2125pt x 4
 28.60126pt>
 File: graficos/adaptativos_promedios_validacion_batch_05.png Graphic file (type
  png)
@@ -1978,7 +2113,7 @@ Package pdftex.def Info: graficos/adaptativos_promedios_validacion_batch_05.png
  used on input line 241.
 (pdftex.def)             Requested size: 240.00037pt x 173.69373pt.
 
-<graficos/adaptativos_promedios_entrenamiento_batch_500ep.png, id=249, 594.22pt
+<graficos/adaptativos_promedios_entrenamiento_batch_500ep.png, id=266, 594.22pt
  x 429.605pt>
 File: graficos/adaptativos_promedios_entrenamiento_batch_500ep.png Graphic file
  (type png)
@@ -1988,7 +2123,7 @@ Package pdftex.def Info: graficos/adaptativos_promedios_entrenamiento_batch_500
 ep.png used on input line 251.
 (pdftex.def)             Requested size: 240.00037pt x 173.51709pt.
 
-<graficos/adaptativos_promedios_validacion_batch_500ep.png, id=250, 594.22pt x 
+<graficos/adaptativos_promedios_validacion_batch_500ep.png, id=267, 594.22pt x 
 429.605pt>
 File: graficos/adaptativos_promedios_validacion_batch_500ep.png Graphic file (t
 ype png)
@@ -1997,7 +2132,7 @@ Package pdftex.def Info: graficos/adaptativos_promedios_validacion_batch_500ep.
 png used on input line 257.
 (pdftex.def)             Requested size: 240.00037pt x 173.51709pt.
 
-<graficos/adaptativos_promedios_entrenamiento_batch.png, id=251, 594.22pt x 428
+<graficos/adaptativos_promedios_entrenamiento_batch.png, id=268, 594.22pt x 428
 .60126pt>
 File: graficos/adaptativos_promedios_entrenamiento_batch.png Graphic file (type
  png)
@@ -2006,7 +2141,7 @@ Package pdftex.def Info: graficos/adaptativos_promedios_entrenamiento_batch.png
  used on input line 271.
 (pdftex.def)             Requested size: 240.00037pt x 173.11168pt.
 
-<graficos/adaptativos_promedios_validacion_batch.png, id=252, 591.20876pt x 427
+<graficos/adaptativos_promedios_validacion_batch.png, id=269, 591.20876pt x 427
 .5975pt>
 File: graficos/adaptativos_promedios_validacion_batch.png Graphic file (type pn
 g)
@@ -2052,7 +2187,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 286.
 
 
-<graficos/eta_x_momentum_promedios_entrenamiento_0.png, id=253, 462.528pt x 346
+<graficos/eta_x_momentum_promedios_entrenamiento_0.png, id=270, 462.528pt x 346
 .896pt>
 File: graficos/eta_x_momentum_promedios_entrenamiento_0.png Graphic file (type 
 png)
@@ -2061,7 +2196,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_entrenamiento_0.png
 used on input line 296.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_validacion_0.png, id=254, 462.528pt x 346.89
+<graficos/eta_x_momentum_promedios_validacion_0.png, id=271, 462.528pt x 346.89
 6pt>
 File: graficos/eta_x_momentum_promedios_validacion_0.png Graphic file (type png
 )
@@ -2070,7 +2205,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_validacion_0.png use
 d on input line 302.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_entrenamiento_1.png, id=255, 462.528pt x 346
+<graficos/eta_x_momentum_promedios_entrenamiento_1.png, id=272, 462.528pt x 346
 .896pt>
 File: graficos/eta_x_momentum_promedios_entrenamiento_1.png Graphic file (type 
 png)
@@ -2079,7 +2214,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_entrenamiento_1.png
 used on input line 312.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_validacion_1.png, id=256, 462.528pt x 346.89
+<graficos/eta_x_momentum_promedios_validacion_1.png, id=273, 462.528pt x 346.89
 6pt>
 File: graficos/eta_x_momentum_promedios_validacion_1.png Graphic file (type png
 )
@@ -2088,7 +2223,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_validacion_1.png use
 d on input line 318.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_entrenamiento_2.png, id=257, 462.528pt x 346
+<graficos/eta_x_momentum_promedios_entrenamiento_2.png, id=274, 462.528pt x 346
 .896pt>
 File: graficos/eta_x_momentum_promedios_entrenamiento_2.png Graphic file (type 
 png)
@@ -2097,7 +2232,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_entrenamiento_2.png
 used on input line 328.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_validacion_2.png, id=258, 462.528pt x 346.89
+<graficos/eta_x_momentum_promedios_validacion_2.png, id=275, 462.528pt x 346.89
 6pt>
 File: graficos/eta_x_momentum_promedios_validacion_2.png Graphic file (type png
 )
@@ -2106,7 +2241,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_validacion_2.png use
 d on input line 334.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_entrenamiento_3.png, id=259, 462.528pt x 346
+<graficos/eta_x_momentum_promedios_entrenamiento_3.png, id=276, 462.528pt x 346
 .896pt>
 File: graficos/eta_x_momentum_promedios_entrenamiento_3.png Graphic file (type 
 png)
@@ -2115,7 +2250,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_entrenamiento_3.png
 used on input line 344.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_validacion_3.png, id=260, 462.528pt x 346.89
+<graficos/eta_x_momentum_promedios_validacion_3.png, id=277, 462.528pt x 346.89
 6pt>
 File: graficos/eta_x_momentum_promedios_validacion_3.png Graphic file (type png
 )
@@ -2124,7 +2259,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_validacion_3.png use
 d on input line 350.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_entrenamiento_4.png, id=261, 462.528pt x 346
+<graficos/eta_x_momentum_promedios_entrenamiento_4.png, id=278, 462.528pt x 346
 .896pt>
 File: graficos/eta_x_momentum_promedios_entrenamiento_4.png Graphic file (type 
 png)
@@ -2133,7 +2268,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_entrenamiento_4.png
 used on input line 360.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_validacion_4.png, id=262, 462.528pt x 346.89
+<graficos/eta_x_momentum_promedios_validacion_4.png, id=279, 462.528pt x 346.89
 6pt>
 File: graficos/eta_x_momentum_promedios_validacion_4.png Graphic file (type png
 )
@@ -2167,7 +2302,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 376.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 376.
- [13 <./graficos/adaptativos_promedios_entrenamiento_batch_05.png> <./graficos/
+ [12 <./graficos/adaptativos_promedios_entrenamiento_batch_05.png> <./graficos/
 adaptativos_promedios_validacion_batch_05.png> <./graficos/adaptativos_promedio
 s_entrenamiento_batch_500ep.png> <./graficos/adaptativos_promedios_validacion_b
 atch_500ep.png>]
@@ -2198,7 +2333,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 376.
 
-[14 <./graficos/adaptativos_promedios_entrenamiento_batch.png> <./graficos/adap
+[13 <./graficos/adaptativos_promedios_entrenamiento_batch.png> <./graficos/adap
 tativos_promedios_validacion_batch.png> <./graficos/eta_x_momentum_promedios_en
 trenamiento_0.png> <./graficos/eta_x_momentum_promedios_validacion_0.png> <./gr
 aficos/eta_x_momentum_promedios_entrenamiento_1.png> <./graficos/eta_x_momentum
@@ -2229,12 +2364,12 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 376.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 376.
- [15 <./graficos/eta_x_momentum_promedios_entrenamiento_2.png> <./graficos/eta_
+ [14 <./graficos/eta_x_momentum_promedios_entrenamiento_2.png> <./graficos/eta_
 x_momentum_promedios_validacion_2.png> <./graficos/eta_x_momentum_promedios_ent
 renamiento_3.png> <./graficos/eta_x_momentum_promedios_validacion_3.png> <./gra
 ficos/eta_x_momentum_promedios_entrenamiento_4.png> <./graficos/eta_x_momentum_
 promedios_validacion_4.png>]
-<graficos/eta_x_momentum_promedios_entrenamiento_0_08.png, id=300, 462.528pt x 
+<graficos/eta_x_momentum_promedios_entrenamiento_0_08.png, id=317, 462.528pt x 
 346.896pt>
 File: graficos/eta_x_momentum_promedios_entrenamiento_0_08.png Graphic file (ty
 pe png)
@@ -2243,7 +2378,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_entrenamiento_0_08.p
 ng used on input line 381.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_validacion_0_08.png, id=301, 462.528pt x 346
+<graficos/eta_x_momentum_promedios_validacion_0_08.png, id=318, 462.528pt x 346
 .896pt>
 File: graficos/eta_x_momentum_promedios_validacion_0_08.png Graphic file (type 
 png)
@@ -2252,7 +2387,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_validacion_0_08.png
 used on input line 387.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_entrenamiento_0_15.png, id=302, 462.528pt x 
+<graficos/eta_x_momentum_promedios_entrenamiento_0_15.png, id=319, 462.528pt x 
 346.896pt>
 File: graficos/eta_x_momentum_promedios_entrenamiento_0_15.png Graphic file (ty
 pe png)
@@ -2261,7 +2396,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_entrenamiento_0_15.p
 ng used on input line 397.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_validacion_0_15.png, id=303, 462.528pt x 346
+<graficos/eta_x_momentum_promedios_validacion_0_15.png, id=320, 462.528pt x 346
 .896pt>
 File: graficos/eta_x_momentum_promedios_validacion_0_15.png Graphic file (type 
 png)
@@ -2270,7 +2405,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_validacion_0_15.png
 used on input line 403.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_entrenamiento_0_2.png, id=304, 462.528pt x 3
+<graficos/eta_x_momentum_promedios_entrenamiento_0_2.png, id=321, 462.528pt x 3
 46.896pt>
 File: graficos/eta_x_momentum_promedios_entrenamiento_0_2.png Graphic file (typ
 e png)
@@ -2279,7 +2414,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_entrenamiento_0_2.pn
 g used on input line 413.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_validacion_0_2.png, id=305, 462.528pt x 346.
+<graficos/eta_x_momentum_promedios_validacion_0_2.png, id=322, 462.528pt x 346.
 896pt>
 File: graficos/eta_x_momentum_promedios_validacion_0_2.png Graphic file (type p
 ng)
@@ -2313,12 +2448,12 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 430.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 430.
- [16 <./graficos/eta_x_momentum_promedios_entrenamiento_0_08.png> <./graficos/e
+ [15 <./graficos/eta_x_momentum_promedios_entrenamiento_0_08.png> <./graficos/e
 ta_x_momentum_promedios_validacion_0_08.png> <./graficos/eta_x_momentum_promedi
 os_entrenamiento_0_15.png> <./graficos/eta_x_momentum_promedios_validacion_0_15
 .png> <./graficos/eta_x_momentum_promedios_entrenamiento_0_2.png> <./graficos/e
 ta_x_momentum_promedios_validacion_0_2.png>]
-<graficos/eta_x_momentum_promedios_entrenamiento__0.png, id=319, 462.528pt x 34
+<graficos/eta_x_momentum_promedios_entrenamiento__0.png, id=336, 462.528pt x 34
 6.896pt>
 File: graficos/eta_x_momentum_promedios_entrenamiento__0.png Graphic file (type
  png)
@@ -2327,7 +2462,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_entrenamiento__0.png
  used on input line 435.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_entrenamiento__2.png, id=320, 462.528pt x 34
+<graficos/eta_x_momentum_promedios_entrenamiento__2.png, id=337, 462.528pt x 34
 6.896pt>
 File: graficos/eta_x_momentum_promedios_entrenamiento__2.png Graphic file (type
  png)
@@ -2336,7 +2471,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_entrenamiento__2.png
  used on input line 441.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_validacion__0.png, id=321, 462.528pt x 346.8
+<graficos/eta_x_momentum_promedios_validacion__0.png, id=338, 462.528pt x 346.8
 96pt>
 File: graficos/eta_x_momentum_promedios_validacion__0.png Graphic file (type pn
 g)
@@ -2345,7 +2480,7 @@ Package pdftex.def Info: graficos/eta_x_momentum_promedios_validacion__0.png us
 ed on input line 451.
 (pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
 
-<graficos/eta_x_momentum_promedios_validacion__2.png, id=322, 462.528pt x 346.8
+<graficos/eta_x_momentum_promedios_validacion__2.png, id=339, 462.528pt x 346.8
 96pt>
 File: graficos/eta_x_momentum_promedios_validacion__2.png Graphic file (type pn
 g)
@@ -2401,10 +2536,10 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 476.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 476.
-[17 <./graficos/eta_x_momentum_promedios_entrenamiento__0.png> <./graficos/eta_
+[16 <./graficos/eta_x_momentum_promedios_entrenamiento__0.png> <./graficos/eta_
 x_momentum_promedios_entrenamiento__2.png> <./graficos/eta_x_momentum_promedios
 _validacion__0.png> <./graficos/eta_x_momentum_promedios_validacion__2.png>]
-<graficos/distribucion_error_final.png, id=333, 624.83438pt x 255.95625pt>
+<graficos/distribucion_error_final.png, id=350, 624.83438pt x 255.95625pt>
 File: graficos/distribucion_error_final.png Graphic file (type png)
 
 <use graficos/distribucion_error_final.png>
@@ -2427,7 +2562,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 502--503
  []
 
 
-<graficos/distribucion_error_validacion.png, id=334, 624.83438pt x 255.95625pt>
+<graficos/distribucion_error_validacion.png, id=351, 624.83438pt x 255.95625pt>
 File: graficos/distribucion_error_validacion.png Graphic file (type png)
 <use graficos/distribucion_error_validacion.png>
 Package pdftex.def Info: graficos/distribucion_error_validacion.png used on inp
@@ -2442,7 +2577,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 511--512
 
  []
 
-<graficos/distribucion_eficiencia.png, id=335, 624.83438pt x 255.95625pt>
+<graficos/distribucion_eficiencia.png, id=352, 624.83438pt x 255.95625pt>
 File: graficos/distribucion_eficiencia.png Graphic file (type png)
 
 <use graficos/distribucion_eficiencia.png>
@@ -2484,7 +2619,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 523.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 523.
-[18 <./graficos/distribucion_error_final.png (PNG copy)>]
+[17 <./graficos/distribucion_error_final.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 524--525
 
  []
@@ -2506,618 +2641,1201 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language append on input line 530.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language append on input line 530.
+
+Underfull \hbox (badness 10000) in paragraph at lines 532--533
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 534--535
+
+ []
+
+LaTeX Info: Redefining \. on input line 535.
+LaTeX Info: Redefining \% on input line 535.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 532.
+(babel)             in language append on input line 535.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 532.
+(babel)             in language append on input line 535.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 532.
+(babel)             in language append on input line 535.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 532.
+(babel)             in language append on input line 535.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 532.
+(babel)             in language append on input line 535.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 532.
+(babel)             in language append on input line 535.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 534.
+(babel)             in language append on input line 535.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 534.
+(babel)             in language append on input line 535.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 534.
+(babel)             in language append on input line 535.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 534.
+(babel)             in language append on input line 535.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 534.
+(babel)             in language append on input line 535.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 534.
-LaTeX Info: Redefining \. on input line 536.
-LaTeX Info: Redefining \% on input line 536.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 536.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 536.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 536.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 536.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 536.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 536.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 536.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 536.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 536.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 536.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 536.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 536.
-[19 <./graficos/distribucion_error_validacion.png (PNG copy)> <./graficos/distr
+(babel)             in language append on input line 535.
+[18 <./graficos/distribucion_error_validacion.png (PNG copy)> <./graficos/distr
 ibucion_eficiencia.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 536--538
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 543--544
+
+ []
+
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 537.
+(babel)             in language append on input line 547.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 537.
+(babel)             in language append on input line 547.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 537.
+(babel)             in language append on input line 547.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 537.
+(babel)             in language append on input line 547.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 537.
+(babel)             in language append on input line 547.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 537.
+(babel)             in language append on input line 547.
+<graficos/early_stopping_validacion_0.png, id=364, 462.528pt x 346.896pt>
+File: graficos/early_stopping_validacion_0.png Graphic file (type png)
+
+<use graficos/early_stopping_validacion_0.png>
+Package pdftex.def Info: graficos/early_stopping_validacion_0.png used on input
+ line 563.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/early_stopping_validacion_0_2.png, id=365, 462.528pt x 346.896pt>
+File: graficos/early_stopping_validacion_0_2.png Graphic file (type png)
+
+<use graficos/early_stopping_validacion_0_2.png>
+Package pdftex.def Info: graficos/early_stopping_validacion_0_2.png used on inp
+ut line 569.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/early_stopping_validacion_0_15.png, id=366, 462.528pt x 346.896pt>
+File: graficos/early_stopping_validacion_0_15.png Graphic file (type png)
+
+<use graficos/early_stopping_validacion_0_15.png>
+Package pdftex.def Info: graficos/early_stopping_validacion_0_15.png used on in
+put line 579.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/early_stopping_validacion_0_1.png, id=367, 462.528pt x 346.896pt>
+File: graficos/early_stopping_validacion_0_1.png Graphic file (type png)
+
+<use graficos/early_stopping_validacion_0_1.png>
+Package pdftex.def Info: graficos/early_stopping_validacion_0_1.png used on inp
+ut line 585.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/early_stopping_validacion_0_05.png, id=368, 462.528pt x 346.896pt>
+File: graficos/early_stopping_validacion_0_05.png Graphic file (type png)
+
+<use graficos/early_stopping_validacion_0_05.png>
+Package pdftex.def Info: graficos/early_stopping_validacion_0_05.png used on in
+put line 595.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/early_stopping_validacion_0_01.png, id=369, 462.528pt x 346.896pt>
+File: graficos/early_stopping_validacion_0_01.png Graphic file (type png)
+
+<use graficos/early_stopping_validacion_0_01.png>
+Package pdftex.def Info: graficos/early_stopping_validacion_0_01.png used on in
+put line 601.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/early_stopping_testing_250ep.png, id=370, 462.528pt x 346.896pt>
+File: graficos/early_stopping_testing_250ep.png Graphic file (type png)
+
+<use graficos/early_stopping_testing_250ep.png>
+Package pdftex.def Info: graficos/early_stopping_testing_250ep.png used on inpu
+t line 609.
+(pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
+LaTeX Info: Redefining \. on input line 622.
+LaTeX Info: Redefining \% on input line 622.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 541.
+(babel)             in language append on input line 622.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 541.
+(babel)             in language append on input line 622.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 541.
+(babel)             in language append on input line 622.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 541.
+(babel)             in language append on input line 622.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 541.
+(babel)             in language append on input line 622.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 541.
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 622.
+ [19 <./graficos/early_stopping_validacion_0.png> <./graficos/early_stopping_va
+lidacion_0_2.png>]
+LaTeX Info: Redefining \. on input line 622.
+LaTeX Info: Redefining \% on input line 622.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 622.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 622.
+ [20 <./graficos/early_stopping_validacion_0_15.png> <./graficos/early_stopping
+_validacion_0_1.png> <./graficos/early_stopping_validacion_0_05.png> <./grafico
+s/early_stopping_validacion_0_01.png> <./graficos/early_stopping_testing_250ep.
+png>]
+<graficos/early_stopping_testing_750ep.png, id=393, 462.528pt x 346.896pt>
+File: graficos/early_stopping_testing_750ep.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 542--544
+<use graficos/early_stopping_testing_750ep.png>
+Package pdftex.def Info: graficos/early_stopping_testing_750ep.png used on inpu
+t line 629.
+(pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 637.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 637.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 637.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 637.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 637.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 637.
+LaTeX Info: Redefining \. on input line 639.
+LaTeX Info: Redefining \% on input line 639.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 639.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 639.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 639.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 639.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 639.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 639.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 639.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 639.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 639.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 639.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 639.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 639.
+ [21 <./graficos/early_stopping_testing_750ep.png>]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 640.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 640.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 640.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 640.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 640.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 640.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 644.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 644.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 644.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 644.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 644.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 644.
+
+Underfull \hbox (badness 10000) in paragraph at lines 645--647
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 545--546
+Underfull \hbox (badness 10000) in paragraph at lines 648--649
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 547--548
+Underfull \hbox (badness 10000) in paragraph at lines 650--651
 
  []
 
-<graficos/ej2_cant_capas_error_final.png, id=348, 455.45157pt x 255.95625pt>
+<graficos/ej2_cant_capas_error_final.png, id=400, 455.45157pt x 255.95625pt>
 File: graficos/ej2_cant_capas_error_final.png Graphic file (type png)
 
 <use graficos/ej2_cant_capas_error_final.png>
 Package pdftex.def Info: graficos/ej2_cant_capas_error_final.png used on input 
-line 551.
+line 654.
 (pdftex.def)             Requested size: 341.58783pt x 191.9667pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 559--560
+Underfull \hbox (badness 10000) in paragraph at lines 662--663
 
  []
 
-<graficos/ej2_cant_capas_error_valid.png, id=349, 454.69875pt x 255.95625pt>
+<graficos/ej2_cant_capas_error_valid.png, id=401, 454.69875pt x 255.95625pt>
 File: graficos/ej2_cant_capas_error_valid.png Graphic file (type png)
 
 <use graficos/ej2_cant_capas_error_valid.png>
 Package pdftex.def Info: graficos/ej2_cant_capas_error_valid.png used on input 
-line 563.
+line 666.
 (pdftex.def)             Requested size: 341.02322pt x 191.9667pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 568.
-LaTeX Info: Redefining \% on input line 568.
+LaTeX Info: Redefining \. on input line 671.
+LaTeX Info: Redefining \% on input line 671.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 568.
+(babel)             in language append on input line 671.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 568.
+(babel)             in language append on input line 671.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 568.
+(babel)             in language append on input line 671.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 568.
+(babel)             in language append on input line 671.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 568.
+(babel)             in language append on input line 671.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 568.
+(babel)             in language append on input line 671.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 568.
+(babel)             in language append on input line 671.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 568.
+(babel)             in language append on input line 671.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 568.
+(babel)             in language append on input line 671.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 568.
+(babel)             in language append on input line 671.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 568.
+(babel)             in language append on input line 671.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 568.
-[20 <./graficos/ej2_cant_capas_error_final.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 570--571
+(babel)             in language append on input line 671.
+[22 <./graficos/ej2_cant_capas_error_final.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 673--674
 
  []
 
-<graficos/ej2_cant_capas_testing.png, id=355, 455.45157pt x 255.95625pt>
+<graficos/ej2_cant_capas_testing.png, id=407, 455.45157pt x 255.95625pt>
 File: graficos/ej2_cant_capas_testing.png Graphic file (type png)
 
 <use graficos/ej2_cant_capas_testing.png>
 Package pdftex.def Info: graficos/ej2_cant_capas_testing.png used on input line
- 576.
+ 679.
 (pdftex.def)             Requested size: 341.58783pt x 191.9667pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 581--582
+Underfull \hbox (badness 10000) in paragraph at lines 684--685
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 583--584
+Underfull \hbox (badness 10000) in paragraph at lines 686--687
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 585--586
+Underfull \hbox (badness 10000) in paragraph at lines 688--689
 
  []
 
-LaTeX Info: Redefining \. on input line 586.
-LaTeX Info: Redefining \% on input line 586.
+LaTeX Info: Redefining \. on input line 689.
+LaTeX Info: Redefining \% on input line 689.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 586.
+(babel)             in language append on input line 689.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 586.
+(babel)             in language append on input line 689.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 586.
+(babel)             in language append on input line 689.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 586.
+(babel)             in language append on input line 689.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 586.
+(babel)             in language append on input line 689.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 586.
+(babel)             in language append on input line 689.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 586.
+(babel)             in language append on input line 689.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 586.
+(babel)             in language append on input line 689.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 586.
+(babel)             in language append on input line 689.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 586.
+(babel)             in language append on input line 689.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 586.
+(babel)             in language append on input line 689.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 586.
-[21 <./graficos/ej2_cant_capas_error_valid.png (PNG copy)> <./graficos/ej2_cant
+(babel)             in language append on input line 689.
+[23 <./graficos/ej2_cant_capas_error_valid.png (PNG copy)> <./graficos/ej2_cant
 _capas_testing.png (PNG copy)>]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 589.
+(babel)             in language append on input line 692.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 589.
+(babel)             in language append on input line 692.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 589.
+(babel)             in language append on input line 692.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 589.
+(babel)             in language append on input line 692.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 589.
+(babel)             in language append on input line 692.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 589.
+(babel)             in language append on input line 692.
 
-Underfull \hbox (badness 10000) in paragraph at lines 594--595
+Underfull \hbox (badness 10000) in paragraph at lines 697--698
 
  []
 
-<graficos/ej2_cant_neuro_error_final.png, id=363, 455.45157pt x 255.95625pt>
+<graficos/ej2_cant_neuro_error_final.png, id=414, 455.45157pt x 255.95625pt>
 File: graficos/ej2_cant_neuro_error_final.png Graphic file (type png)
 
 <use graficos/ej2_cant_neuro_error_final.png>
 Package pdftex.def Info: graficos/ej2_cant_neuro_error_final.png used on input 
-line 598.
+line 701.
 (pdftex.def)             Requested size: 318.81392pt x 179.16814pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--604
+Underfull \hbox (badness 10000) in paragraph at lines 706--707
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 605--606
+Underfull \hbox (badness 10000) in paragraph at lines 708--709
 
  []
 
-<graficos/ej2_cant_neuro_error_valid.png, id=364, 454.69875pt x 255.95625pt>
+<graficos/ej2_cant_neuro_error_valid.png, id=415, 454.69875pt x 255.95625pt>
 File: graficos/ej2_cant_neuro_error_valid.png Graphic file (type png)
 
 <use graficos/ej2_cant_neuro_error_valid.png>
 Package pdftex.def Info: graficos/ej2_cant_neuro_error_valid.png used on input 
-line 609.
+line 712.
 (pdftex.def)             Requested size: 318.28694pt x 179.16814pt.
-LaTeX Info: Redefining \. on input line 614.
-LaTeX Info: Redefining \% on input line 614.
+LaTeX Info: Redefining \. on input line 717.
+LaTeX Info: Redefining \% on input line 717.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 614.
+(babel)             in language append on input line 717.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 614.
+(babel)             in language append on input line 717.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 614.
+(babel)             in language append on input line 717.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 614.
+(babel)             in language append on input line 717.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 614.
+(babel)             in language append on input line 717.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 614.
+(babel)             in language append on input line 717.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 614.
+(babel)             in language append on input line 717.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 614.
+(babel)             in language append on input line 717.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 614.
+(babel)             in language append on input line 717.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 614.
+(babel)             in language append on input line 717.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 614.
+(babel)             in language append on input line 717.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 614.
- [22 <./graficos/ej2_cant_neuro_error_final.png (PNG copy)> <./graficos/ej2_can
+(babel)             in language append on input line 717.
+ [24 <./graficos/ej2_cant_neuro_error_final.png (PNG copy)> <./graficos/ej2_can
 t_neuro_error_valid.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 618--619
+Underfull \hbox (badness 10000) in paragraph at lines 721--722
 
  []
 
-<graficos/ej2_cant_neuro_testing.png, id=371, 455.45157pt x 255.95625pt>
+<graficos/ej2_cant_neuro_testing.png, id=422, 455.45157pt x 255.95625pt>
 File: graficos/ej2_cant_neuro_testing.png Graphic file (type png)
 
 <use graficos/ej2_cant_neuro_testing.png>
 Package pdftex.def Info: graficos/ej2_cant_neuro_testing.png used on input line
- 622.
+ 725.
 (pdftex.def)             Requested size: 318.81392pt x 179.16814pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 627--628
+Underfull \hbox (badness 10000) in paragraph at lines 730--731
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--630
+Underfull \hbox (badness 10000) in paragraph at lines 732--733
 
  []
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 631.
+(babel)             in language append on input line 734.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 631.
+(babel)             in language append on input line 734.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 631.
+(babel)             in language append on input line 734.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 631.
+(babel)             in language append on input line 734.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 631.
+(babel)             in language append on input line 734.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 631.
+(babel)             in language append on input line 734.
 
-Underfull \hbox (badness 10000) in paragraph at lines 633--636
+<graficos/ej2/adaptativos_promedios_entrenamiento_1.png, id=423, 462.528pt x 34
+6.896pt>
+File: graficos/ej2/adaptativos_promedios_entrenamiento_1.png Graphic file (type
+ png)
+ <use graficos/ej2/adaptativos_promedios_entrenamiento_1.png>
+Package pdftex.def Info: graficos/ej2/adaptativos_promedios_entrenamiento_1.png
+ used on input line 743.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/adaptativos_promedios_validacion_1.png, id=424, 462.528pt x 346.8
+96pt>
+File: graficos/ej2/adaptativos_promedios_validacion_1.png Graphic file (type pn
+g)
+ <use graficos/ej2/adaptativos_promedios_validacion_1.png>
+Package pdftex.def Info: graficos/ej2/adaptativos_promedios_validacion_1.png us
+ed on input line 749.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/adaptativos_promedios_entrenamiento_50.png, id=425, 462.528pt x 3
+46.896pt>
+File: graficos/ej2/adaptativos_promedios_entrenamiento_50.png Graphic file (typ
+e png)
+ <use graficos/ej2/adaptativos_promedios_entrenamiento_50.png>
+Package pdftex.def Info: graficos/ej2/adaptativos_promedios_entrenamiento_50.pn
+g used on input line 759.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/adaptativos_promedios_validacion_50.png, id=426, 462.528pt x 346.
+896pt>
+File: graficos/ej2/adaptativos_promedios_validacion_50.png Graphic file (type p
+ng)
+ <use graficos/ej2/adaptativos_promedios_validacion_50.png>
+Package pdftex.def Info: graficos/ej2/adaptativos_promedios_validacion_50.png u
+sed on input line 765.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/adaptativos_promedios_entrenamiento_350.png, id=427, 462.528pt x 
+346.896pt>
+File: graficos/ej2/adaptativos_promedios_entrenamiento_350.png Graphic file (ty
+pe png)
+ <use graficos/ej2/adaptativos_promedios_entrenamiento_350.png>
+Package pdftex.def Info: graficos/ej2/adaptativos_promedios_entrenamiento_350.p
+ng used on input line 775.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/adaptativos_promedios_validacion_350.png, id=428, 462.528pt x 346
+.896pt>
+File: graficos/ej2/adaptativos_promedios_validacion_350.png Graphic file (type 
+png)
+ <use graficos/ej2/adaptativos_promedios_validacion_350.png>
+Package pdftex.def Info: graficos/ej2/adaptativos_promedios_validacion_350.png 
+used on input line 781.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+LaTeX Info: Redefining \. on input line 792.
+LaTeX Info: Redefining \% on input line 792.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 792.
+ [25 <./graficos/ej2_cant_neuro_testing.png (PNG copy)> <./graficos/ej2/adaptat
+ivos_promedios_entrenamiento_1.png> <./graficos/ej2/adaptativos_promedios_valid
+acion_1.png>]
+LaTeX Info: Redefining \. on input line 792.
+LaTeX Info: Redefining \% on input line 792.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 792.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 792.
+ [26 <./graficos/ej2/adaptativos_promedios_entrenamiento_50.png> <./graficos/ej
+2/adaptativos_promedios_validacion_50.png> <./graficos/ej2/adaptativos_promedio
+s_entrenamiento_350.png> <./graficos/ej2/adaptativos_promedios_validacion_350.p
+ng>]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 793.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 793.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 793.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 793.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 793.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 793.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 793.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\mu' on input line 793.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 793.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 793.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\alpha' on input line 793.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 793.
+
+
+<graficos/ej2/eta_x_momentum_promedios_validacion_0_05.png, id=448, 462.528pt x
+ 346.896pt>
+File: graficos/ej2/eta_x_momentum_promedios_validacion_0_05.png Graphic file (t
+ype png)
+ <use graficos/ej2/eta_x_momentum_promedios_validacion_0_05.png>
+Package pdftex.def Info: graficos/ej2/eta_x_momentum_promedios_validacion_0_05.
+png used on input line 804.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/eta_x_momentum_promedios_validacion_0_08.png, id=449, 462.528pt x
+ 346.896pt>
+File: graficos/ej2/eta_x_momentum_promedios_validacion_0_08.png Graphic file (t
+ype png)
+ <use graficos/ej2/eta_x_momentum_promedios_validacion_0_08.png>
+Package pdftex.def Info: graficos/ej2/eta_x_momentum_promedios_validacion_0_08.
+png used on input line 810.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/eta_x_momentum_promedios_validacion_0_1.png, id=450, 462.528pt x 
+346.896pt>
+File: graficos/ej2/eta_x_momentum_promedios_validacion_0_1.png Graphic file (ty
+pe png)
+ <use graficos/ej2/eta_x_momentum_promedios_validacion_0_1.png>
+Package pdftex.def Info: graficos/ej2/eta_x_momentum_promedios_validacion_0_1.p
+ng used on input line 820.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/eta_x_momentum_promedios_validacion_0_12.png, id=451, 462.528pt x
+ 346.896pt>
+File: graficos/ej2/eta_x_momentum_promedios_validacion_0_12.png Graphic file (t
+ype png)
+ <use graficos/ej2/eta_x_momentum_promedios_validacion_0_12.png>
+Package pdftex.def Info: graficos/ej2/eta_x_momentum_promedios_validacion_0_12.
+png used on input line 826.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/eta_x_momentum_promedios_validacion_0_15.png, id=452, 462.528pt x
+ 346.896pt>
+File: graficos/ej2/eta_x_momentum_promedios_validacion_0_15.png Graphic file (t
+ype png)
+ <use graficos/ej2/eta_x_momentum_promedios_validacion_0_15.png>
+Package pdftex.def Info: graficos/ej2/eta_x_momentum_promedios_validacion_0_15.
+png used on input line 836.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/eta_x_momentum_promedios_validacion_0_2.png, id=453, 462.528pt x 
+346.896pt>
+File: graficos/ej2/eta_x_momentum_promedios_validacion_0_2.png Graphic file (ty
+pe png)
+ <use graficos/ej2/eta_x_momentum_promedios_validacion_0_2.png>
+Package pdftex.def Info: graficos/ej2/eta_x_momentum_promedios_validacion_0_2.p
+ng used on input line 842.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/error_testing_eta_x_momentum.png, id=454, 465.99094pt x 348.55219
+pt>
+File: graficos/ej2/error_testing_eta_x_momentum.png Graphic file (type png)
+ <use graficos/ej2/error_testing_eta_x_momentum.png>
+Package pdftex.def Info: graficos/ej2/error_testing_eta_x_momentum.png used on 
+input line 853.
+(pdftex.def)             Requested size: 465.98979pt x 348.55132pt.
+LaTeX Info: Redefining \. on input line 861.
+LaTeX Info: Redefining \% on input line 861.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 861.
+ [27 <./graficos/ej2/eta_x_momentum_promedios_validacion_0_05.png> <./graficos/
+ej2/eta_x_momentum_promedios_validacion_0_08.png> <./graficos/ej2/eta_x_momentu
+m_promedios_validacion_0_1.png> <./graficos/ej2/eta_x_momentum_promedios_valida
+cion_0_12.png>]
+LaTeX Info: Redefining \. on input line 861.
+LaTeX Info: Redefining \% on input line 861.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 861.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 861.
+ [28 <./graficos/ej2/eta_x_momentum_promedios_validacion_0_15.png> <./graficos/
+ej2/eta_x_momentum_promedios_validacion_0_2.png> <./graficos/ej2/error_testing_
+eta_x_momentum.png>]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 862.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 862.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 862.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 862.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 862.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 862.
+
+Underfull \hbox (badness 10000) in paragraph at lines 864--867
 
  []
 
 
-<graficos/ej2_distribucion_error_final.png, id=372, 624.83438pt x 255.95625pt>
+<graficos/ej2_distribucion_error_final.png, id=474, 624.83438pt x 255.95625pt>
 File: graficos/ej2_distribucion_error_final.png Graphic file (type png)
 
 <use graficos/ej2_distribucion_error_final.png>
 Package pdftex.def Info: graficos/ej2_distribucion_error_final.png used on inpu
-t line 642.
+t line 873.
 (pdftex.def)             Requested size: 406.13753pt x 166.36958pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 649--650
+Underfull \hbox (badness 10000) in paragraph at lines 878--879
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 653--654
+Underfull \hbox (badness 10000) in paragraph at lines 880--881
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 655--656
+Underfull \hbox (badness 10000) in paragraph at lines 882--883
 
  []
 
-LaTeX Info: Redefining \. on input line 656.
-LaTeX Info: Redefining \% on input line 656.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 656.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 656.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 656.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 656.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 656.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 656.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 656.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 656.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 656.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 656.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 656.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 656.
-[23 <./graficos/ej2_cant_neuro_testing.png (PNG copy)>]
-<graficos/ej2_distribucion_error_validacion.png, id=378, 624.83438pt x 255.9562
+
+Underfull \hbox (badness 10000) in paragraph at lines 884--885
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 886--887
+
+ []
+
+
+<graficos/ej2_distribucion_error_validacion.png, id=475, 624.83438pt x 255.9562
 5pt>
 File: graficos/ej2_distribucion_error_validacion.png Graphic file (type png)
  <use graficos/ej2_distribucion_error_validacion.png>
 Package pdftex.def Info: graficos/ej2_distribucion_error_validacion.png used on
- input line 659.
+ input line 890.
 (pdftex.def)             Requested size: 406.13753pt x 166.36958pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 664--665
 
- []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-<graficos/ej2_distribucion_eficiencia.png, id=379, 624.83438pt x 255.95625pt>
+<graficos/ej2_distribucion_eficiencia.png, id=476, 624.83438pt x 255.95625pt>
 File: graficos/ej2_distribucion_eficiencia.png Graphic file (type png)
 
 <use graficos/ej2_distribucion_eficiencia.png>
 Package pdftex.def Info: graficos/ej2_distribucion_eficiencia.png used on input
- line 670.
+ line 899.
 (pdftex.def)             Requested size: 406.13753pt x 166.36958pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 675--676
+Underfull \hbox (badness 10000) in paragraph at lines 904--906
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 677--678
+Underfull \hbox (badness 10000) in paragraph at lines 907--908
+
+ []
+
+LaTeX Info: Redefining \. on input line 908.
+LaTeX Info: Redefining \% on input line 908.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 908.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 908.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 908.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 908.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 908.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 908.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 908.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 908.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 908.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 908.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 908.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 908.
+[29 <./graficos/ej2_distribucion_error_final.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 909--910
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 679--680
+Underfull \hbox (badness 10000) in paragraph at lines 911--912
 
  []
 
-LaTeX Info: Redefining \. on input line 682.
-LaTeX Info: Redefining \% on input line 682.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 682.
+(babel)             in language append on input line 913.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 682.
+(babel)             in language append on input line 913.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 682.
+(babel)             in language append on input line 913.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 682.
+(babel)             in language append on input line 913.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 682.
+(babel)             in language append on input line 913.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 682.
+(babel)             in language append on input line 913.
+<graficos/ej2/early_stopping_validacion_0.png, id=482, 462.528pt x 346.896pt>
+File: graficos/ej2/early_stopping_validacion_0.png Graphic file (type png)
+
+<use graficos/ej2/early_stopping_validacion_0.png>
+Package pdftex.def Info: graficos/ej2/early_stopping_validacion_0.png used on i
+nput line 922.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/early_stopping_validacion_0_2.png, id=483, 462.528pt x 346.896pt>
+File: graficos/ej2/early_stopping_validacion_0_2.png Graphic file (type png)
+<use graficos/ej2/early_stopping_validacion_0_2.png>
+Package pdftex.def Info: graficos/ej2/early_stopping_validacion_0_2.png used on
+ input line 928.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/early_stopping_validacion_0_15.png, id=484, 462.528pt x 346.896pt
+>
+File: graficos/ej2/early_stopping_validacion_0_15.png Graphic file (type png)
+ <use graficos/ej2/early_stopping_validacion_0_15.png>
+Package pdftex.def Info: graficos/ej2/early_stopping_validacion_0_15.png used o
+n input line 938.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/early_stopping_validacion_0_1.png, id=485, 462.528pt x 346.896pt>
+File: graficos/ej2/early_stopping_validacion_0_1.png Graphic file (type png)
+<use graficos/ej2/early_stopping_validacion_0_1.png>
+Package pdftex.def Info: graficos/ej2/early_stopping_validacion_0_1.png used on
+ input line 944.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/early_stopping_validacion_0_05.png, id=486, 462.528pt x 346.896pt
+>
+File: graficos/ej2/early_stopping_validacion_0_05.png Graphic file (type png)
+ <use graficos/ej2/early_stopping_validacion_0_05.png>
+Package pdftex.def Info: graficos/ej2/early_stopping_validacion_0_05.png used o
+n input line 954.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/early_stopping_validacion_0_01.png, id=487, 462.528pt x 346.896pt
+>
+File: graficos/ej2/early_stopping_validacion_0_01.png Graphic file (type png)
+ <use graficos/ej2/early_stopping_validacion_0_01.png>
+Package pdftex.def Info: graficos/ej2/early_stopping_validacion_0_01.png used o
+n input line 960.
+(pdftex.def)             Requested size: 240.00037pt x 180.00055pt.
+
+<graficos/ej2/early_stopping_testing.png, id=488, 462.528pt x 346.896pt>
+File: graficos/ej2/early_stopping_testing.png Graphic file (type png)
+
+<use graficos/ej2/early_stopping_testing.png>
+Package pdftex.def Info: graficos/ej2/early_stopping_testing.png used on input 
+line 968.
+(pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
+LaTeX Info: Redefining \. on input line 979.
+LaTeX Info: Redefining \% on input line 979.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 682.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 682.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 682.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 682.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 682.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 682.
-[24 <./graficos/ej2_distribucion_error_final.png (PNG copy)> <./graficos/ej2_di
-stribucion_error_validacion.png (PNG copy)>]
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 683.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 683.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 683.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 683.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 683.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 683.
+(babel)             in language append on input line 979.
+ [30 <./graficos/ej2_distribucion_error_validacion.png (PNG copy)> <./graficos/
+ej2_distribucion_eficiencia.png (PNG copy)>]
+LaTeX Info: Redefining \. on input line 979.
+LaTeX Info: Redefining \% on input line 979.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 686.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 686.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 686.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 686.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 686.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 686.
-)
-LaTeX Info: Redefining \. on input line 79.
-LaTeX Info: Redefining \% on input line 79.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 79.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 79.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 79.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 79.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 79.
+(babel)             in language append on input line 979.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 79.
+(babel)             in language append on input line 979.
+ [31 <./graficos/ej2/early_stopping_validacion_0.png> <./graficos/ej2/early_sto
+pping_validacion_0_2.png> <./graficos/ej2/early_stopping_validacion_0_15.png> <
+./graficos/ej2/early_stopping_validacion_0_1.png> <./graficos/ej2/early_stoppin
+g_validacion_0_05.png> <./graficos/ej2/early_stopping_validacion_0_01.png>]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 79.
+(babel)             in language append on input line 983.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 79.
+(babel)             in language append on input line 983.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 79.
+(babel)             in language append on input line 983.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 79.
+(babel)             in language append on input line 983.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 79.
+(babel)             in language append on input line 983.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 79.
- [25 <./graficos/ej2_distribucion_eficiencia.png (PNG copy)>] (./apencide.tex
+(babel)             in language append on input line 983.
+LaTeX Info: Redefining \. on input line 987.
+LaTeX Info: Redefining \% on input line 987.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 1.
+(babel)             in language append on input line 987.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 1.
+(babel)             in language append on input line 987.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 1.
+(babel)             in language append on input line 987.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 1.
+(babel)             in language append on input line 987.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 1.
+(babel)             in language append on input line 987.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 1.
-)
-LaTeX Info: Redefining \. on input line 81.
-LaTeX Info: Redefining \% on input line 81.
+(babel)             in language append on input line 987.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 81.
+(babel)             in language append on input line 987.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 81.
+(babel)             in language append on input line 987.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 81.
+(babel)             in language append on input line 987.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 81.
+(babel)             in language append on input line 987.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 81.
+(babel)             in language append on input line 987.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 81.
+(babel)             in language append on input line 987.
+ [32 <./graficos/ej2/early_stopping_testing.png>]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 81.
+(babel)             in language append on input line 988.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 81.
+(babel)             in language append on input line 988.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 81.
+(babel)             in language append on input line 988.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 81.
+(babel)             in language append on input line 988.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 81.
+(babel)             in language append on input line 988.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 81.
- [26]
+(babel)             in language append on input line 988.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 82.
+(babel)             in language append on input line 992.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 82.
+(babel)             in language append on input line 992.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 82.
+(babel)             in language append on input line 992.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 82.
+(babel)             in language append on input line 992.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 82.
+(babel)             in language append on input line 992.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 82.
- (./biblio.tex)
+(babel)             in language append on input line 992.
+
+<graficos/solucion_ej1.png, id=515, 586.8324pt x 442.2924pt>
+File: graficos/solucion_ej1.png Graphic file (type png)
+
+<use graficos/solucion_ej1.png>
+Package pdftex.def Info: graficos/solucion_ej1.png used on input line 1002.
+(pdftex.def)             Requested size: 293.41548pt x 221.14566pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1007--1008
+
+ []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 1015.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 1015.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 1015.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 1015.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 1015.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 1015.
+<graficos/solucion_ej2.png, id=516, 586.8324pt x 442.2924pt>
+File: graficos/solucion_ej2.png Graphic file (type png)
+
+<use graficos/solucion_ej2.png>
+Package pdftex.def Info: graficos/solucion_ej2.png used on input line 1026.
+(pdftex.def)             Requested size: 293.41548pt x 221.14566pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Info: Redefining \. on input line 1031.
+LaTeX Info: Redefining \% on input line 1031.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 1031.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 1031.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 1031.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 1031.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 1031.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 1031.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 1031.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 1031.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 1031.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 1031.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 1031.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 1031.
+[33 <./graficos/solucion_ej1.png>])
+LaTeX Info: Redefining \. on input line 77.
+LaTeX Info: Redefining \% on input line 77.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 77.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 77.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 77.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 77.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 77.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 77.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language append on input line 77.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language append on input line 77.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language append on input line 77.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language append on input line 77.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language append on input line 77.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language append on input line 77.
+ [34 <./graficos/solucion_ej2.png>]
 
 AED: lastpage setting LastPage
-LaTeX Info: Redefining \. on input line 84.
-LaTeX Info: Redefining \% on input line 84.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 84.
+(babel)             in language append on input line 78.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 84.
+(babel)             in language append on input line 78.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 84.
+(babel)             in language append on input line 78.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 84.
+(babel)             in language append on input line 78.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 84.
+(babel)             in language append on input line 78.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 84.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 84.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 84.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 84.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 84.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 84.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 84.
-[27]
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language append on input line 84.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language append on input line 84.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language append on input line 84.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language append on input line 84.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language append on input line 84.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language append on input line 84.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 84.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 84.
- (./informe.aux
+(babel)             in language append on input line 78.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 78.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 78.
+(./informe.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 84.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 84.
-Package rerunfilecheck Info: File `informe.out' has not changed.
-(rerunfilecheck)             Checksum: FDDE546DBAC59152F294948F6812728C;2576.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 78.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 78.
 
+
+Package rerunfilecheck Warning: File `informe.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `informe.out':
+(rerunfilecheck)             Before: C95B39E1E5F8B2C36BEF754BE58E9CAB;3054
+(rerunfilecheck)             After:  CABB5B7EA6989F401686A5FCF2E4D51A;3005.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 84.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 78.
  ) 
 Here is how much of TeX's memory you used:
- 13914 strings out of 493304
- 207534 string characters out of 6139871
- 335613 words of memory out of 5000000
- 17011 multiletter control sequences out of 15000+600000
+ 14082 strings out of 493304
+ 214961 string characters out of 6139871
+ 336433 words of memory out of 5000000
+ 17138 multiletter control sequences out of 15000+600000
  10383 words of font info for 39 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  41i,13n,43p,669b,487s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/publi
-c/cm-super/sftt1000.pfb>
-Output written on informe.pdf (27 pages, 2544797 bytes).
+pdfTeX warning (dest): name{section.4} has been referenced but does not exist
+, replaced by a fixed one
+
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-sup
+er/sftt1000.pfb>
+Output written on informe.pdf (34 pages, 3614302 bytes).
 PDF statistics:
- 477 PDF objects out of 1000 (max. 8388607)
- 338 compressed objects within 4 object streams
- 92 named destinations out of 1000 (max. 500000)
- 492 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 613 PDF objects out of 1000 (max. 8388607)
+ 405 compressed objects within 5 object streams
+ 120 named destinations out of 1000 (max. 500000)
+ 674 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -4,24 +4,27 @@
 \BOOKMARK [2][-]{subsection.1.3}{Requerimientos}{section.1}% 4
 \BOOKMARK [2][-]{subsection.1.4}{Modo de uso y opciones}{section.1}% 5
 \BOOKMARK [3][-]{subsubsection.1.4.1}{Opciones}{subsection.1.4}% 6
-\BOOKMARK [1][-]{section.2}{Desarrollo}{}% 7
-\BOOKMARK [2][-]{subsection.2.1}{Decisiones tomadas y su justificaci\363n.}{section.2}% 8
-\BOOKMARK [1][-]{section.3}{Resultados}{}% 9
-\BOOKMARK [2][-]{subsection.3.1}{Ejercicio 1}{section.3}% 10
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Variaci\363n del n\372mero de capas ocultas.}{subsection.3.1}% 11
-\BOOKMARK [3][-]{subsubsection.3.1.2}{Variaci\363n del n\372mero de neuronas ocultas.}{subsection.3.1}% 12
-\BOOKMARK [3][-]{subsubsection.3.1.3}{Performance de la red, con entrenamiento sin momentum y con momentum.}{subsection.3.1}% 13
-\BOOKMARK [3][-]{subsubsection.3.1.4}{Performance de la red, con entrenamiento sin y con par\341metros adaptativos.}{subsection.3.1}% 14
-\BOOKMARK [3][-]{subsubsection.3.1.5}{Performance de la red, variando simult\341neamente el factor de aprendizaje , y el par\341metro \040del momentum.}{subsection.3.1}% 15
-\BOOKMARK [3][-]{subsubsection.3.1.6}{Performance de la red, variando simult\341neamente t\351cnicas de entrenamiento y de inicializaci\363n de pesos}{subsection.3.1}% 16
-\BOOKMARK [3][-]{subsubsection.3.1.7}{Performance de la red, sin y con preprocesamiento de los patrones.}{subsection.3.1}% 17
-\BOOKMARK [3][-]{subsubsection.3.1.8}{Performance de la red, sin y con early-stopping.}{subsection.3.1}% 18
-\BOOKMARK [3][-]{subsubsection.3.1.9}{Performance de la red, variando las funciones de activaci\363n y/o sus par\341metros.}{subsection.3.1}% 19
-\BOOKMARK [2][-]{subsection.3.2}{Ejercicio 2}{section.3}% 20
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Variaci\363n del n\372mero de capas ocultas.}{subsection.3.2}% 21
-\BOOKMARK [3][-]{subsubsection.3.2.2}{Variaci\363n del n\372mero de neuronas ocultas.}{subsection.3.2}% 22
-\BOOKMARK [3][-]{subsubsection.3.2.3}{Performance de la red, variando simult\341neamente t\351cnicas de entrenamiento y de inicializaci\363n de pesos}{subsection.3.2}% 23
-\BOOKMARK [2][-]{subsection.3.3}{Descripci\363n, justificaci\363n y performance, de la soluci\363n \363ptima propuesta.}{section.3}% 24
-\BOOKMARK [2][-]{subsection.3.4}{Conclusiones.}{section.3}% 25
-\BOOKMARK [1][-]{section.4}{Ap\351ndice - C\363digo}{}% 26
-\BOOKMARK [1][-]{section.5}{Bibliograf\355a}{}% 27
+\BOOKMARK [2][-]{subsection.1.5}{Archivos}{section.1}% 7
+\BOOKMARK [2][-]{subsection.1.6}{Otros scripts}{section.1}% 8
+\BOOKMARK [1][-]{section.2}{Resultados}{}% 9
+\BOOKMARK [2][-]{subsection.2.1}{Ejercicio 1}{section.2}% 10
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Variaci\363n del n\372mero de capas ocultas.}{subsection.2.1}% 11
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Variaci\363n del n\372mero de neuronas ocultas.}{subsection.2.1}% 12
+\BOOKMARK [3][-]{subsubsection.2.1.3}{Performance de la red, con entrenamiento sin momentum y con momentum.}{subsection.2.1}% 13
+\BOOKMARK [3][-]{subsubsection.2.1.4}{Performance de la red, con entrenamiento sin y con par\341metros adaptativos.}{subsection.2.1}% 14
+\BOOKMARK [3][-]{subsubsection.2.1.5}{Performance de la red, variando simult\341neamente el factor de aprendizaje , y el par\341metro \040del momentum.}{subsection.2.1}% 15
+\BOOKMARK [3][-]{subsubsection.2.1.6}{Performance de la red, variando simult\341neamente t\351cnicas de entrenamiento y de inicializaci\363n de pesos}{subsection.2.1}% 16
+\BOOKMARK [3][-]{subsubsection.2.1.7}{Performance de la red, sin y con preprocesamiento de los patrones.}{subsection.2.1}% 17
+\BOOKMARK [3][-]{subsubsection.2.1.8}{Performance de la red, sin y con early-stopping.}{subsection.2.1}% 18
+\BOOKMARK [3][-]{subsubsection.2.1.9}{Performance de la red, variando las funciones de activaci\363n y/o sus par\341metros.}{subsection.2.1}% 19
+\BOOKMARK [2][-]{subsection.2.2}{Ejercicio 2}{section.2}% 20
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Variaci\363n del n\372mero de capas ocultas.}{subsection.2.2}% 21
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Variaci\363n del n\372mero de neuronas ocultas.}{subsection.2.2}% 22
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Performance de la red, con entrenamiento sin y con par\341metros adaptativos.}{subsection.2.2}% 23
+\BOOKMARK [3][-]{subsubsection.2.2.4}{Performance de la red, variando simult\341neamente el factor de aprendizaje , y el par\341metro \040del momentum.}{subsection.2.2}% 24
+\BOOKMARK [3][-]{subsubsection.2.2.5}{Performance de la red, variando simult\341neamente t\351cnicas de entrenamiento y de inicializaci\363n de pesos}{subsection.2.2}% 25
+\BOOKMARK [3][-]{subsubsection.2.2.6}{Performance de la red, sin y con early-stopping.}{subsection.2.2}% 26
+\BOOKMARK [3][-]{subsubsection.2.2.7}{Performance de la red, variando las funciones de activaci\363n y/o sus par\341metros.}{subsection.2.2}% 27
+\BOOKMARK [1][-]{section.3}{Soluciones \323ptimas Propuestas.}{}% 28
+\BOOKMARK [2][-]{subsection.3.1}{Ejercicio 1}{section.3}% 29
+\BOOKMARK [2][-]{subsection.3.2}{Ejercicio 2}{section.3}% 30

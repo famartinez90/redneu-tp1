@@ -508,7 +508,7 @@ Para el error final en los datos de validación, obtuvimos los siguientes result
   \end{center}
 \end{figure}
 
-Aquí en la figura 24 se mantiene la misma tendencia que en los números anteriores. Los mejores resultados se obtuvieron con el online learning y con los mini batchs más pequeños.\\
+Aquí en la figura se mantiene la misma tendencia que en los números anteriores. Los mejores resultados se obtuvieron con el online learning y con los mini batchs más pequeños.\\
 
 En cuanto a los pesos iniciales, nuevamente observamos que la uniforme genera mejores resultados en los batchs más pequeños y la normal en los mayores.
 
@@ -542,7 +542,7 @@ la siguiente operación:\\
 
 Donde $media$ y $desvio$ son la media y el desvío estándar de todos los valores del atributo. De esta forma, se reducen los viejos valores a nuevos números más pequeños, centrados alrededor de la media.\\
 
-Utilizamos este método a lo largo de todos los experimentos del trabajo. El resultado es que no podemos realizar pruebas sin normalizar los datos, ya que el programa genera errores de ejecución por overflow. Como consecuencia, no podemos experimentar en las diferencias de performance entre utilizar o no preprocesamiento de patrones ya que no utilizarlos nos impide ejecutar nuestro programa. Por ello, no presentamos experimentos con esta modalidad.
+Utilizamos este método a lo largo de todos los experimentos del trabajo. El resultado es que no podemos realizar pruebas sin normalizar los datos, ya que el programa genera errores de ejecución por overflow. Como consecuencia, no podemos experimentar en las diferencias de performance entre utilizar o no preprocesamiento de patrones ya que no utilizarlos nos impide ejecutar nuestro programa. Por ello, no presentamos experimentos con esta modalidad. Esta limitación también se extiende al ejercicio 2.
 
 \subsubsection{Performance de la red, sin y con early-stopping.}
 
@@ -797,56 +797,64 @@ La tasa de aciertos se calculó con el método explicado en el experimento anter
 
 Observando los resultados obtenidos en las pruebas, \textbf{decidimos que la configuración a utilizar es es 1 capa con 7 neuronas}. Podríamos haber elegido también la de 5 neuronas, ya que los resultados son prácticamente idénticos, con una leve ventaja para la arquitectura de 7.\\
 
-\subsubsection{Performance de la red, variando simultáneamente técnicas de entrenamiento y de inicialización de pesos}
+\subsubsection{Performance de la red, con entrenamiento sin y con parámetros adaptativos.}
 
-Este experimento es análogo al realizado para el ejercicio 1. Probamos la performance de las redes utilizando
-distintas técnicas de entrenamiento: estocástico, batch y mini batch con distintos tamaños. Al mismo tiempo, variamos 
-la distribución utilizada para la inicialización de los pesos de la red. Utilizamos distribución normal y uniforme.\\
+En este experimento testeamos de la misma manera que en el ej1, con diferencia en las medidas del mini batch (dado que cambio el tamaño total de la muestra). 
+Para entrenamiento estocástico, mini batch de 50, y batch, calculamos el error de validación y de entrenamiento promedio.
 
-Utilizamos los mismos valores de batch que en el ejercicio 1 y las mismas distribuciones, normal y uniforme.\\
-Observemos los resultados:
-
-\begin{figure}[h]
-  \begin{center}
-  \includegraphics[scale=0.65]{graficos/ej2_distribucion_error_final.png}
-  \caption{Error final (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de entrenamiento}
-  \end{center}
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/adaptativos_promedios_entrenamiento_1.png}
+  \caption{Comparación del error en el conjunto de entrenamiento para estocástico}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/adaptativos_promedios_validacion_1.png}
+  \caption{Comparación del error en el conjunto de validación para estocástico}
+  \label{fig:sub2}
+\end{subfigure}
 \end{figure}
 
-En la primera figura de este experimento mostramos la función de costo obtenida con las diferentes técnicas.\\
-
-Al igual que en el problema del ejercicio 1, el aprendizaje estocástico obtuvo mejores resultados que los demás métodos, aunque de forma menos marcada. Nuevamente se observa también que los batchs más pequeños generan errores menores. \\
-
-Notamos que para este ejercicio, las modalidades de batch y mini batch mostraron mucho mejor rendimiento que para el ejercicio 1. En aquel, estas modalidades, especialmente las de batchs grandes, generaban un error muy alto y resultados pobres.\\
-
-Con respecto a las diferentes técnicas de inicialización, notamos que en todas las modalidades de entrenamiento, se observan resultados similares entre utilizar distribución normal y uniforme. Otra diferencia con los resultados del ejercicio 1, es que aquí no se notó tanta diferencia entre las distribuciones.\\
-
-Para el error final en los datos de validación, obtuvimos los siguientes resultados:\\
-
-\begin{figure}[h]
-  \begin{center}
-  \includegraphics[scale=0.65]{graficos/ej2_distribucion_error_validacion.png}
-  \caption{Error (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de validación}
-  \end{center}
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/adaptativos_promedios_entrenamiento_50.png}
+  \caption{Comparación del error en el conjunto de entrenamiento para mini batch de tamaño 50}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/adaptativos_promedios_validacion_50.png}
+  \caption{Comparación del error en el conjunto de validación para mini batch de tamaño 50}
+  \label{fig:sub2}
+\end{subfigure}
 \end{figure}
 
-En la prueba de validación obtuvimos resultados en la misma sintonía. Ventaja en rendimiento del aprendizaje online y números parejos para la comparación entre distribuciones.
-
-\begin{figure}[h]
-  \begin{center}
-  \includegraphics[scale=0.65]{graficos/ej2_distribucion_eficiencia.png}
-  \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
-  \end{center}
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/adaptativos_promedios_entrenamiento_350.png}
+  \caption{Comparación del error en el conjunto de entrenamiento para batch}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/adaptativos_promedios_validacion_350.png}
+  \caption{Comparación del error en el conjunto de validación para batch}
+  \label{fig:sub2}
+\end{subfigure}
 \end{figure}
 
-En los resultados de testing observamos la misma tendencia. Mejores resultados del aprendimiento online, con la curiosidad que aquí, a diferencia del ejercicio 1, la distribución uniforme presenta una leve ventaja.\\
-En todos los demás casos, predomina la normal. Nuevamente esto resultó contrario a lo analizado en este mismo experimento para el ejercicio 1.\\
-
-Para todos los tamaños de batch, se mantuvo fijo la relación de efectividad entre cada una de las distribuciones.\\
-
-Teniendo en cuenta los resultados obtenidos, podemos concluir que \textbf{el entrenamiento estocástico tuvo levemente mejor rendimiento que las demás modalidades}. Los resultados no son tan contundentes como en el ejercicio 1.\\
-
-En cuanto a distribución de pesos, el aprendizaje estocástico presentó una muy leve ventaja en resultados utilizando distribución uniforme. La diferencia es mínima, al igual que en el problema 1. Sospechamos que la elección de distrubición de pesos no afecta muy significativamente los resultados finales de la red, al menos en estos casos analizados.\\
+Los resultados resultan ser similares a los del ej1 en cuanto a cual es el mejor método, el entrenamiento estocástico sin parámetros adaptativos arroja 
+los mejores resultados y reduce al mínimo el error de validación y de entrenamiento. Sin embargo, es interesante notar que, a diferencia del ej1, el 
+entrenamiento con parámetros adaptativos da buenos resultados y se mantiene cercano a no ser adaptativo para estocástico, mientras que para batch y 
+mini batch, es el error de no usar parámetros adaptativos el que da buenos resultados. Usar el doble de épocas para entrenar con batch no arrojo 
+mejores resultados como sí lo hizo en el ej1.
 
 \subsubsection{Performance de la red, variando simultáneamente el factor de aprendizaje $\mu$, y el parámetro $\alpha$ del momentum.}
 
@@ -917,64 +925,56 @@ Analizando también los datos de eficiencia sobre el conjunto de testing, podemo
 mejor resultados da, y será nuestra elección. Sin embargo, es importante notar que muy buenos resultados se pueden lograr también con learnig rate 
 0.1 y momentum 0, y con learning rate 0.12 y momentum 0.05.
 
-\subsubsection{Performance de la red, con entrenamiento sin y con parámetros adaptativos.}
+\subsubsection{Performance de la red, variando simultáneamente técnicas de entrenamiento y de inicialización de pesos}
 
-En este experimento testeamos de la misma manera que en el ej1, con diferencia en las medidas del mini batch (dado que cambio el tamaño total de la muestra). 
-Para entrenamiento estocástico, mini batch de 50, y batch, calculamos el error de validación y de entrenamiento promedio.
+Este experimento es análogo al realizado para el ejercicio 1. Probamos la performance de las redes utilizando
+distintas técnicas de entrenamiento: estocástico, batch y mini batch con distintos tamaños. Al mismo tiempo, variamos 
+la distribución utilizada para la inicialización de los pesos de la red. Utilizamos distribución normal y uniforme.\\
 
-\begin{figure}[!htbp]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{graficos/ej2/adaptativos_promedios_entrenamiento_1.png}
-  \caption{Comparación del error en el conjunto de entrenamiento para estocástico}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{graficos/ej2/adaptativos_promedios_validacion_1.png}
-  \caption{Comparación del error en el conjunto de validación para estocástico}
-  \label{fig:sub2}
-\end{subfigure}
+Utilizamos los mismos valores de batch que en el ejercicio 1 y las mismas distribuciones, normal y uniforme.\\
+Observemos los resultados:
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.65]{graficos/ej2_distribucion_error_final.png}
+  \caption{Error final (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de entrenamiento}
+  \end{center}
 \end{figure}
 
-\begin{figure}[!htbp]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{graficos/ej2/adaptativos_promedios_entrenamiento_50.png}
-  \caption{Comparación del error en el conjunto de entrenamiento para mini batch de tamaño 50}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{graficos/ej2/adaptativos_promedios_validacion_50.png}
-  \caption{Comparación del error en el conjunto de validación para mini batch de tamaño 50}
-  \label{fig:sub2}
-\end{subfigure}
+En la primera figura de este experimento mostramos la función de costo obtenida con las diferentes técnicas.\\
+
+Al igual que en el problema del ejercicio 1, el aprendizaje estocástico obtuvo mejores resultados que los demás métodos, aunque de forma menos marcada. Nuevamente se observa también que los batchs más pequeños generan errores menores. \\
+
+Notamos que para este ejercicio, las modalidades de batch y mini batch mostraron mucho mejor rendimiento que para el ejercicio 1. En aquel, estas modalidades, especialmente las de batchs grandes, generaban un error muy alto y resultados pobres.\\
+
+Con respecto a las diferentes técnicas de inicialización, notamos que en todas las modalidades de entrenamiento, se observan resultados similares entre utilizar distribución normal y uniforme. Otra diferencia con los resultados del ejercicio 1, es que aquí no se notó tanta diferencia entre las distribuciones.\\
+
+Para el error final en los datos de validación, obtuvimos los siguientes resultados:\\
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.65]{graficos/ej2_distribucion_error_validacion.png}
+  \caption{Error (función de costo) promedio para cada cantidad de neuronas utilizando el dataset de validación}
+  \end{center}
 \end{figure}
 
-\begin{figure}[!htbp]
-\centering
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{graficos/ej2/adaptativos_promedios_entrenamiento_350.png}
-  \caption{Comparación del error en el conjunto de entrenamiento para batch}
-  \label{fig:sub1}
-\end{subfigure}%
-\begin{subfigure}{.5\textwidth}
-  \centering
-  \includegraphics[width=1\linewidth]{graficos/ej2/adaptativos_promedios_validacion_350.png}
-  \caption{Comparación del error en el conjunto de validación para batch}
-  \label{fig:sub2}
-\end{subfigure}
+En la prueba de validación obtuvimos resultados en la misma sintonía. Ventaja en rendimiento del aprendizaje online y números parejos para la comparación entre distribuciones.
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.65]{graficos/ej2_distribucion_eficiencia.png}
+  \caption{Tasa de predicciones correctas, en porcentaje, para el dataset de testing}
+  \end{center}
 \end{figure}
 
-Los resultados resultan ser similares a los del ej1 en cuanto a cual es el mejor método, el entrenamiento estocástico sin parámetros adaptativos arroja 
-los mejores resultados y reduce al mínimo el error de validación y de entrenamiento. Sin embargo, es interesante notar que, a diferencia del ej1, el 
-entrenamiento con parámetros adaptativos da buenos resultados y se mantiene cercano a no ser adaptativo para estocástico, mientras que para batch y 
-mini batch, es el error de no usar parámetros adaptativos el que da buenos resultados. Usar el doble de épocas para entrenar con batch no arrojo 
-mejores resultados como sí lo hizo en el ej1.
+En los resultados de testing observamos la misma tendencia. Mejores resultados del aprendimiento online, con la curiosidad que aquí, a diferencia del ejercicio 1, la distribución uniforme presenta una leve ventaja.\\
+En todos los demás casos, predomina la normal. Nuevamente esto resultó contrario a lo analizado en este mismo experimento para el ejercicio 1.\\
+
+Para todos los tamaños de batch, se mantuvo fijo la relación de efectividad entre cada una de las distribuciones.\\
+
+Teniendo en cuenta los resultados obtenidos, podemos concluir que \textbf{el entrenamiento estocástico tuvo levemente mejor rendimiento que las demás modalidades}. Los resultados no son tan contundentes como en el ejercicio 1.\\
+
+En cuanto a distribución de pesos, el aprendizaje estocástico presentó una muy leve ventaja en resultados utilizando distribución uniforme. La diferencia es mínima, al igual que en el problema 1. Sospechamos que la elección de distrubición de pesos no afecta muy significativamente los resultados finales de la red, al menos en estos casos analizados.\\
 
 \subsubsection{Performance de la red, sin y con early-stopping.}
 
@@ -1046,7 +1046,61 @@ decidimos utilizar para la configuración final el threshold de 0.05 que dio los
 En nuestros resultados, además, se puede apreciar claramente el problema de usar un threshold muy alto para el early stopping que en el anterior ejercicio
  no se había notado tanto para los thresholds de 0.2, 0.15 y 0.1.
 
-\subsection{Descripción, justificación y performance, de la solución óptima propuesta.}
+\subsubsection{Performance de la red, variando las funciones de activación y/o sus parámetros.}
 
 
-\subsection{Conclusiones.}
+
+\newpage
+\section{Soluciones Óptimas Propuestas.}
+
+Siguiendo las distintas conclusiones que fuimos formando a través de los experimentos, generamos una solución óptima para cada ejercicio del TP. Estas soluciones se encuentran codificadas en \textbf{solucion\_ej1.json} y \textbf{solucion\_ej2.json}.
+
+\subsection{Ejercicio 1}
+La solución del ejercicio 1 fue generada con los siguientes parámetros:
+
+\texttt{\$python script.py 1 -ep=250 -capas=10,10 -eta=0.05 -estop=0.1}
+
+La solución generó muy buenos resultados, obteniendo 94\% de efectividad con respecto a su dataset de testing.
+Con respecto al error final, así fue su evolución:
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.50]{graficos/solucion_ej1.png}
+  \caption{Evolución del error a través del entrenamiento para la solución 1}
+  \end{center}
+\end{figure}
+
+Notamos que encontró valores muy bajos de error, con una curva bastante pronunciada a partir de la época 50. Observamos que el early stopping efectivamente entró en efecto, ya que cortó la ejecución antes de llegar al límite de épocas.\\
+
+En caso de querer cargar y probar esta red, ejecutar:
+
+\texttt{\$python script.py 1 -file=F -rda=solucion\_ej1.json -te=100 }
+
+donde \texttt{F} debe ser el path al archivo CSV que contenga el dataset seleccionado. El parámetro $te=100$ implica que se le ordena a la red predecir todos los resultados del dataset como testing y calcular su tasa de aciertos.
+
+\subsection{Ejercicio 2}
+La solución del ejercicio 2 fue generada con los siguientes parámetros:
+
+\texttt{\$python script.py 2 -ep=250 -capas=7 -estop=0.05}
+
+La solución generó resultados decentes, obteniendo 74\% de efectividad con respecto a su dataset de testing.\\
+Se nota una eficiencia menor a la de la solución del ejercicio 1.
+En la última figura podemos ver la evolución de las épocas y el error:
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.50]{graficos/solucion_ej2.png}
+  \caption{Evolución del error a través del entrenamiento para la solución 2}
+  \end{center}
+\end{figure}
+
+\newpage
+
+Notamos en este caso un descenso más lento del error y un estancamiento final en la curva. No se llegó a aplicar la cláusula del early stopping.
+
+
+En caso de querer cargar y probar esta red, ejecutar:
+
+\texttt{\$python script.py 2 -file=F -rda=solucion\_ej2.json -te=100 }
+
+donde \texttt{F} debe ser el path al archivo CSV que contenga el dataset seleccionado.
