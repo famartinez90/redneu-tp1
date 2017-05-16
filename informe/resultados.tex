@@ -1117,7 +1117,7 @@ Finalmente, para este ejercicio nuestra elección sigue siendo la función tange
 
 
 \newpage
-\section{Soluciones Óptimas Propuestas.}
+\section{Soluciones Óptimas Propuestas}
 
 Siguiendo las distintas conclusiones que fuimos formando a través de los experimentos, generamos una solución óptima para cada ejercicio del TP. Estas soluciones se encuentran codificadas en \textbf{solucion\_ej1.json} y \textbf{solucion\_ej2.json}.
 
@@ -1170,3 +1170,15 @@ En caso de querer cargar y probar esta red, ejecutar:
 \texttt{\$python script.py 2 -file=F -rda=solucion\_ej2.json -te=100 }
 
 donde \texttt{F} debe ser el path al archivo CSV que contenga el dataset seleccionado.
+
+% \newpage
+\section{Conclusión}
+
+Como conclusión podemos ver que los distintos ejercicios y sus características obtuvieron diferentes resultados en los experimentos realizados.\\
+
+Notamos en ellos algunos fenómenos. En primer lugar, parecería que la cantidad óptima de neuronas en cada capa se acerca a la cantidad de atributos a procesar por la red. Esto se pudo observar en el experimento de cantidad de neuronas para cada ejercicios.\\
+En segundo lugar, apreciamos distintos efectos en la cantidad de épocas necesarias para llegar a buenos resultados. Cada ejercicio necesitó una cantidad diferente y muchos de los parámetros afectaron dicha cantidad, aumentándola ampliamente en varios casos.\\
+
+Algunos parámetros que pensamos que tendrían mayor efecto en los resultados fueron los de distribución de los pesos, momentum y en el caso del ejercicio 2, cantidad de capas. Nos sorprendió que finalmente la solución óptima no utilizara más estos factores.\\
+
+Finalmente observamos la naturaleza práctica de este tipo de problemas, en la cual muchos de las decisiones responden a experimentación y pruebas y no tanto a fundamentos teóricos o conceptuales.
