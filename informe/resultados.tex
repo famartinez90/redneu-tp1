@@ -1181,4 +1181,11 @@ En segundo lugar, apreciamos distintos efectos en la cantidad de épocas necesar
 
 Algunos parámetros que pensamos que tendrían mayor efecto en los resultados fueron los de distribución de los pesos, momentum y en el caso del ejercicio 2, cantidad de capas. Nos sorprendió que finalmente la solución óptima no utilizara más estos factores.\\
 
+Aprendimos que parámetros como el early stopping, que de antemano parecía que si o si debería estar en nuestra solución, no nos dió resultados lo suficiente buenos 
+como para considerarlo como algo obligatorio a la hora de entrenar la red. Quizás esto fue porque la cantidad de épocas de nuestro entrenamiento no era la suficiente 
+como vimos anteriormente, y este relacionado también con que nuestro conjunto de datos es acotado, nuestra red pequeña y no se necesitan tantas épocas para entrenar.
+
+Vimos también que los parámetros adaptativos, como el learning rate, mejoran considerablemente soluciones como el entrenamiento batch o mini batch. Incluso, en el 
+entrenamiento batch, se puede llegar a conseguir una soluciones muy buenas si las épocas son suficientes con learning rate adaptativo.
+
 Finalmente observamos la naturaleza práctica de este tipo de problemas, en la cual muchos de las decisiones responden a experimentación y pruebas y no tanto a fundamentos teóricos o conceptuales.
