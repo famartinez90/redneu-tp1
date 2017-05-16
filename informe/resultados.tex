@@ -982,7 +982,59 @@ En nuestros resultados, además, se puede apreciar claramente el problema de usa
 
 \subsubsection{Performance de la red, variando las funciones de activación y/o sus parámetros.}
 
-\subsection{Descripción, justificación y performance, de la solución óptima propuesta.}
 
 
-\subsection{Conclusiones.}
+\newpage
+\section{Soluciones Óptimas Propuestas.}
+
+Siguiendo las distintas conclusiones que fuimos formando a través de los experimentos, generamos una solución óptima para cada ejercicio del TP. Estas soluciones se encuentran codificadas en \textbf{solucion\_ej1.json} y \textbf{solucion\_ej2.json}.
+
+\subsection{Ejercicio 1}
+La solución del ejercicio 1 fue generada con los siguientes parámetros:
+
+\texttt{\$python script.py 1 -ep=250 -capas=10,10 -eta=0.05 -estop=0.1}
+
+La solución generó muy buenos resultados, obteniendo 94\% de efectividad con respecto a su dataset de testing.
+Con respecto al error final, así fue su evolución:
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.50]{graficos/solucion_ej1.png}
+  \caption{Evolución del error a través del entrenamiento para la solución 1}
+  \end{center}
+\end{figure}
+
+Notamos que encontró valores muy bajos de error, con una curva bastante pronunciada a partir de la época 50. Observamos que el early stopping efectivamente entró en efecto, ya que cortó la ejecución antes de llegar al límite de épocas.\\
+
+En caso de querer cargar y probar esta red, ejecutar:
+
+\texttt{\$python script.py 1 -file=F -rda=solucion\_ej1.json -te=100 }
+
+donde \texttt{F} debe ser el path al archivo CSV que contenga el dataset seleccionado. El parámetro $te=100$ implica que se le ordena a la red predecir todos los resultados del dataset como testing y calcular su tasa de aciertos.
+
+\subsection{Ejercicio 2}
+La solución del ejercicio 2 fue generada con los siguientes parámetros:
+
+\texttt{\$python script.py 2 -ep=250 -capas=7 -estop=0.05}
+
+La solución generó resultados decentes, obteniendo 74\% de efectividad con respecto a su dataset de testing.\\
+Se nota una eficiencia menor a la de la solución del ejercicio 1.
+En la última figura podemos ver la evolución de las épocas y el error:
+
+\begin{figure}[h]
+  \begin{center}
+  \includegraphics[scale=0.50]{graficos/solucion_ej2.png}
+  \caption{Evolución del error a través del entrenamiento para la solución 2}
+  \end{center}
+\end{figure}
+
+\newpage
+
+Notamos en este caso un descenso más lento del error y un estancamiento final en la curva. No se llegó a aplicar la cláusula del early stopping.
+
+
+En caso de querer cargar y probar esta red, ejecutar:
+
+\texttt{\$python script.py 2 -file=F -rda=solucion\_ej2.json -te=100 }
+
+donde \texttt{F} debe ser el path al archivo CSV que contenga el dataset seleccionado.

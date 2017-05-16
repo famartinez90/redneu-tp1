@@ -26,7 +26,6 @@
 \contentsline {subsubsection}{\numberline {2.2.5}Performance de la red, variando simult\IeC {\'a}neamente t\IeC {\'e}cnicas de entrenamiento y de inicializaci\IeC {\'o}n de pesos}{29}{subsubsection.2.2.5}
 \contentsline {subsubsection}{\numberline {2.2.6}Performance de la red, sin y con early-stopping.}{30}{subsubsection.2.2.6}
 \contentsline {subsubsection}{\numberline {2.2.7}Performance de la red, variando las funciones de activaci\IeC {\'o}n y/o sus par\IeC {\'a}metros.}{32}{subsubsection.2.2.7}
-\contentsline {subsection}{\numberline {2.3}Descripci\IeC {\'o}n, justificaci\IeC {\'o}n y performance, de la soluci\IeC {\'o}n \IeC {\'o}ptima propuesta.}{32}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Conclusiones.}{32}{subsection.2.4}
-\contentsline {section}{\numberline {3}Ap\IeC {\'e}ndice - C\IeC {\'o}digo}{33}{section.3}
-\contentsline {section}{\numberline {4}Bibliograf\IeC {\'\i }a}{34}{section.4}
+\contentsline {section}{\numberline {3}Soluciones \IeC {\'O}ptimas Propuestas.}{33}{section.3}
+\contentsline {subsection}{\numberline {3.1}Ejercicio 1}{33}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Ejercicio 2}{33}{subsection.3.2}
