@@ -912,6 +912,76 @@ En cuanto a distribución de pesos, el aprendizaje estocástico presentó una mu
 
 \subsubsection{Performance de la red, variando las funciones de activación y/o sus parámetros.}
 
+\subsubsection{Performance de la red, sin y con early-stopping.}
+
+Para este experimento decidimos entrenar la red con diferentes valores del threshold, los cuales son \textbf{0, 0.2, 0.15, 0.1, 0.05 y 0.01}, similar 
+al ej1. Además, utilizamos entrenamientos de 500 épocas, para poder ver un poco mejor la diferencia entre tener y no tener early stopping.
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/early_stopping_validacion_0.png}
+  \caption{Evolución del error de validación sin early stopping.}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/early_stopping_validacion_0_2.png}
+  \caption{Evolución del error de validación con early stopping. Threshold: 0.2}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/early_stopping_validacion_0_15.png}
+  \caption{Evolución del error de validación sin early stopping. Threshold: 0.15}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/early_stopping_validacion_0_1.png}
+  \caption{Evolución del error de validación con early stopping. Threshold: 0.1}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/early_stopping_validacion_0_05.png}
+  \caption{Evolución del error de validación sin early stopping. Threshold: 0.05}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/ej2/early_stopping_validacion_0_01.png}
+  \caption{Evolución del error de validación con early stopping. Threshold: 0.01}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+  \begin{center}
+  \includegraphics[scale=0.60]{graficos/ej2/early_stopping_testing.png}
+  \caption{Resultados de eficiencia en la precisión al predecir los resultados del conjunto de datos de testing por threshold}
+  \end{center}
+\end{figure}
+
+Analizando los resultados podemos ver que aparentemente usar un threshold para early stopping de \textbf{0.05 o 0.01} se obtiene mejores resultados 
+que cuando no se utiliza early stopping. Sin embargo, y para nuestro asombro, viendo con más detenimiento los gráficos del error de validación para 
+estos thresholds, se puede observar que nunca se llega al threshold donde parar el entrenamiento, con lo cual estas corridas deberían ser similares
+a correr el entrenamiento sin early stopping. Corrimos más de 2 veces las mismas pruebas y sin lógica aparentemente los resultados son los mismos. 
+Es por eso que, más allá de que los resultados y la lógica nos dicen que aplicar un threshold de 0.05 o 0.01 es lo mismo que no usar early stopping, 
+decidimos utilizar para la configuración final el threshold de 0.05 que dio los mejores resultados.
+
+En nuestros resultados, además, se puede apreciar claramente el problema de usar un threshold muy alto para el early stopping que en el anterior ejercicio
+ no se había notado tanto para los thresholds de 0.2, 0.15 y 0.1.
+
 \subsection{Descripción, justificación y performance, de la solución óptima propuesta.}
 
 

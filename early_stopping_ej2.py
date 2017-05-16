@@ -25,7 +25,7 @@ else:
     N_SALIDA = 1
 
 rondas = 5
-capas = [10, 10]
+capas = [7]
 early_stoppings = [0, 0.2, 0.15, 0.1, 0.05, 0.01]
 eficiencia_testing = []
 
@@ -53,7 +53,7 @@ for k, estop in enumerate(early_stoppings):
         
         for _ in range(100):
             for fila in DATOS_TEST:
-                prediccion = PPN.predecir_ej1(fila[0])
+                prediccion = PPN.predecir_ej2(fila[0])
                 resultados.append(prediccion)
 
             esperado = [row[-1] for row in DATOS_TEST]
@@ -97,7 +97,7 @@ for k, estop in enumerate(early_stoppings):
         plt.xlabel('Epocas')
         plt.ylabel('Error/Funcion Costo')
         plt.legend(loc=1)
-        plt.savefig('informe/graficos/early_stopping_entrenamiento_'+str(estop)+'.png')
+        plt.savefig('informe/graficos/ej2/early_stopping_entrenamiento_'+str(estop)+'.png')
         plt.clf()
 
     if graficar:
@@ -115,7 +115,7 @@ for k, estop in enumerate(early_stoppings):
         plt.xlabel('Epocas')
         plt.ylabel('Error/Funcion Costo')
         plt.legend(loc=1)
-        plt.savefig('informe/graficos/early_stopping_validacion_'+str(estop)+'.png')
+        plt.savefig('informe/graficos/ej2/early_stopping_validacion_'+str(estop)+'.png')
         plt.clf()
 
 
@@ -124,5 +124,5 @@ plt.xticks(range(len(early_stoppings)), early_stoppings)
 plt.yticks(range(0, 110, 10))
 plt.xlabel('Early Stopping Treshold')
 plt.ylabel('Error/Funcion Costo')
-plt.savefig('informe/graficos/early_stopping_testing.png')
+plt.savefig('informe/graficos/ej2/early_stopping_testing.png')
 plt.clf()
