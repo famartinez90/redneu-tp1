@@ -636,6 +636,72 @@ red utilizada durante el entrenamiento, para evitar caer en los 2 casos antes me
 
 \subsubsection{Performance de la red, variando las funciones de activación y/o sus parámetros.}
 
+Para el experimento con la función de activación, decidimos comparar el rendimiento de utilizar la función de activación tangente contra la logística. 
+En principio, para todos los experimentos anteriores utilizamos la función tangente, y esto es porque hicimos un par de pruebas preliminares en donde 
+vimos que se comporta de mejor manera y se obtienen errores más pequeños con la misma. En esta sección mostraremos con un poco más de detalle la diferencia 
+entre ambas y como la tangente funciona mejor.
+
+Para nuestro primer experimento vamos a correr cara a cara tangente contra logística con una configuración estándar (como la que veniamos utilizando), con 
+learning rate de 0.05, 250 épocas y distribución de pesos uniforme $[-0.1, 0.1]$.
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/factivaciones_promedios_entrenamiento_normal.png}
+  \caption{Evolución del error promedio de entrenamiento entre funciones de activación tangente y logística}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/factivaciones_promedios_validacion_normal.png}
+  \caption{Evolución del error promedio de validación entre funciones de activación tangente y logística}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+Como se puede ver, la logística no avanza en esta configuración y queda estancada en un error alto. Aquí, la función
+ tangente la supera ampliamente en precisión y eficiencia. Veamos ahora que sucede si modificamos un poco los parámetros de entrada, 
+ tomando learning rate 0.1 y distribución de pesos uniforme $[0, 1)$. 
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/factivaciones_promedios_entrenamiento_uniforme.png}
+  \caption{Evolución del error promedio de entrenamiento entre funciones de activación tangente y logística con learning rate 0.1 y distribución de pesos entre 0 y 1}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/factivaciones_promedios_validacion_uniforme.png}
+  \caption{Evolución del error promedio de validación entre funciones de activación tangente y logística con learning rate 0.1 y distribución de pesos entre 0 y 1}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+Nuevamente, si bien la función logística mejoró levemente, la función tangente sigue siendo la líder indiscutida. Decidimos hacer una última prueba 
+tomando una sola capa de 10 neuronas en vez de 2.
+
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/factivaciones_promedios_entrenamiento.png}
+  \caption{Evolución del error promedio de entrenamiento entre funciones de activación tangente y logística con 1 capa de 10 neuronas, learning rate 0.1 y distribución de pesos entre 0 y 1}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{graficos/factivaciones_promedios_validacion.png}
+  \caption{Evolución del error promedio de validación entre funciones de activación tangente y logística con 1 capa de 10 neuronas, learning rate 0.1 y distribución de pesos entre 0 y 1}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
+
+Claramente hay mejoría, pero sigue a gran distancia de la función tangente. Es por eso que consideramos a la función tangente como la mejor opción y 
+nuestra elección para la mejor configuración de este ejercicio.
+
 \newpage
 \subsection{Ejercicio 2}
 
